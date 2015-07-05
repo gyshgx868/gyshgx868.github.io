@@ -71,7 +71,7 @@
       <li class="menu-item menu-item-home">
         <a href="/">
           <i class="menu-item-icon icon-home"></i> <br />
-          首頁
+          首页
         </a>
       </li>
     
@@ -79,7 +79,7 @@
       <li class="menu-item menu-item-archives">
         <a href="/archives">
           <i class="menu-item-icon icon-archives"></i> <br />
-          歸檔
+          归档
         </a>
       </li>
     
@@ -87,7 +87,7 @@
       <li class="menu-item menu-item-categories">
         <a href="/categories">
           <i class="menu-item-icon icon-categories"></i> <br />
-          分類
+          分类
         </a>
       </li>
     
@@ -95,7 +95,7 @@
       <li class="menu-item menu-item-tags">
         <a href="/tags">
           <i class="menu-item-icon icon-tags"></i> <br />
-          標籤
+          标签
         </a>
       </li>
     
@@ -103,7 +103,7 @@
       <li class="menu-item menu-item-about">
         <a href="/about">
           <i class="menu-item-icon icon-about"></i> <br />
-          關於
+          关于
         </a>
       </li>
     
@@ -141,7 +141,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-07-05
+          发表于 2015-07-05
         </span>
 
         
@@ -208,12 +208,12 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2014-10-21
+          发表于 2014-10-21
         </span>
 
         
           <span class="post-category">
-            &nbsp; | &nbsp; 分類於
+            &nbsp; | &nbsp; 分类于
             
               <a href="/categories/Exercise/">Exercise</a>
 
@@ -241,7 +241,7 @@
 <h1 id="理解">理解</h1><p>题意很简单，就是给出一个正N边形的三个点，要求求出这个正N边形的最小面积。<br>然后就是我不停地逗的过程了= =，因为手滑，在计算3个角的时候，全都采用了反cos函数的方法求解，debug的时候一直以为是double精度的问题，直到看到这样下图，我才恍然大悟= =，可怜我的两个小时。<br><img src="http://xuanwo.qiniudn.com/exercise%2FCF-1C.png" alt="示意图"></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/10/21/CF-1C/#more">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
@@ -283,12 +283,12 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2014-10-21
+          发表于 2014-10-21
         </span>
 
         
           <span class="post-category">
-            &nbsp; | &nbsp; 分類於
+            &nbsp; | &nbsp; 分类于
             
               <a href="/categories/Exercise/">Exercise</a>
 
@@ -316,7 +316,7 @@
 <h1 id="理解">理解</h1><p>大水题一道，不过我坑了很久，实在是代码功底太弱。<br>题意非常简单，给出两种表格的坐标体系，要你进行相互转化，本质上是一道26进制转化类的题目。<br>我遇到的坑基本上分为两类，一个是在判断当前输入的字符串属于何种类型，第二是在具体实现过程中的BUG。<br>首先，讲一讲判断的过程。我另外写了一个判断的函数，一开始想的比较简单，只要判断第二个是不是字符，就OK。挂在了Test 2，错误样例是<code>A1</code>。然后就在思考，这两种坐标体系的根本不同到底在哪里。实际上，RXCY体系中一定有字符R和C，R和C之间必定会有一个数字。从这一点出发，重写了一遍judge函数，总算是搞定了问题。<br>其次，来看一下在具体的实现过程中的BUG。这一次挂在了Test 6，一个总共有1000个的输入= =，错误的样例是<code>R228C494</code>和<code>R98C688</code>。观察之后发现，问题出在进退位上，因为在A—Z的体系中，实际上是没有代表’0’这个字符的，所以，当R或者C坐标上出现整除的时候，就会发现本应出现’Z’的地方，出现了字符’@’。不过在挂了这么多发之后，偷懒直接进行了特判，当’Z’出现字符串末尾，也就是c%26==0时，直接指定它为’Z’；当Z出现在字符串最前方时，直接在输出中过滤。<br>然后= =，A了。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/10/21/CF-1B/#more">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
@@ -358,12 +358,12 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2014-10-14
+          发表于 2014-10-14
         </span>
 
         
           <span class="post-category">
-            &nbsp; | &nbsp; 分類於
+            &nbsp; | &nbsp; 分类于
             
               <a href="/categories/Exercise/">Exercise</a>
 
@@ -391,7 +391,7 @@
 <h1 id="理解">理解</h1><p>大水题一道。<br>只要求出每一边最大的块数就可以了。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/10/14/CF-1A/#more">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
@@ -447,21 +447,21 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
               <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">分類</span>
+              <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
               <span class="site-state-item-count">6</span>
-              <span class="site-state-item-name">標籤</span>
+              <span class="site-state-item-name">标签</span>
               </a>
           </div>
 
@@ -509,11 +509,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  主題 -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
