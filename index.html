@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -15,16 +15,12 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
 
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Hexo,C++,Learn" />
 
 
 
@@ -36,31 +32,20 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
+    scheme: 'Mist',
     analytics: {
-      google: ''
+      google: 'UA-51515330-1'
     },
     sidebar: 'post'
   };
 </script>
 
-
-
-
+<meta name="google-site-verification" content="YAHxtBFjjhWkrycLOhOBuMHETNYVTtS3h4cPY4Wgo2A" />
   <title> GYSHGX868's Blog </title>
 </head>
 
 <body>
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
   <div class="container one-column 
    page-home 
 ">
@@ -79,49 +64,51 @@
   <span class="logo-line-after"><i></i></span>
 </h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
-<div class="site-nav">
+  <ul id="menu" class="menu">
   
-
-  
-    <ul id="menu" class="menu ">
       
-        
-        <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
-            首頁
-          </a>
-        </li>
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首頁
+        </a>
+      </li>
+    
       
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
-            歸檔
-          </a>
-        </li>
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          歸檔
+        </a>
+      </li>
+    
       
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
-            標籤
-          </a>
-        </li>
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分類
+        </a>
+      </li>
+    
       
-    </ul>
-  
-
-  
-</div>
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          標籤
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          關於
+        </a>
+      </li>
+    
+     
+  </ul>
 
 
       </div>
@@ -200,6 +187,231 @@
 
 
     
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/10/21/CF-1C/">
+                Codeforces Beta Round 1 C Ancient Berland Circus
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2014-10-21
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/Exercise/">Exercise</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/C">http://codeforces.com/contest/1/problem/C</a></p>
+<h1 id="理解">理解</h1><p>题意很简单，就是给出一个正N边形的三个点，要求求出这个正N边形的最小面积。<br>然后就是我不停地逗的过程了= =，因为手滑，在计算3个角的时候，全都采用了反cos函数的方法求解，debug的时候一直以为是double精度的问题，直到看到这样下图，我才恍然大悟= =，可怜我的两个小时。<br><img src="http://xuanwo.qiniudn.com/exercise%2FCF-1C.png" alt="示意图"></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/10/21/CF-1C/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/10/21/CF-1B/">
+                Codeforces Beta Round 1 B Spreadsheets
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2014-10-21
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/Exercise/">Exercise</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/B">http://codeforces.com/contest/1/problem/B</a></p>
+<h1 id="理解">理解</h1><p>大水题一道，不过我坑了很久，实在是代码功底太弱。<br>题意非常简单，给出两种表格的坐标体系，要你进行相互转化，本质上是一道26进制转化类的题目。<br>我遇到的坑基本上分为两类，一个是在判断当前输入的字符串属于何种类型，第二是在具体实现过程中的BUG。<br>首先，讲一讲判断的过程。我另外写了一个判断的函数，一开始想的比较简单，只要判断第二个是不是字符，就OK。挂在了Test 2，错误样例是<code>A1</code>。然后就在思考，这两种坐标体系的根本不同到底在哪里。实际上，RXCY体系中一定有字符R和C，R和C之间必定会有一个数字。从这一点出发，重写了一遍judge函数，总算是搞定了问题。<br>其次，来看一下在具体的实现过程中的BUG。这一次挂在了Test 6，一个总共有1000个的输入= =，错误的样例是<code>R228C494</code>和<code>R98C688</code>。观察之后发现，问题出在进退位上，因为在A—Z的体系中，实际上是没有代表’0’这个字符的，所以，当R或者C坐标上出现整除的时候，就会发现本应出现’Z’的地方，出现了字符’@’。不过在挂了这么多发之后，偷懒直接进行了特判，当’Z’出现字符串末尾，也就是c%26==0时，直接指定它为’Z’；当Z出现在字符串最前方时，直接在输出中过滤。<br>然后= =，A了。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/10/21/CF-1B/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/10/14/CF-1A/">
+                Codeforces Beta Round 1 A Theatre Square
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2014-10-14
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/Exercise/">Exercise</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/A">http://codeforces.com/contest/1/problem/A</a></p>
+<h1 id="理解">理解</h1><p>大水题一道。<br>只要求出每一边最大的块数就可以了。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/10/14/CF-1A/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
   </div>
 
   
@@ -227,28 +439,28 @@
 
       <div class="site-overview">
         <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="GYSHGX868" />
+          <img class="site-author-image" src="//xuanwo.qiniudn.com/avatar.jpg" alt="GYSHGX868" />
           <p class="site-author-name">GYSHGX868</p>
         </div>
         <p class="site-description motion-element"></p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">0</span>
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">分類</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -263,11 +475,13 @@
 
         
         
-
-        <div class="links-of-author motion-element">
-          
-        </div>
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
+
       </div>
 
       
@@ -280,9 +494,13 @@
 
     <div id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <a rel="qiniu" href="http://www.qiniu.com/">
+  <img src="http://assets.qiniu.com/qiniu-white.png" style="height: 4em; float: right">
+</a>
+
+<div class="copyright">
   
-  &copy; &nbsp; 
+  &copy; &nbsp;  2014 - 
   2015
   <span class="with-love">
     <i class="icon-heart"></i>
@@ -297,7 +515,7 @@
 <div class="theme-info">
   主題 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -316,20 +534,19 @@
 
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/js/fancy-box.js"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/js/helpers.js"></script>
   
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+  <script type="text/javascript" src="/js/motion_global.js" id="motion.global"></script>
 
 
 
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
 
@@ -349,11 +566,32 @@
 
   
 
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'only0god';
+      var disqus_identifier = 'index.html';
+      var disqus_title = '';
+      var disqus_url = '';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
 
 
 
   
-  
+  <script type="text/javascript" src="/js/analytics_google-analytics.js"></script>
+
 
 </body>
 </html>

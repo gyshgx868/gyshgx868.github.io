@@ -20,7 +20,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,C++,Learn" />
+  <meta name="keywords" content="ACM,C,Codeforces,几何," />
 
 
 
@@ -41,7 +41,7 @@
 </script>
 
 <meta name="google-site-verification" content="YAHxtBFjjhWkrycLOhOBuMHETNYVTtS3h4cPY4Wgo2A" />
-  <title> Hello World // GYSHGX868's Blog </title>
+  <title> Codeforces Beta Round 1 C Ancient Berland Circus // GYSHGX868's Blog </title>
 </head>
 
 <body>
@@ -129,7 +129,7 @@
           
           
             
-              Hello World
+              Codeforces Beta Round 1 C Ancient Berland Circus
             
           
         </h1>
@@ -137,9 +137,20 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-07-05
+          發表於 2014-10-21
         </span>
 
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/Exercise/">Exercise</a>
+
+              
+              
+
+            
+          </span>
         
 
         
@@ -154,31 +165,43 @@
       
 
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/C" target="_blank" rel="external">http://codeforces.com/contest/1/problem/C</a></p>
+<h1 id="理解">理解</h1><p>题意很简单，就是给出一个正N边形的三个点，要求求出这个正N边形的最小面积。<br>然后就是我不停地逗的过程了= =，因为手滑，在计算3个角的时候，全都采用了反cos函数的方法求解，debug的时候一直以为是double精度的问题，直到看到这样下图，我才恍然大悟= =，可怜我的两个小时。<br><img src="http://xuanwo.qiniudn.com/exercise%2FCF-1C.png" alt="示意图"></p>
+<a id="more"></a>
+<h1 id="代码">代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;ctime&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;deque&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;set&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;map&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stack&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;numeric&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iomanip&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;bitset&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sstream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;fstream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> debug "output for debug\n"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> pi (acos(-1.0))</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> eps (1e-4)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> inf (1&lt;&lt;28)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> ll long long int</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> a,b,c,r,q,s;</span><br><span class="line"><span class="keyword">double</span> A,B,C,angel,ans,n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> node</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">double</span> x,y;</span><br><span class="line">&#125; piller[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(node a, node b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">fgcd</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">fabs</span>(b-<span class="number">0</span>)&lt;=eps) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">fabs</span>(a-<span class="number">0</span>)&lt;=eps) <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> fgcd(b,<span class="built_in">fmod</span>(a,b));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(piller,<span class="number">0</span>,<span class="keyword">sizeof</span>(piller));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf%lf"</span>, &amp;piller[i].x,&amp;piller[i].y);</span><br><span class="line">    &#125;</span><br><span class="line">    a=dis(piller[<span class="number">0</span>],piller[<span class="number">1</span>]);</span><br><span class="line">    b=dis(piller[<span class="number">1</span>],piller[<span class="number">2</span>]);</span><br><span class="line">    c=dis(piller[<span class="number">0</span>],piller[<span class="number">2</span>]);</span><br><span class="line">    q=(a+b+c)/<span class="number">2</span>;</span><br><span class="line">    s=<span class="built_in">sqrt</span>(q*(q-a)*(q-b)*(q-c));</span><br><span class="line">    r=a*b*c/(<span class="number">4</span>*s);</span><br><span class="line">    A=<span class="built_in">acos</span>(<span class="number">1</span>-a*a/r/r/<span class="number">2</span>);</span><br><span class="line">    B=<span class="built_in">acos</span>(<span class="number">1</span>-b*b/r/r/<span class="number">2</span>);</span><br><span class="line">    C=<span class="number">2</span>*pi-A-B;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    ans=pi/fgcd(A,fgcd(B,C))*r*r*<span class="built_in">sin</span>(fgcd(A,fgcd(B,C)));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="更新日志">更新日志</h1><ul>
+<li>2014年10月21日 已AC。</li>
+</ul>
 
       
     </div>
 
     <div class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/"> #ACM </a>
+          
+            <a href="/tags/C/"> #C </a>
+          
+            <a href="/tags/Codeforces/"> #Codeforces </a>
+          
+            <a href="/tags/几何/"> #几何 </a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2015/07/05/hello-world/">Hello World</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/21/CF-1C/">Codeforces Beta Round 1 C Ancient Berland Circus</a>
+              <a href="/2014/10/21/CF-1B/">Codeforces Beta Round 1 B Spreadsheets</a>
             
           </div>
         </div>
@@ -282,7 +305,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解"><span class="nav-number">2.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新日志"><span class="nav-number">4.</span> <span class="nav-text">更新日志</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -514,9 +537,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'only0god';
-      var disqus_identifier = '2015/07/05/hello-world/';
-      var disqus_title = 'Hello World';
-      var disqus_url = 'http://yoursite.com/2015/07/05/hello-world/';
+      var disqus_identifier = '2014/10/21/CF-1C/';
+      var disqus_title = 'Codeforces Beta Round 1 C Ancient Berland Circus';
+      var disqus_url = 'http://yoursite.com/2014/10/21/CF-1C/';
 
       (function(){
         var dsq = document.createElement('script');
