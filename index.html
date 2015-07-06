@@ -146,8 +146,8 @@
           
           
             
-              <a class="post-title-link" href="/2014/10/21/CF-1C/">
-                Codeforces Beta Round 1 C Ancient Berland Circus
+              <a class="post-title-link" href="/2015/03/26/hexo-install/">
+                Hexo博客搭建图文教程
               </a>
             
           
@@ -156,14 +156,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2014-10-21
+          发表于 2015-03-26
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Exercise/">Exercise</a>
+              <a href="/categories/Github/">Github</a>
 
               
               
@@ -176,8 +176,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/10/21/CF-1C/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/21/CF-1C/"></span>
+            <a href="/2015/03/26/hexo-install/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/26/hexo-install/"></span>
             </a>
           </span>
           
@@ -192,174 +192,9 @@
 
       
         
-          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/C">http://codeforces.com/contest/1/problem/C</a></p>
-<h1 id="理解">理解</h1><p>题意很简单，就是给出一个正N边形的三个点，要求求出这个正N边形的最小面积。<br>然后就是我不停地逗的过程了= =，因为手滑，在计算3个角的时候，全都采用了反cos函数的方法求解，debug的时候一直以为是double精度的问题，直到看到这样下图，我才恍然大悟= =，可怜我的两个小时。<br><img src="http://xuanwo.qiniudn.com/exercise%2FCF-1C.png" alt="示意图"></p>
+          <h1 id="前言">前言</h1><p>作为一个菜鸟，没有技术基础，网上的各种教程的思路也是非常的不统一，跟随他人的教程相当不容易，稍微有些细节描述得不清楚自己就要绕弯路去找答案（所以要善用搜索引擎）。所以，在自己的博客搭建完成之后，我决定要将我搭建博客的过程全记录下来，以供后期和我一样的小白参考（是的，我坚信还有很多一样和我一样的人），我会尽可能详细的整理这个教程，其中的资料可能会摘录自其他人的博客或者教程，我会在后面列出了参考资料，感谢这些作者们。<br>这篇博客将会以我自己的<a href="http://gyshgx868.github.io">gyshgx868.github.io</a>博客为例。由于刚刚搭建好自己的博客，并没有准备购买域名及其相关的工作，所以在域名的部分就简单的带过。并且，本菜鸟尚未涉足<code>Linux</code>领域，所以本篇教程只适用于<code>Windows</code>操作系统。教程也将省略一切Git的配置过程。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/21/CF-1C/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/21/CF-1B/">
-                Codeforces Beta Round 1 B Spreadsheets
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-10-21
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Exercise/">Exercise</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/10/21/CF-1B/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/21/CF-1B/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/B">http://codeforces.com/contest/1/problem/B</a></p>
-<h1 id="理解">理解</h1><p>大水题一道，不过我坑了很久，实在是代码功底太弱。<br>题意非常简单，给出两种表格的坐标体系，要你进行相互转化，本质上是一道26进制转化类的题目。<br>我遇到的坑基本上分为两类，一个是在判断当前输入的字符串属于何种类型，第二是在具体实现过程中的BUG。<br>首先，讲一讲判断的过程。我另外写了一个判断的函数，一开始想的比较简单，只要判断第二个是不是字符，就OK。挂在了Test 2，错误样例是<code>A1</code>。然后就在思考，这两种坐标体系的根本不同到底在哪里。实际上，RXCY体系中一定有字符R和C，R和C之间必定会有一个数字。从这一点出发，重写了一遍judge函数，总算是搞定了问题。<br>其次，来看一下在具体的实现过程中的BUG。这一次挂在了Test 6，一个总共有1000个的输入= =，错误的样例是<code>R228C494</code>和<code>R98C688</code>。观察之后发现，问题出在进退位上，因为在A—Z的体系中，实际上是没有代表’0’这个字符的，所以，当R或者C坐标上出现整除的时候，就会发现本应出现’Z’的地方，出现了字符’@’。不过在挂了这么多发之后，偷懒直接进行了特判，当’Z’出现字符串末尾，也就是c%26==0时，直接指定它为’Z’；当Z出现在字符串最前方时，直接在输出中过滤。<br>然后= =，A了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/21/CF-1B/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/14/CF-1A/">
-                Codeforces Beta Round 1 A Theatre Square
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-10-14
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Exercise/">Exercise</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/10/14/CF-1A/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/14/CF-1A/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="题目">题目</h1><p>源地址：<a href="http://codeforces.com/contest/1/problem/A">http://codeforces.com/contest/1/problem/A</a></p>
-<h1 id="理解">理解</h1><p>大水题一道。<br>只要求出每一边最大的块数就可以了。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/14/CF-1A/#more">
+            <a class="btn" href="/2015/03/26/hexo-install/#more">
               阅读全文 &raquo;
             </a>
           </div>
@@ -415,7 +250,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -429,7 +264,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
