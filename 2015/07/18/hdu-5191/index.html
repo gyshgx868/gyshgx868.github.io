@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="爱情,程序员,随笔," />
+  <meta name="keywords" content="ACM,HDU," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 程序员的爱情告白 // GYSHGX868's Blog </title>
+  <title> HDU 5191 Building Blocks // GYSHGX868's Blog </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              程序员的爱情告白
+              HDU 5191 Building Blocks
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-09
+          发表于 2015-07-18
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/杂文/">杂文</a>
+              <a href="/categories/HDU/">HDU</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/09/programmer-love/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/09/programmer-love/"></span>
+            <a href="/2015/07/18/hdu-5191/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/18/hdu-5191/"></span>
             </a>
           </span>
           
@@ -219,10 +219,19 @@
       
 
       
-        <p>我能抽象出整个世界<br>但是我不能抽象出你<br>因为你在我心中是那么的具体<br>所以我的世界并不完整<br>我可以重载甚至覆盖这个世界里的任何一种方法<br>但是我却不能重载对你的思念<br><a id="more"></a><br>也许命中注定了 你在我的世界里永远的烙上了静态的属性<br>而我不慎调用了爱你这个方法<br>当我义无返顾的把自己作为参数传进这个方法时<br>我才发现爱上你是一个死循环<br>它不停的返回对你的思念压入我心里的堆栈<br>在这无尽的黑夜中<br>我的内存里已经再也装不下别人<br>我不停的向系统申请空间<br>但却捕获一个异常——我爱的人不爱我</p>
-<p>为了解决这个异常<br>我愿意虚拟出最后一点内存<br>把所有我能实现的方法地址压入堆栈<br>并且在栈尾压入最后一个方法——将字符串“我爱你，你爱我吗？”传递给你<br>如果返回值为真——我将用尽一生去爱你<br>否则——我将释放掉所有系统资源<br>给你更多的空间去追求幸福</p>
-<p>原文：<a href="http://www.cnblogs.com/sophist/archive/2009/08/13/1545373.html" target="_blank" rel="external">http://www.cnblogs.com/sophist/archive/2009/08/13/1545373.html</a></p>
-
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>After enjoying the movie,LeLe went home alone. LeLe decided to build blocks.<br>LeLe has already built $n$ piles. He wants to move some blocks to make $W$ consecutive piles with exactly the same height $H$.<br><a id="more"></a><br>LeLe already put all of his blocks in these piles, which means he can not add any blocks into them. Besides, he can move a block from one pile to another or a new one，but not the position betweens two piles already exists.For instance,after one move,”3 2 3” can become “2 2 4” or “3 2 2 1”,but not “3 1 1 3”. </p>
+<p>You are request to calculate the minimum blocks should LeLe move.</p>
+<h2 id="Input">Input</h2><p>There are multiple test cases, about $100$ cases. </p>
+<p>The first line of input contains three integers $n,W,H(1 \leq n,W,H \leq 50000)$.$n$ indicate $n$ piles blocks. </p>
+<p>For the next line ,there are $n$ integers $A_1,A_2,A_3,……,A_n$ indicate the height of each piles. $(1 \leq A_i \leq 50000)$ </p>
+<p>The height of a block is 1.</p>
+<h2 id="Output">Output</h2><p>Output the minimum number of blocks should LeLe move. </p>
+<p>If there is no solution, output “-1” (without quotes).</p>
+<h2 id="Sample_Input">Sample Input</h2><p>4 3 2<br>1 2 3 5<br>4 4 4<br>1 2 3 4 </p>
+<h2 id="Sample_Output">Sample Output</h2><p>1<br>-1 </p>
+<h2 id="Hint">Hint</h2><p>In first case, LeLe move one block from third pile to first pile. </p>
+<h1 id="解题思路">解题思路</h1><p>其实很简单，就是算出长度为$W$的区间的正数之和和负数之和，不断地更新最小值。每个区间需要添加的砖块的数量和减少的砖块的数量的总和分别用$x$和$y$表示，每次取$x$和$y$中最大的一个数作为满足要求的数值（因为只有操作这两者的最多次数才可以满足题目的要求），最后将这个数和<code>MIN</code>比较，取其中最小的一个输出即可。</p>
+<h1 id="AC代码">AC代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">ll a[<span class="number">500005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, w, h;</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;w, &amp;h))</span><br><span class="line">    &#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = w; i &lt; n + w; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, a + i);</span><br><span class="line">            sum += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum &lt; (ll) w * h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ll x = w * h, y = <span class="number">0</span>;</span><br><span class="line">            ll MIN = w * h;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = w; i &lt; n + w * <span class="number">2</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i - w] &lt; h)</span><br><span class="line">                    x -= h - a[i - w];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    y -= a[i - w] - h;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (a[i] &lt; h)</span><br><span class="line">                    x += h - a[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    y += a[i] - h;</span><br><span class="line">                MIN = min(MIN, max(x, y));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, MIN);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -230,11 +239,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/爱情/"> #爱情 </a>
+            <a href="/tags/ACM/"> #ACM </a>
           
-            <a href="/tags/程序员/"> #程序员 </a>
-          
-            <a href="/tags/随笔/"> #随笔 </a>
+            <a href="/tags/HDU/"> #HDU </a>
           
         </div>
       
@@ -243,11 +250,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/java-calculator/">Java实现简易计算器</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/17/csharp-thread/">C#多线程编程</a>
             
           </div>
         </div>
@@ -267,8 +274,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/09/programmer-love/"
-               data-title="程序员的爱情告白" data-url="http://yoursite.com/2015/07/09/programmer-love/">
+          <div class="ds-thread" data-thread-key="2015/07/18/hdu-5191/"
+               data-title="HDU 5191 Building Blocks" data-url="http://yoursite.com/2015/07/18/hdu-5191/">
           </div>
         
       </div>
@@ -363,7 +370,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint"><span class="nav-number">1.6.</span> <span class="nav-text">Hint</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
