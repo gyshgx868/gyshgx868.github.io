@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,HDU,组合数学," />
+  <meta name="keywords" content="ACM,POJ,字典树," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> HDU 1716 排列2 // GYSHGX868's Note </title>
+  <title> POJ 2001 Shortest Prefixes // GYSHGX868's Note </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              HDU 1716 排列2
+              POJ 2001 Shortest Prefixes
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-24
+          发表于 2015-07-27
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/HDU/">HDU</a>
+              <a href="/categories/POJ/">POJ</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/24/hdu-1716/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/24/hdu-1716/"></span>
+            <a href="/2015/07/27/poj-2001/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/27/poj-2001/"></span>
             </a>
           </span>
           
@@ -219,16 +219,15 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Ray又对数字的列产生了兴趣：<br>现有四张卡片，用这四张卡片能排列出很多不同的4位数，要求按从小到大的顺序输出这些4位数。<br><a id="more"></a></p>
-<h2 id="Input">Input</h2><p>每组数据占一行，代表四张卡片上的数字（0&lt;=数字&lt;=9），如果四张卡片都是0，则输入结束。</p>
-<h2 id="Output">Output</h2><p>对每组卡片按从小到大的顺序输出所有能由这四张卡片组成的4位数，千位数字相同的在同一行，同一行中每个四位数间用空格分隔。<br>每组输出数据间空一行，最后一组数据后面没有空行。</p>
-<h2 id="Sample_Input">Sample Input</h2><p>1 2 3 4<br>1 1 2 3<br>0 1 2 3<br>0 0 0 0</p>
-<h2 id="Sample_Output">Sample Output</h2><p>1234 1243 1324 1342 1423 1432<br>2134 2143 2314 2341 2413 2431<br>3124 3142 3214 3241 3412 3421<br>4123 4132 4213 4231 4312 4321</p>
-<p>1123 1132 1213 1231 1312 1321<br>2113 2131 2311<br>3112 3121 3211</p>
-<p>1023 1032 1203 1230 1302 1320<br>2013 2031 2103 2130 2301 2310<br>3012 3021 3102 3120 3201 3210</p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1716" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1716</a></p>
-<h1 id="解题思路">解题思路</h1><p>不是什么难题，使用STL的next_permutation就可以解决这道题。不过要注意最后一列数据没有空格，每组数据之间有一个空行，最后一组数据没有空行。PE成狗的一道题……</p>
-<h1 id="AC代码">AC代码</h1><p>0MS/1580K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> first = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, a, a + <span class="number">1</span>, a + <span class="number">2</span>, a + <span class="number">3</span>) &amp;&amp; a[<span class="number">0</span>] + a[<span class="number">1</span>] + a[<span class="number">2</span>] + a[<span class="number">3</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!first)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(a, a + <span class="number">4</span>);</span><br><span class="line">        <span class="keyword">int</span> pre = a[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="keyword">false</span>, start = <span class="keyword">true</span>;;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[<span class="number">0</span>] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (a[<span class="number">0</span>] != pre)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">                    start = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                pre = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (start)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d%d%d%d"</span>, a[<span class="number">0</span>], a[<span class="number">1</span>], a[<span class="number">2</span>], a[<span class="number">3</span>]);</span><br><span class="line">                start = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">" %d%d%d%d"</span>, a[<span class="number">0</span>], a[<span class="number">1</span>], a[<span class="number">2</span>], a[<span class="number">3</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (next_permutation(a, a + <span class="number">4</span>));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        first = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>A prefix of a string is a substring starting at the beginning of the given string. The prefixes of “carbon” are: “c”, “ca”, “car”, “carb”, “carbo”, and “carbon”. Note that the empty string is not considered a prefix in this problem, but every non-empty string is considered to be a prefix of itself. In everyday language, we tend to abbreviate words by prefixes. For example, “carbohydrate” is commonly abbreviated by “carb”. In this problem, given a set of words, you will find for each word the shortest prefix that uniquely identifies the word it represents.<br><a id="more"></a><br>In the sample input below, “carbohydrate” can be abbreviated to “carboh”, but it cannot be abbreviated to “carbo” (or anything shorter) because there are other words in the list that begin with “carbo”. </p>
+<p>An exact match will override a prefix match. For example, the prefix “car” matches the given word “car” exactly. Therefore, it is understood without ambiguity that “car” is an abbreviation for “car” , not for “carriage” or any of the other words in the list that begins with “car”. </p>
+<h2 id="Input">Input</h2><p>The input contains at least two, but no more than 1000 lines. Each line contains one word consisting of 1 to 20 lower case letters.</p>
+<h2 id="Output">Output</h2><p>The output contains the same number of lines as the input. Each line of the output contains the word from the corresponding line of the input, followed by one blank space, and the shortest prefix that uniquely (without ambiguity) identifies this word.</p>
+<h2 id="Sample_Input">Sample Input</h2><p>carbohydrate<br>cart<br>carburetor<br>caramel<br>caribou<br>carbonic<br>cartilage<br>carbon<br>carriage<br>carton<br>car<br>carbonate</p>
+<h2 id="Sample_Output">Sample Output</h2><p>carbohydrate carboh<br>cart cart<br>carburetor carbu<br>caramel cara<br>caribou cari<br>carbonic carboni<br>cartilage carti<br>carbon carbon<br>carriage carr<br>carton carto<br>car car<br>carbonate carbona</p>
+<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2001" target="_blank" rel="external">http://poj.org/problem?id=2001</a></p>
+<h1 id="解题思路">解题思路</h1><p>还是比较容易想到的，就是一个简单的字典树。首先把所有的单词全都存入字典树，然后一个一个的搜索，搜索到1为止，证明这个时候已经找到了他自己独一无二的前缀了；假如没有搜到1，就直接输出整个单词即可，因为搜不到1证明它自己就是一个前缀。（开数组的时候要小心，不要因为简单就随便，第一发竟然MLE了= =）</p>
+<h1 id="AC代码">AC代码</h1><p>1612K/79MS/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ch[<span class="number">10005</span>][<span class="number">30</span>], sz, val[<span class="number">10005</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    sz = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(ch, <span class="number">0</span>, <span class="keyword">sizeof</span>(ch));</span><br><span class="line">    <span class="built_in">memset</span>(val, <span class="number">0</span>, <span class="keyword">sizeof</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertion</span><span class="params">(<span class="keyword">char</span> *s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = <span class="number">0</span>, i, c, len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        c = s[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span> (!ch[u][c])</span><br><span class="line">        &#123;</span><br><span class="line">            ch[u][c] = sz;</span><br><span class="line">            sz++;</span><br><span class="line">        &#125;</span><br><span class="line">        u = ch[u][c];</span><br><span class="line">        val[u]++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">char</span> *s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = <span class="number">0</span>, i, c, l = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        c = s[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span> (!ch[u][c]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        u = ch[u][c];</span><br><span class="line">        <span class="keyword">if</span> (val[u] == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1005</span>][<span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s"</span>, str[index]))</span><br><span class="line">    &#123;</span><br><span class="line">        insertion(str[index]);</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len = query(str[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s "</span>, str[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>, str[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -239,9 +238,9 @@
           
             <a href="/tags/ACM/"> #ACM </a>
           
-            <a href="/tags/HDU/"> #HDU </a>
+            <a href="/tags/POJ/"> #POJ </a>
           
-            <a href="/tags/组合数学/"> #组合数学 </a>
+            <a href="/tags/字典树/"> #字典树 </a>
           
         </div>
       
@@ -250,13 +249,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/24/hdu-1808/">HDU 1808 Halloween treats</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/21/poj-3735/">POJ 3735 Training little cats</a>
+              <a href="/2015/07/24/hdu-1996/">HDU 1996 汉诺塔VI</a>
             
           </div>
         </div>
@@ -276,8 +273,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/24/hdu-1716/"
-               data-title="HDU 1716 排列2" data-url="http://yoursite.com/2015/07/24/hdu-1716/">
+          <div class="ds-thread" data-thread-key="2015/07/27/poj-2001/"
+               data-title="POJ 2001 Shortest Prefixes" data-url="http://yoursite.com/2015/07/27/poj-2001/">
           </div>
         
       </div>
