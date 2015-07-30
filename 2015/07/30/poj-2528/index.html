@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="ACM,POJ,线段树," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 关于 // GYSHGX868's Notes </title>
+  <title> POJ 2528 Mayor's posters // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              关于
+              POJ 2528 Mayor's posters
             
           
         </h1>
@@ -184,17 +184,28 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-28
+          发表于 2015-07-30
         </span>
 
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/POJ/">POJ</a>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/about/index.html#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="about/index.html"></span>
+            <a href="/2015/07/30/poj-2528/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/poj-2528/"></span>
             </a>
           </span>
           
@@ -208,13 +219,51 @@
       
 
       
-        <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Main &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> Introduction &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> nickName = <span class="string">"GYSHGX868"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> role = <span class="string">"Student"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">Date</span> birth = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1995/11/15"</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> region = <span class="string">"Haidian, Beijing"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> school = <span class="string">"China University of Geoscience"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> interest = <span class="string">"Coding, Algorithm, Web"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> mail = <span class="string">"gyshgx868@gmail.com"</span>;</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">String</span> toString() &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"NickName: "</span> + nickName + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Role: "</span> + role + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Birthday: "</span> + birth.toString() + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Region: "</span> + region + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"School: "</span> + school + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Interest: "</span> + interest + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Mail: "</span> + mail + <span class="string">"\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">public</span> static <span class="built_in">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">        Introduction intro = <span class="keyword">new</span> Main().new Introduction();</span><br><span class="line">        System.out.println(intro.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>The citizens of Bytetown, AB, could not stand that the candidates in the mayoral election campaign have been placing their electoral posters at all places at their whim. The city council has finally decided to build an electoral wall for placing the posters and introduce the following rules:<br><a id="more"></a></p>
+<ul>
+<li>Every candidate can place exactly one poster on the wall. </li>
+<li>All posters are of the same height equal to the height of the wall; the width of a poster can be any integer number of bytes (byte is the unit of length in Bytetown). </li>
+<li>The wall is divided into segments and the width of each segment is one byte. </li>
+<li>Each poster must completely cover a contiguous number of wall segments.</li>
+</ul>
+<p>They have built a wall 10000000 bytes long (such that there is enough place for all candidates). When the electoral campaign was restarted, the candidates were placing their posters on the wall and their posters differed widely in width. Moreover, the candidates started placing their posters on wall segments already occupied by other posters. Everyone in Bytetown was curious whose posters will be visible (entirely or in part) on the last day before elections.<br>Your task is to find the number of visible posters when all the posters are placed given the information about posters’ size, their place and order of placement on the electoral wall. </p>
+<h2 id="Input">Input</h2><p>The first line of input contains a number c giving the number of cases that follow. The first line of data for a single case contains number 1 &lt;= n &lt;= 10000. The subsequent n lines describe the posters in the order in which they were placed. The i-th line among the n lines contains two integer numbers l i and ri which are the number of the wall segment occupied by the left end and the right end of the i-th poster, respectively. We know that for each 1 &lt;= i &lt;= n, 1 &lt;= l i &lt;= ri &lt;= 10000000. After the i-th poster is placed, it entirely covers all wall segments numbered l i, l i+1 ,… , ri.</p>
+<h2 id="Output">Output</h2><p>For each input data set print the number of visible posters after all the posters are placed. </p>
+<p>The picture below illustrates the case of the sample input.<br><img src="http://poj.org/images/2528_1.jpg" alt="POJ2528"></p>
+<h2 id="Sample_Input">Sample Input</h2><p>1<br>5<br>1 4<br>2 6<br>8 10<br>3 4<br>7 10</p>
+<h2 id="Sample_Output">Sample Output</h2><p>4</p>
+<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2528" target="_blank" rel="external">http://poj.org/problem?id=2528</a></p>
+<h1 id="解题思路">解题思路</h1><p>这个是个字典树的题目，但是想了想，使用结构体先存储一下每张海报的信息，然后再离散一下使用数组存储一下每张海报出现的区间，后输入的区间把已经输入的区间的覆盖掉就可以，最后统计一下出现的不同数字的个数，最后就可以通过了。</p>
+<h1 id="AC代码">AC代码</h1><p>684K/891MS/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> poster</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> first, second;</span><br><span class="line">&#125; p[<span class="number">10005</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">200005</span>], sum[<span class="number">200005</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">10005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == x)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="keyword">false</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;p[i].first, &amp;p[i].second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[<span class="number">2</span> * i - <span class="number">1</span>] = p[i].first;</span><br><span class="line">            a[<span class="number">2</span> * i] = p[i].second;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(a + <span class="number">1</span>, a + <span class="number">2</span> * n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pos = unique(a + <span class="number">1</span>, a + <span class="number">1</span> + <span class="number">2</span> * n) - a - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> a = query(p[i].first, pos), b = query(p[i].second, pos);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = a; j &lt;= b; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                sum[j] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= pos; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[sum[i]])</span><br><span class="line">            &#123;</span><br><span class="line">                ans++;</span><br><span class="line">                vis[sum[i]] = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
     <div class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/"> #ACM </a>
+          
+            <a href="/tags/POJ/"> #POJ </a>
+          
+            <a href="/tags/线段树/"> #线段树 </a>
+          
+        </div>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/hdu-4911/">HDU 4911 Inversion</a>
+            
+          </div>
+        </div>
       
 
       
@@ -231,8 +280,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="about/index.html"
-               data-title="关于" data-url="http://yoursite.com/about/index.html">
+          <div class="ds-thread" data-thread-key="2015/07/30/poj-2528/"
+               data-title="POJ 2528 Mayor's posters" data-url="http://yoursite.com/2015/07/30/poj-2528/">
           </div>
         
       </div>
@@ -327,7 +376,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
