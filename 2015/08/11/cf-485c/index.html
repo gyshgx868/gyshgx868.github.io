@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,HDU,组合数学," />
+  <meta name="keywords" content="ACM,CF,̰��," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> HDU 1996 汉诺塔VI // GYSHGX868's Notes </title>
+  <title> CodeForces 485C Bits // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              HDU 1996 汉诺塔VI
+              CodeForces 485C Bits
             
           
         </h1>
@@ -184,7 +184,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-24
+          发表于 2015-08-11
         </span>
 
         
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/24/hdu-1996/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/24/hdu-1996/"></span>
+            <a href="/2015/08/11/cf-485c/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/11/cf-485c/"></span>
             </a>
           </span>
           
@@ -219,15 +219,65 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>n个盘子的汉诺塔问题的最少移动次数是2^n-1,即在移动过程中会产生2^n个系列。由于<br>发生错移产生的系列就增加了，这种错误是放错了柱子，并不会把大盘放到小盘上，即各柱<br>子从下往上的大小仍保持如下关系：<br>n=m+p+q<br>a1&gt;a2&gt;…&gt;am<br>b1&gt;b2&gt;…&gt;bp<br>c1&gt;c2&gt;…&gt;cq<br>计算所有会产生的系列总数.<br><a id="more"></a></p>
-<h2 id="Input">Input</h2><p>包含多组数据，首先输入T,表示有T组数据.每个数据一行，是盘子的数<br>目N&lt;30.</p>
-<h2 id="Output">Output</h2><p>对于每组数据，输出移动过程中所有会产生的系列总数。</p>
-<h2 id="Sample_Input">Sample Input</h2><p>3<br>1<br>3<br>29</p>
-<h2 id="Sample_Output">Sample Output</h2><p>3<br>27<br>68630377364883</p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1996" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1996</a></p>
-<h1 id="解题思路">解题思路</h1><p>强行找规律，很容易发现3^n。即使不用快速幂也不会超时。</p>
-<h1 id="AC代码">AC代码</h1><p>0MS/1412K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        ll ans = <span class="built_in">pow</span>(<span class="number">3.0</span>, n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>再附上一个组合的版本：<br>15MS/1580K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> c[N][N], sum[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        c[i][<span class="number">0</span>] = c[i][i] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++)</span><br><span class="line">            c[i][j] = c[i - <span class="number">1</span>][j] + c[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= k; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= k - i; j++)</span><br><span class="line">                sum[k] += c[k][i] * c[k - i][j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    Init();</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, sum[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="��Ŀ����">��Ŀ����</h1><h2 id="Description">Description</h2><p>Let’s denote as ![1][1] the number of bits set (‘1’ bits) in the binary representation of the non-negative integer $x$.</p>
+<p>You are given multiple queries consisting of pairs of integers $l$ and $r$. For each query, find the $x$, such that $l$ �� $x$ �� $r$, and ![2][1] is maximum possible. If there are multiple such numbers find the smallest of them.<br><a id="more"></a></p>
+<h2 id="Input">Input</h2><p>The first line contains integer $n$ �� the number of queries (1 �� $n$ �� 10000).</p>
+<p>Each of the following $n$ lines contain two integers $l_i$, $r_i$ �� the arguments for the corresponding query (0 �� $l_i$ �� $r_i$ �� $10^{18}$).</p>
+<h2 id="Output">Output</h2><p>For each query print the answer in a separate line.</p>
+<h2 id="Sample_test(s)">Sample test(s)</h2><table>
+<thead>
+<tr>
+<th>input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+</tr>
+<tr>
+<td>1 2</td>
+</tr>
+<tr>
+<td>2 4</td>
+</tr>
+<tr>
+<td>1 10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Note">Note</h2><p>The binary representations of numbers from 1 to 10 are listed below:</p>
+<p>$1_{10} = 1_2$</p>
+<p>$2_{10} = 10_2$</p>
+<p>$3_{10} = 11_2$</p>
+<p>$4_{10} = 100_2$</p>
+<p>$5_{10} = 101_2$</p>
+<p>$6_{10} = 110_2$</p>
+<p>$7_{10} = 111_2$</p>
+<p>$8_{10} = 1000_2$</p>
+<p>$9_{10} = 1001_2$</p>
+<p>$10_{10} = 1010_2$</p>
+<h1 id="��Ŀ����-1">��Ŀ����</h1><p><a href="http://codeforces.com/problemset/problem/485/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/485/C</a></p>
+<h1 id="����˼·">����˼·</h1><p>��Ŀ�����Ǹ���һ������[l, r]��������������������ת��Ϊ�����Ƶ������£�1�ĸ������������֣�ͬʱ����1�ĸ�����ͬ��ʱ������������С���Ǹ���</p>
+<p>��������һ�����飬�����洢1��10��100��1000��Щ����������Ȼ������Щ�������ۼӣ�ֱ�����ڵ���rΪֹ����ʱ��sum����1�ĸ����������Ǹ����������п��ܲ������������У�����������Ҫ�����жϡ�����������r�Ļ����ͼ�ȥ�������ӵ��Ǹ������������Ա�֤�ó��Ľ�����������1�����ĵ�����ֵ��С�ġ�</p>
+<h1 id="AC����">AC����</h1><p>31 ms/0 KB/GNU C++<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></span><br><span class="line">typedef <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll bit[<span class="number">65</span>];</span><br><span class="line"><span class="keyword">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    bit[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">63</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        bit[i] = <span class="number">2</span> * bit[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    ll l, r, <span class="keyword">sum</span>;</span><br><span class="line">    scanf(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">        scanf(<span class="string">"%I64d%I64d"</span>, &amp;l, &amp;r);</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; <span class="keyword">sum</span> &lt;= r; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">sum</span> += bit[i];</span><br><span class="line">        &#125;</span><br><span class="line">        i--;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">sum</span> &gt; r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">sum</span> -= bit[i];</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">sum</span> &lt; l)</span><br><span class="line">                <span class="keyword">sum</span> += bit[i];</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(<span class="string">"%I64d\n"</span>, <span class="keyword">sum</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -238,9 +288,9 @@
           
             <a href="/tags/ACM/"> #ACM </a>
           
-            <a href="/tags/HDU/"> #HDU </a>
+            <a href="/tags/CF/"> #CF </a>
           
-            <a href="/tags/组合数学/"> #组合数学 </a>
+            <a href="/tags/̰��/"> #̰�� </a>
           
         </div>
       
@@ -249,13 +299,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/27/poj-2001/">POJ 2001 Shortest Prefixes</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/24/hdu-1808/">HDU 1808 Halloween treats</a>
+              <a href="/2015/08/06/hdu-4289/">HDU 4289 Control</a>
             
           </div>
         </div>
@@ -275,8 +323,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/24/hdu-1996/"
-               data-title="HDU 1996 汉诺塔VI" data-url="http://yoursite.com/2015/07/24/hdu-1996/">
+          <div class="ds-thread" data-thread-key="2015/08/11/cf-485c/"
+               data-title="CodeForces 485C Bits" data-url="http://yoursite.com/2015/08/11/cf-485c/">
           </div>
         
       </div>
@@ -378,7 +426,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#��Ŀ����"><span class="nav-number">1.</span> <span class="nav-text">��Ŀ����</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_test(s)"><span class="nav-number">1.4.</span> <span class="nav-text">Sample test(s)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.5.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#��Ŀ����-1"><span class="nav-number">2.</span> <span class="nav-text">��Ŀ����</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#����˼·"><span class="nav-number">3.</span> <span class="nav-text">����˼·</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC����"><span class="nav-number">4.</span> <span class="nav-text">AC����</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
