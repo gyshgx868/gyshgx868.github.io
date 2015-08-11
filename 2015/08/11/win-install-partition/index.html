@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="爱情,程序员,随笔," />
+  <meta name="keywords" content="Windows," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 程序员的爱情告白 // GYSHGX868's Notes </title>
+  <title> 安装Windows 7过程如何不产生100MB分区 // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              程序员的爱情告白
+              安装Windows 7过程如何不产生100MB分区
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-09
+          发表于 2015-08-11
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/杂文/">杂文</a>
+              <a href="/categories/Windows/">Windows</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/09/programmer-love/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/09/programmer-love/"></span>
+            <a href="/2015/08/11/win-install-partition/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/11/win-install-partition/"></span>
             </a>
           </span>
           
@@ -219,9 +219,40 @@
       
 
       
-        <p>我能抽象出整个世界<br>但是我不能抽象出你<br>因为你在我心中是那么的具体<br>所以我的世界并不完整<br>我可以重载甚至覆盖这个世界里的任何一种方法<br>但是我却不能重载对你的思念<br><a id="more"></a><br>也许命中注定了 你在我的世界里永远的烙上了静态的属性<br>而我不慎调用了爱你这个方法<br>当我义无返顾的把自己作为参数传进这个方法时<br>我才发现爱上你是一个死循环<br>它不停的返回对你的思念压入我心里的堆栈<br>在这无尽的黑夜中<br>我的内存里已经再也装不下别人<br>我不停的向系统申请空间<br>但却捕获一个异常——我爱的人不爱我</p>
-<p>为了解决这个异常<br>我愿意虚拟出最后一点内存<br>把所有我能实现的方法地址压入堆栈<br>并且在栈尾压入最后一个方法——将字符串“我爱你，你爱我吗？”传递给你<br>如果返回值为真——我将用尽一生去爱你<br>否则——我将释放掉所有系统资源<br>给你更多的空间去追求幸福</p>
-<p>原文：<a href="http://www.cnblogs.com/sophist/archive/2009/08/13/1545373.html" target="_blank" rel="external">http://www.cnblogs.com/sophist/archive/2009/08/13/1545373.html</a></p>
+        <h1 id="简述">简述</h1><p>如果是对一块新的磁盘或者删除原有的分区进行重新安装Windows 7及其以上的操作系统时候，使用安装程序提供的磁盘分区选项分区的时候，就会出现一个100MB的保留分区。<br><a id="more"></a><br>这100MB的分区的作用如下：</p>
+<ul>
+<li>BitLocker的规定，引导文件和Windows文件要分开；</li>
+<li>此系统分区可以使用实用软件，如备份，支持双启动的情况；</li>
+<li>如果启动文件保存在系统分区，很容易因为系统分区上的重装活动，而格式化丢失这些启动文件；</li>
+<li>该驱动器没有盘符可以很好的的阻止意外删除引导文件。</li>
+</ul>
+<p>但同时，这100MB的分区也带来了如下的弊端：</p>
+<ul>
+<li>不能使用GHOST版系统光盘来安装Windows操作系统，仅能使用安装版的进行一步一步地安装；</li>
+<li>安装完系统后，不能使用Wingho、OneKey Ghost等一键还原类的软件进行备份系统；</li>
+<li>Norton Partition Magic无法正常使用，如果你尝试修复这100MB分区，会导致已安装的Windows无法引导；</li>
+<li>使用100MB的分区，不容易安装Ubuntu + Windows双系统。</li>
+</ul>
+<h1 id="方法">方法</h1><p>首先，先运行Windows的安装程序进行全新安装，直到下面的界面：</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-disk.png" alt="win-install-disk"></p>
+<p>这时候，不能够使用磁盘工具的格式化选项，我们需要使用命令行手动进行分区，按下<code>Shift</code>+<code>F10</code>进入到下面的界面：</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-shift-f10.png" alt="win-install-shift-f10"></p>
+<p>此时输入<code>diskpart</code>，接下来显示出来的就是diskpart分区工具的版本等信息：</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-diskpart.png" alt="win-install-diskpart"></p>
+<p>再输入<code>list disk</code>命令，然后就列出了当前计算机的物理磁盘的信息：</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-list-disk.png" alt="win-install-list-disk"></p>
+<p>输入<code>select disk 0</code>，选择你要安装操作系统的物理磁盘（我这里只有一块磁盘，所以选择了0）：</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-select-disk-0.png" alt="win-install-select-disk-0"></p>
+<p>输入<code>clean</code>命令清除物理磁盘的所有信息，接着输入<code>create partition primary size=20480</code>创建主磁盘分区，也就是传说中的C盘。</p>
+<p>其中<code>create partition</code>表示创建分区；<code>primary</code>表示创建是主分区，如果这个位置是<code>logical</code>则表示逻辑分区，<code>extended</code>表示扩展分区；<code>size</code>表示分区大小，单位MB。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-create-partition-primary.png" alt="win-install-create-partition-primary"></p>
+<p>输入<code>active</code>把主分区激活。为什么要激活？因为，激活后分区信息和唯一的活动分区标记会写入硬盘分区表，这样当启动电脑时BIOS会检测主分区的操作系统（io.sys文件），然后操作系统开始控制启动权。</p>
+<p>激活之后输入<code>format</code>命令，将分区格式化。至此，主磁盘分区就创建完毕了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-format.png" alt="win-install-format"></p>
+<p>最后输入<code>create partition extended</code>将剩余的空间全部创建为扩展分区，再输入命令<code>create partition logical</code>，将扩展分区的全部剩余空间创建为一个逻辑分区，你也可以指定<code>size</code>参数，将剩余空间创建出多个逻辑分区。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-create-partition-extended.png" alt="win-install-create-partition-extended"></p>
+<p>这时候，所有的分区就全部创建完毕了，可以关闭命令行窗口，然后点击刷新，就可以执行下一步的Windows安装了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-diskpart-complete.png" alt="win-install-dispart-complete"></p>
 
       
     </div>
@@ -230,11 +261,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/爱情/"> #爱情 </a>
-          
-            <a href="/tags/程序员/"> #程序员 </a>
-          
-            <a href="/tags/随笔/"> #随笔 </a>
+            <a href="/tags/Windows/"> #Windows </a>
           
         </div>
       
@@ -243,11 +270,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/java-calculator/">Java实现简易计算器</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/11/cf-485c/">CodeForces 485C Bits</a>
             
           </div>
         </div>
@@ -267,8 +294,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/09/programmer-love/"
-               data-title="程序员的爱情告白" data-url="http://yoursite.com/2015/07/09/programmer-love/">
+          <div class="ds-thread" data-thread-key="2015/08/11/win-install-partition/"
+               data-title="安装Windows 7过程如何不产生100MB分区" data-url="http://yoursite.com/2015/08/11/win-install-partition/">
           </div>
         
       </div>
@@ -370,7 +397,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
