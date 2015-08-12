@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,HDU," />
+  <meta name="keywords" content="EasyBCD,Ubuntu,Windows," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> HDU 5191 Building Blocks // GYSHGX868's Notes </title>
+  <title> Windows下使用EasyBCD引导安装Ubuntu // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              HDU 5191 Building Blocks
+              Windows下使用EasyBCD引导安装Ubuntu
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-18
+          发表于 2015-08-12
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/HDU/">HDU</a>
+              <a href="/categories/Ubuntu/">Ubuntu</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/18/hdu-5191/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/18/hdu-5191/"></span>
+            <a href="/2015/08/12/easybcd-ubuntu/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/easybcd-ubuntu/"></span>
             </a>
           </span>
           
@@ -219,20 +219,50 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>After enjoying the movie,LeLe went home alone. LeLe decided to build blocks.<br>LeLe has already built $n$ piles. He wants to move some blocks to make $W$ consecutive piles with exactly the same height $H$.<br><a id="more"></a><br>LeLe already put all of his blocks in these piles, which means he can not add any blocks into them. Besides, he can move a block from one pile to another or a new one，but not the position betweens two piles already exists.For instance,after one move,”3 2 3” can become “2 2 4” or “3 2 2 1”,but not “3 1 1 3”. </p>
-<p>You are request to calculate the minimum blocks should LeLe move.</p>
-<h2 id="Input">Input</h2><p>There are multiple test cases, about $100$ cases. </p>
-<p>The first line of input contains three integers $n,W,H(1 \leq n,W,H \leq 50000)$.$n$ indicate $n$ piles blocks. </p>
-<p>For the next line ,there are $n$ integers $A_1,A_2,A_3,……,A_n$ indicate the height of each piles. $(1 \leq A_i \leq 50000)$ </p>
-<p>The height of a block is 1.</p>
-<h2 id="Output">Output</h2><p>Output the minimum number of blocks should LeLe move. </p>
-<p>If there is no solution, output “-1” (without quotes).</p>
-<h2 id="Sample_Input">Sample Input</h2><p>4 3 2<br>1 2 3 5<br>4 4 4<br>1 2 3 4 </p>
-<h2 id="Sample_Output">Sample Output</h2><p>1<br>-1 </p>
-<h2 id="Hint">Hint</h2><p>In first case, LeLe move one block from third pile to first pile. </p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5191" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5191</a></p>
-<h1 id="解题思路">解题思路</h1><p>其实很简单，就是算出长度为$W$的区间的正数之和和负数之和，不断地更新最小值。每个区间需要添加的砖块的数量和减少的砖块的数量的总和分别用$x$和$y$表示，每次取$x$和$y$中最大的一个数作为满足要求的数值（因为只有操作这两者的最多次数才可以满足题目的要求），最后将这个数和<code>MIN</code>比较，取其中最小的一个输出即可。</p>
-<h1 id="AC代码">AC代码</h1><p>670MS/5528K<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">ll a[<span class="number">500005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, w, h;</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;w, &amp;h))</span><br><span class="line">    &#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = w; i &lt; n + w; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, a + i);</span><br><span class="line">            sum += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum &lt; (ll) w * h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ll x = w * h, y = <span class="number">0</span>;</span><br><span class="line">            ll MIN = w * h;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = w; i &lt; n + w * <span class="number">2</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i - w] &lt; h)</span><br><span class="line">                    x -= h - a[i - w];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    y -= a[i - w] - h;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (a[i] &lt; h)</span><br><span class="line">                    x += h - a[i];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    y += a[i] - h;</span><br><span class="line">                MIN = min(MIN, max(x, y));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, MIN);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="简述">简述</h1><p>Ubuntu作为一款非常流行而又强大的操作系统，相信很多人都想安装一下。而安装Ubuntu系统的方法有很多种，例如U盘启动、光盘启动、GRUB引导法等等。这里我将介绍在Windows系统下用EasyBCD软件建立引导，然后安装Ubuntu的方法，这就不需要制作U盘启动盘那么麻烦，只需配置一些引导文件即可。<br><a id="more"></a></p>
+<h1 id="所需工具">所需工具</h1><p>先去下载EasyBCD的安装包，百度直接搜就行，我使用的版本是2.2。</p>
+<p>下载完EasyBCD之后，我们就去Ubuntu的官网（<a href="http://www.ubuntu.com/download/" target="_blank" rel="external">http://www.ubuntu.com/download/</a>）上下载安装映像，这里以15.04的32位版本为例。</p>
+<h1 id="前期准备">前期准备</h1><p>首先将下载好的EasyBCD安装好，安装位置随意，运行之后有个语言的选择，选择简体中文就可以。接着再把下载好的Ubuntu映像复制到C盘的根目录下面（当然也可以放置到其他目录）。</p>
+<p>然后，使用压缩软件（或者虚拟光驱软件）打开Ubuntu的安装映像，将安装映像中<code>casper</code>目录中的<code>initrd.lz</code>和<code>vmlinuz</code>两个文件（不同版本的操作系统映像名称可能会稍有不同，但是大体都是这两个名字，只是扩展名问题）也同时复制到C盘的根目录。<br><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-copy-file.png" alt="ubuntu-install-copy-file"></p>
+<p>打开EasyBCD，就会看到如下界面：<br><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-easy-bcd.png" alt="ubuntu-install-easy-bcd"></p>
+<p>选择<code>添加新条目</code>，然后选择<code>NeoGrub</code>，点击<code>安装</code>：<br><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-neogrub.png" alt="ubuntu-install-neogrub"></p>
+<p>接着点击<code>配置</code>，在打开的记事本文件中，将原有内容替换为以下内容：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title Install Ubuntu</span><br><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel (hd0,<span class="number">0</span>)/vmlinuz boot=casper iso-scan/filename=/ubuntu-<span class="number">15.04</span>-desktop-i386<span class="class">.iso</span> locale=zh_CN<span class="class">.UTF-8</span></span><br><span class="line">initrd (hd0,<span class="number">0</span>)/initrd<span class="class">.lz</span></span><br><span class="line">title reboot</span><br><span class="line">reboot</span><br><span class="line">title halt</span><br><span class="line">halt</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-notepad-edit.png" alt="ubuntu-install-notepad-edit"></p>
+<p>完成后按下<code>Ctrl</code>+<code>S</code>保存，关掉就可以了。</p>
+<p><strong>说明：</strong><code>hd0</code>表示C盘所处的硬盘号，一般电脑只有一个，所以都是<code>hd0</code>；如果有多个硬盘，则根据情况改为<code>hd0</code>、<code>hd1</code>等。</p>
+<p>hd0后面的数字表示C盘在硬盘中的分区顺序，每个人的系统不大一样，不知道的可以在磁盘管理里面看一下。如果是第二个，写为<code>(hd0,1)</code>即可，依次后推。</p>
+<p><strong>注意：</strong><code>initrd.lz</code>和<code>vmlinuz</code>就是刚刚复制到C盘根目录的两个文件，根据文件的名称自行修改。<code>ubuntu-15.04-desktop-i386.iso</code>代表的是C盘根目录下面的安装映像的名称，根据情况自行修改。</p>
+<p>这样，相关的前期准备工作就做好了。</p>
+<h1 id="安装Ubuntu">安装Ubuntu</h1><p>重启电脑，可以看到多了一个启动项<code>NeoGrub引导加载器</code>，选择该项然后回车，然后选择<code>install ubuntu</code>，另外两项分别是<code>reboot</code>和<code>halt</code>，作用分别是重启和关机，是为了防止安装出错而设的，这个在之前的menu.lst配置文件中已经设定好了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-multi-system.png" alt="ubuntu-install-multi-system"></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-boot-menu.png" alt="ubuntu-install-boot-menu"></p>
+<p>接下来，如果正常的话，会刷出一堆蛋疼的白字，等着它结束就行，好像要5分钟左右。如果在这一步报错，一般来说就是之前的menu.lst配置文件不对，很可能就是文件的名称配置的问题。这时只要<code>reboot</code>然后进入Windows重新配置就行。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-loading.png" alt="ubuntu-install-loading"></p>
+<p>等到白字刷完之后，我们就进入到了Ubuntu的安装程序了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-installation-desktop.png" alt="ubuntu-install-installation-desktop"></p>
+<p>此时进行最重要的一步，按下<code>Ctrl</code>+<code>Alt</code>+<code>T</code>打开终端，输入：<code>sudo umount -l /isodevice</code>（注意大小写问题和空格）</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-console.png" alt="ubuntu-install-console"></p>
+<p>然后，我们关闭终端，就可以双击桌面上的<code>安装 Ubuntu 15.04</code>进行安装了。</p>
+<p>安装程序运行之后，首先就是选择语言，选择一种常用的语言，这里选择<code>简体中文</code>，然后点击继续。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-select-language.png" alt="ubuntu-install-select-language"></p>
+<p>然后，如果有网络的话，我们可以选择<code>安装中下载更新</code>和<code>安装这个第三方软件</code>，但是这样安装会比较慢，我这里两个都不选，点击继续。</p>
+<p>接着我们就到了安装类型选择界面，选择<code>其他选项</code>，点击继续。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-install-type.png" alt="ubuntu-install-install-type"></p>
+<p>接下来要设置分区，首先设置交换分区，分区的大小设置为电脑内存的大小或者电脑内存的两倍。注意，在Linux中1GB对应1000MB。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-swap.png" alt="ubuntu-install-swap"></p>
+<p>然后设置其他的挂载点大小，分区的方案很多。但是由于我在虚拟机中进行演示，所以只设置一个/挂载点。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-disk-list.png" alt="ubuntu-install-disk-list"></p>
+<p>接下来就是简单的设置时区、键盘布局和帐户信息，设置好了之后就可以进行安装了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-timezone.png" alt="ubuntu-install-timezone"></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-keyboard-layout.png" alt="ubuntu-install-keyboard-layout"></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-user.png" alt="ubuntu-install-user"></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-processing.png" alt="ubuntu-install-processing"></p>
+<p>安装好了之后，点击<code>现在重启</code>，就可以进入Ubuntu的GRUB启动菜单了，选择<code>Ubuntu</code>，就可以进入Ubuntu操作系统了。至此，Ubuntu的安装也结束了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-restart.png" alt="ubuntu-install-restart"></p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-grub.png" alt="ubuntu-install-grub"></p>
+<h1 id="后续工作">后续工作</h1><p>最后，我们在重启系统，进入到Windows操作系统，再次点开EasyBCD，把<code>NeoGrub</code>引导项删除，然后把C盘复制的Ubuntu安装映像文件和<code>initrd.lz</code>、<code>vmlinuz</code>两个文件删掉就行了。</p>
+<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/ubuntu-install-del-neogrub.png" alt="ubuntu-install-del-neogrub"></p>
+<h1 id="参考资料">参考资料</h1><p>百度经验：<a href="http://jingyan.baidu.com/article/e4d08ffdace06e0fd2f60d39.html" target="_blank" rel="external">win7下通过easyBCD引导安装Ubuntu14.04</a></p>
 
       
     </div>
@@ -241,9 +271,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/"> #ACM </a>
+            <a href="/tags/EasyBCD/"> #EasyBCD </a>
           
-            <a href="/tags/HDU/"> #HDU </a>
+            <a href="/tags/Ubuntu/"> #Ubuntu </a>
+          
+            <a href="/tags/Windows/"> #Windows </a>
           
         </div>
       
@@ -252,13 +284,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/20/hdu-5175/">HDU 5175 Misaki's Kiss again</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/17/csharp-thread/">C#多线程编程</a>
+              <a href="/2015/08/11/win-install-partition/">安装Windows 7过程如何不产生100MB分区</a>
             
           </div>
         </div>
@@ -278,8 +308,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/18/hdu-5191/"
-               data-title="HDU 5191 Building Blocks" data-url="http://yoursite.com/2015/07/18/hdu-5191/">
+          <div class="ds-thread" data-thread-key="2015/08/12/easybcd-ubuntu/"
+               data-title="Windows下使用EasyBCD引导安装Ubuntu" data-url="http://yoursite.com/2015/08/12/easybcd-ubuntu/">
           </div>
         
       </div>
@@ -381,7 +411,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint"><span class="nav-number">1.6.</span> <span class="nav-text">Hint</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#所需工具"><span class="nav-number">2.</span> <span class="nav-text">所需工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前期准备"><span class="nav-number">3.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">4.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续工作"><span class="nav-number">5.</span> <span class="nav-text">后续工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
