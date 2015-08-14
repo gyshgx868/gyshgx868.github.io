@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,DFS,POJ,动态规划,记忆化搜索," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> POJ 1088 滑雪 // GYSHGX868's Notes </title>
+  <title> memset函数效率分析 // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              POJ 1088 滑雪
+              memset函数效率分析
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-08-13
+          发表于 2015-08-14
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/POJ/">POJ</a>
+              <a href="/categories/C/">C++</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/08/13/POJ/poj-1088/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/13/POJ/poj-1088/"></span>
+            <a href="/2015/08/14/Cpp/memset-efficiency/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/14/Cpp/memset-efficiency/"></span>
             </a>
           </span>
           
@@ -219,21 +219,23 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Michael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子<br><a id="more"></a><br> 1  2  3  4 5</p>
-<p>16 17 18 19 6</p>
-<p>15 24 25 20 7</p>
-<p>14 23 22 21 8</p>
-<p>13 12 11 10 9</p>
-<p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
-<h2 id="Input">Input</h2><p>输入的第一行表示区域的行数R和列数C(1 &lt;= R,C &lt;= 100)。下面是R行，每行有C个整数，代表高度h，0&lt;=h&lt;=10000。</p>
-<h2 id="Output">Output</h2><p>输出最长区域的长度。</p>
-<h2 id="Sample_Input">Sample Input</h2><p>5 5<br>1 2 3 4 5<br>16 17 18 19 6<br>15 24 25 20 7<br>14 23 22 21 8<br>13 12 11 10 9</p>
-<h2 id="Sample_Output">Sample Output</h2><p>25</p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1088" target="_blank" rel="external">http://poj.org/problem?id=1088</a></p>
-<h1 id="解题思路">解题思路</h1><p>这道题一看就是DFS的题目，但是直接朴素的搜索会TLE。所以，我们就需要用到记忆化搜索了，一个简单的DP。<code>dp[x][y]</code>记录的是从点<code>(x, y)</code>出发最长的长度。每次搜索到相应的点的时候，如果改点存储的最大长度大于0的话，就直接返回这个点的最大长度，跳过这个点的搜索，这样就大大加快了时间。</p>
-<p>这里所用到的动态转移方程为：<code>dp[x][y] = max(dfs(x - 1, y), dfs(x + 1, y), dfs(x, y - 1), dfs(x, y + 1)) + 1</code></p>
-<p>这里+1的原因是将自己这个点本身也算进去。</p>
-<h1 id="AC代码">AC代码</h1><p>220K/16MS/C++<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int a[<span class="number">105</span>][<span class="number">105</span>], dp[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line">int m, n;</span><br><span class="line">int dfs<span class="params">(int x, int y)</span></span><br><span class="line">&#123;</span><br><span class="line">    int maxn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(dp[x][y] &gt; <span class="number">0</span>)</span> return dp[x][y];</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(y - <span class="number">1</span> &gt;= <span class="number">0</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x][y - <span class="number">1</span>])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x, y - <span class="number">1</span>)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(y + <span class="number">1</span> &lt; m)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x][y + <span class="number">1</span>])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x, y + <span class="number">1</span>)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(x - <span class="number">1</span> &gt;= <span class="number">0</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x - <span class="number">1</span>][y])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x - <span class="number">1</span>, y)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(x + <span class="number">1</span> &lt; n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x + <span class="number">1</span>][y])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x + <span class="number">1</span>, y)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return maxn + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main<span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    memset<span class="params">(dp, <span class="number">0</span>, sizeof<span class="params">(dp)</span>)</span>;</span><br><span class="line">    scanf<span class="params">(<span class="string">"%d%d"</span>, &amp;n, &amp;m)</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            scanf<span class="params">(<span class="string">"%d"</span>, &amp;a[i][j])</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][j] = dfs<span class="params">(i, j)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="built_in">max</span><span class="params">(ans, dp[i][j])</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf<span class="params">(<span class="string">"%d\n"</span>, ans)</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="简述">简述</h1><p>在处理数组的时候经常需要频繁地将数组初始化为0，这时候有两种选择，一种是使用for循环，一个元素一个元素地赋值；再者就是使用包含于<code>string.h</code>头文件的<code>memset</code>函数了。</p>
+<p>原文：<a href="http://blog.csdn.net/hackbuteer1/article/details/7343189" target="_blank" rel="external">http://blog.csdn.net/hackbuteer1/article/details/7343189</a></p>
+<a id="more"></a>
+<h1 id="函数原型">函数原型</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* <span class="built_in">memset</span>(<span class="keyword">void</span>* s, <span class="keyword">int</span> c, <span class="keyword">size_t</span> n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span>* p = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*) s;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *p++ = (<span class="keyword">unsigned</span> <span class="keyword">char</span>) c;</span><br><span class="line">        --n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>作用：将s所指向的某一块内存中的每个字节的内容全部设置为c指定的ASCII值, 块的大小由第三个参数指定，这个函数通常为新申请的内存做初始化工作。</p>
+<h1 id="函数使用">函数使用</h1><p><code>memset</code>函数通常都被当做当作万能的初始化工具，例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="number">10000</span>; </span><br><span class="line"><span class="keyword">int</span> arr[n];</span><br><span class="line"><span class="built_in">memset</span>(arr, <span class="number">1</span>, n * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br></pre></td></tr></table></figure></p>
+<p>这样得到的arr数组一定不是全0，而是16843009，下面解释原因。<br>首先，变量类型的本质只是标志从某一内存地址开始读取的位数，强制转换就是改变读取位数的大小。</p>
+<p>c的二进制表示: 00000000 00000000 00000000 00000001 (32位)</p>
+<ol>
+<li>c转换为<code>unsigned char</code>后：00000001（8位）</li>
+<li>将指针p（<code>unsigned char</code>类型）的每一元素（8位）赋值为00000001，循环<code>4n</code>次。</li>
+<li><code>memset</code>结束后，<code>arr</code>的每个元素按照<code>int</code>类型读取，读出来的就是00000001 00000001 00000001 00000001，十进制就是16843009。</li>
+</ol>
+<p>不过如果是<code>memset(arr, 0, n * sizeof(int))</code>的话可以使用，因为32位都是0。<code>memset(arr, -1, n * sizeof(int))</code>也可以将<code>arr</code>数组成功赋值为-1，因为计算机在存储负数的时候采用的是补码表示，-1的补码为：11111111 11111111 11111111 11111111，因此可以成功地赋值。</p>
+<h1 id="效率测试">效率测试</h1><p>再来说<code>memset</code>的效率问题。使用<code>memset</code>函数与将上面的函数代码写在自己的程序里是不一样的，C标准库中的<code>memset</code>对<code>Cache</code>的利用做了优化，具体的在《C专家编程》151页有解释，这里给出测试代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAXSIZE 100000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> arr[MAXSIZE];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(arr, <span class="number">0</span>, <span class="keyword">sizeof</span>(arr));</span><br><span class="line">        <span class="comment">//for (int j = 0; j &lt; MAXSIZE; j++)</span></span><br><span class="line">        <span class="comment">//    arr[0] = '0';</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序里的注释部分与<code>memset</code>行分别使用，结果是使用<code>memset</code>的程序运行时间大约为0.1s，而用for循环的程序大约需要3s多。</p>
+<p>综上：<code>memset</code>可以用在字符数组的初始化以及类似于<code>memset(arr, 0, n * sizeof(int))</code>的情况，效率比手动赋值要高的多，但大量的初始化也需要谨慎使用。</p>
 
       
     </div>
@@ -242,15 +244,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/"> #ACM </a>
-          
-            <a href="/tags/DFS/"> #DFS </a>
-          
-            <a href="/tags/POJ/"> #POJ </a>
-          
-            <a href="/tags/动态规划/"> #动态规划 </a>
-          
-            <a href="/tags/记忆化搜索/"> #记忆化搜索 </a>
+            <a href="/tags/C/"> #C++ </a>
           
         </div>
       
@@ -259,13 +253,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/13/POJ/poj-1157/">POJ 1157 LITTLE SHOP OF FLOWERS</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/12/Ubuntu/easybcd-ubuntu/">Windows下使用EasyBCD引导安装Ubuntu</a>
+              <a href="/2015/08/14/CodeForces/cf-570/">CodeForces 570C Replacement</a>
             
           </div>
         </div>
@@ -285,8 +277,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/08/13/POJ/poj-1088/"
-               data-title="POJ 1088 滑雪" data-url="http://yoursite.com/2015/08/13/POJ/poj-1088/">
+          <div class="ds-thread" data-thread-key="2015/08/14/Cpp/memset-efficiency/"
+               data-title="memset函数效率分析" data-url="http://yoursite.com/2015/08/14/Cpp/memset-efficiency/">
           </div>
         
       </div>
@@ -388,7 +380,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数原型"><span class="nav-number">2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数使用"><span class="nav-number">3.</span> <span class="nav-text">函数使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效率测试"><span class="nav-number">4.</span> <span class="nav-text">效率测试</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
