@@ -1,0 +1,687 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+
+
+    <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
+
+
+
+  <meta name="keywords" content="C#,多线程," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'always'
+  };
+</script>
+
+
+
+
+  <title> C#多线程编程 // GYSHGX868's Notes </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">GYSHGX868's Notes</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              C#多线程编程
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-17
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/C/">C#</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/17/CSharp/csharp-thread/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/17/CSharp/csharp-thread/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="相关问题">相关问题</h1><h2 id="什么是进程">什么是进程</h2><p>进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。</p>
+<a id="more"></a>
+<h2 id="什么是线程">什么是线程</h2><p>线程（Thread）是程序中一个单一的顺序控制流程。进程内一个相对独立的、可调度的执行单元，是系统独立调度和分派CPU的基本单位指运行中的程序的调度单位。简单来说，不同的线程可以执行相同的代码。</p>
+<h2 id="什么是多线程">什么是多线程</h2><p>多线程是指程序中包含多个执行流，即在一个程序中可以同时运行多个不同的线程来执行不同的任务，也就是说允许单个程序创建多个并行执行的线程来完成各自的任务。</p>
+<h2 id="多线程的优点">多线程的优点</h2><p>可以提高CPU的利用率。在多线程程序中，一个线程必须等待的时候，CPU可以运行其它的线程而不是等待，这样就大大提高了程序的效率。</p>
+<h2 id="多线程的缺点">多线程的缺点</h2><ul>
+<li>线程需要占用内存，线程越多占用内存也越多； </li>
+<li>多线程需要协调和管理，所以需要CPU时间跟踪线程； </li>
+<li>线程之间对共享资源的访问会相互影响，必须解决竞用共享资源的问题；</li>
+<li>线程太多会导致控制太复杂，最终可能造成很多Bug。</li>
+</ul>
+<h1 id="C#实现多线程的方法">C#实现多线程的方法</h1><h2 id="Thread类">Thread类</h2><p><code>Thread</code>类通过委托传递，执行线程的函数可以不带参数，也可以带有一个参数，但是参数的类型需要为<code>object</code>类型，在需要的时候进行类型转换。如果要传递多个参数，可以通过一个类或者结构体来封装需要传递的参数。</p>
+<p><code>Thread</code>类C#代码示例：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Thread t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadStart(TestMethod));</span><br><span class="line">            Thread t2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ParameterizedThreadStart(TestMethod));</span><br><span class="line">            t1.IsBackground = <span class="keyword">true</span>;</span><br><span class="line">            t2.IsBackground = <span class="keyword">true</span>;</span><br><span class="line">            t1.Start();</span><br><span class="line">            t2.Start(<span class="string">"Hello"</span>);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestMethod</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"不带参数的线程函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//参数的类型必须为object类型</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestMethod</span>(<span class="params"><span class="keyword">object</span> data</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">string</span> datastr = (<span class="keyword">string</span>) data;</span><br><span class="line">            Console.WriteLine(<span class="string">"带参数的线程函数，参数为：&#123;0&#125;"</span>, datastr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于多个参数的线程创建，请参照<a href="http://blog.sina.com.cn/s/blog_7d892a6701018lkv.html" target="_blank" rel="external">C#创建带参数的线程</a>。</p>
+<p>下面给出了两种方法的示例，首先是使用类作为参数的传递，此种方式比较常用：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            MyThread mt = <span class="keyword">new</span> MyThread(<span class="number">100</span>);</span><br><span class="line">            Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadStart(mt.Calculate));</span><br><span class="line">            thread.Start();</span><br><span class="line">            <span class="comment">//等待线程结束</span></span><br><span class="line">            <span class="keyword">while</span> (thread.ThreadState != ThreadState.Stopped)</span><br><span class="line">            &#123;</span><br><span class="line">                Thread.Sleep(<span class="number">10</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(mt.Result);  <span class="comment">//打印返回值</span></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyThread</span><span class="comment">//线程类</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> Parame &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;    <span class="comment">//参数</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> Result &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;    <span class="comment">//返回值</span></span><br><span class="line">        <span class="comment">//构造函数</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyThread</span>(<span class="params"><span class="keyword">int</span> parame</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.Parame = parame;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//线程执行方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Calculate</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Random ra = <span class="keyword">new</span> Random();        <span class="comment">//随机数对象</span></span><br><span class="line">            Thread.Sleep(ra.Next(<span class="number">10</span>, <span class="number">100</span>));  <span class="comment">//随机休眠一段时间</span></span><br><span class="line">            Console.WriteLine(<span class="keyword">this</span>.Parame);</span><br><span class="line">            <span class="keyword">this</span>.Result = <span class="keyword">this</span>.Parame * ra.Next(<span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是使用匿名方法作为参数，这种方法十分的灵活：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> Parame = <span class="number">100</span>;     <span class="comment">//当做参数</span></span><br><span class="line">            <span class="keyword">int</span> Result = <span class="number">0</span>;       <span class="comment">//当做返回值</span></span><br><span class="line">            <span class="comment">//匿名方法</span></span><br><span class="line">            ThreadStart threadStart = <span class="keyword">new</span> ThreadStart(<span class="keyword">delegate</span>()</span><br><span class="line">            &#123;</span><br><span class="line">                Random ra = <span class="keyword">new</span> Random();             <span class="comment">//随机数对象</span></span><br><span class="line">                Thread.Sleep(ra.Next(<span class="number">10</span>, <span class="number">100</span>));       <span class="comment">//随机休眠一段时间</span></span><br><span class="line">                Console.WriteLine(Parame);            <span class="comment">//输出参数</span></span><br><span class="line">                Result = Parame * ra.Next(<span class="number">10</span>, <span class="number">100</span>);   <span class="comment">//计算返回值</span></span><br><span class="line">            &#125;);</span><br><span class="line">            Thread thread = <span class="keyword">new</span> Thread(threadStart);</span><br><span class="line">            thread.Start();      <span class="comment">//多线程启动匿名方法</span></span><br><span class="line">            <span class="comment">//等待线程结束</span></span><br><span class="line">            <span class="keyword">while</span> (thread.ThreadState != ThreadState.Stopped)</span><br><span class="line">            &#123;</span><br><span class="line">                Thread.Sleep(<span class="number">10</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(Result);   <span class="comment">//打印返回值</span></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="线程池">线程池</h2><p>由于线程的创建和销毁需要耗费一定的开销，过多的使用线程会造成内存资源的浪费，出于对性能的考虑，于是引入了线程池（<code>ThreadPool</code>）的概念。线程池维护一个请求队列，线程池的代码从队列提取任务，然后委派给线程池的一个线程执行，线程执行完不会被立即销毁，这样既可以在后台执行任务，又可以减少线程创建和销毁所带来的开销。</p>
+<p>线程池线程默认为后台线程（IsBackground），示例代码如下：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="comment">//将工作项加入到线程池队列中，这里可以传递一个线程参数</span></span><br><span class="line">            ThreadPool.QueueUserWorkItem(Test, <span class="string">"Hello"</span>);</span><br><span class="line">            ThreadPool.QueueUserWorkItem(Test, <span class="string">"World"</span>);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"><span class="keyword">object</span> data</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">string</span> datastr = (<span class="keyword">string</span>) data;</span><br><span class="line">            Console.WriteLine(datastr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Task类">Task类</h2><p>使用<code>ThreadPool</code>的<code>QueueUserWorkItem()</code>方法发起一次异步的线程执行很简单，但是该方法最大的问题是没有一个内建的机制让你知道操作什么时候完成，有没有一个内建的机制在操作完成后获得一个返回值。为此，可以使用<code>System.Threading.Tasks</code>中的<code>Task</code>类。</p>
+<p>构造一个<code>Task&lt;TResult&gt;</code>对象，并为泛型<code>TResult</code>参数传递一个操作的返回类型。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Task&lt;Int32&gt; t = <span class="keyword">new</span> Task&lt;Int32&gt;(n =&gt; Sum((Int32) n), <span class="number">1000</span>);</span><br><span class="line">            t.Start();</span><br><span class="line">            t.Wait();</span><br><span class="line">            Console.WriteLine(t.Result);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Int32 <span class="title">Sum</span>(<span class="params">Int32 n</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Int32 sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (; n &gt; <span class="number">0</span>; --n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">checked</span></span><br><span class="line">                &#123;</span><br><span class="line">                    sum += n;</span><br><span class="line">                &#125; <span class="comment">//结果太大，抛出异常</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个任务完成时，自动启动一个新任务；一个任务完成后，它可以启动另一个任务，下面重写了前面的代码，不阻塞任何线程。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Task&lt;Int32&gt; t = <span class="keyword">new</span> Task&lt;Int32&gt;(n =&gt; Sum((Int32)n), <span class="number">1000</span>);</span><br><span class="line">            t.Start();</span><br><span class="line">            <span class="comment">//t.Wait();</span></span><br><span class="line">            Task cwt = t.ContinueWith(task =&gt; Console.WriteLine(<span class="string">"The result is &#123;0&#125;"</span>, t.Result));</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Int32 <span class="title">Sum</span>(<span class="params">Int32 n</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Int32 sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (; n &gt; <span class="number">0</span>; --n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">checked</span></span><br><span class="line">                &#123;</span><br><span class="line">                    sum += n;</span><br><span class="line">                &#125; <span class="comment">//结果溢出，抛出异常</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用委托开启多线程">使用委托开启多线程</h2><p>用委托（Delegate）的<code>BeginInvoke</code>和<code>EndInvoke</code>方法操作线程，<code>BeginInvoke</code>方法可以使用线程异步地执行委托所指向的方法。然后通过<code>EndInvoke</code>方法获得方法的返回值（<code>EndInvoke</code>方法的返回值就是被调用方法的返回值），或是确定方法已经被成功调用。<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="type">System</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="type">System</span>.<span class="type">Threading</span>;</span><br><span class="line"></span><br><span class="line">namespace <span class="type">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    class <span class="type">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        private delegate <span class="type">int</span> <span class="type">NewTaskDelegate</span>(<span class="type">int</span> ms);</span><br><span class="line">        private <span class="keyword">static</span> <span class="type">int</span> newTask(<span class="type">int</span> ms)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务开始"</span>);</span><br><span class="line">            <span class="type">Thread</span>.<span class="type">Sleep</span>(ms);</span><br><span class="line">            <span class="type">Random</span> random = new <span class="type">Random</span>();</span><br><span class="line">            <span class="type">int</span> n = random.<span class="type">Next</span>(<span class="number">10000</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务完成"</span>);</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">static</span> <span class="type">void</span> <span class="type">Main</span>(<span class="type">string</span>[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">NewTaskDelegate</span> task = newTask;</span><br><span class="line">            <span class="type">IAsyncResult</span> asyncResult = task.<span class="type">BeginInvoke</span>(<span class="number">2000</span>, null, null);</span><br><span class="line">            //<span class="type">EndInvoke</span>方法将被阻塞<span class="number">2</span>秒</span><br><span class="line">            <span class="type">int</span> <span class="literal">result</span> = task.<span class="type">EndInvoke</span>(asyncResult);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="literal">result</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">Read</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同时，我们也可以使用IAsyncResult.IsCompleted属性来判断异步调用是否完成，示例代码如下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="type">System</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="type">System</span>.<span class="type">Threading</span>;</span><br><span class="line"></span><br><span class="line">namespace <span class="type">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    class <span class="type">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        private delegate <span class="type">int</span> <span class="type">NewTaskDelegate</span>(<span class="type">int</span> ms);</span><br><span class="line">        private <span class="keyword">static</span> <span class="type">int</span> newTask(<span class="type">int</span> ms)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务开始"</span>);</span><br><span class="line">            <span class="type">Thread</span>.<span class="type">Sleep</span>(ms);</span><br><span class="line">            <span class="type">Random</span> random = new <span class="type">Random</span>();</span><br><span class="line">            <span class="type">int</span> n = random.<span class="type">Next</span>(<span class="number">10000</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务完成"</span>);</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="type">void</span> <span class="type">Main</span>(<span class="type">string</span>[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">NewTaskDelegate</span> task = newTask;</span><br><span class="line">            <span class="type">IAsyncResult</span> asyncResult = task.<span class="type">BeginInvoke</span>(<span class="number">2000</span>, null, null);</span><br><span class="line">            //等待异步执行完成</span><br><span class="line">            <span class="keyword">while</span> (!asyncResult.<span class="type">IsCompleted</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">Console</span>.<span class="type">Write</span>(<span class="string">"*"</span>);</span><br><span class="line">                <span class="type">Thread</span>.<span class="type">Sleep</span>(<span class="number">100</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            // 由于异步调用已经完成，因此， <span class="type">EndInvoke</span>会立刻返回结果</span><br><span class="line">            <span class="type">int</span> <span class="literal">result</span> = task.<span class="type">EndInvoke</span>(asyncResult);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="literal">result</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">Read</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们也可以使用<code>WaitOne</code>方法等待异步方法执行完成。<code>WaitOne</code>的第一个参数表示要等待的毫秒数，在指定时间之内，<code>WaitOne</code>方法将一直等待，直到异步调用完成，并发出通知，<code>WaitOne</code>方法才返回<code>true</code>。当等待指定时间之后，异步调用仍未完成，<code>WaitOne</code>方法返回<code>false</code>，如果指定时间为0，表示不等待，如果为-1，表示永远等待，直到异步调用完成。<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="type">System</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="type">System</span>.<span class="type">Threading</span>;</span><br><span class="line"></span><br><span class="line">namespace <span class="type">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    class <span class="type">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        private delegate <span class="type">int</span> <span class="type">NewTaskDelegate</span>(<span class="type">int</span> ms);</span><br><span class="line">        private <span class="keyword">static</span> <span class="type">int</span> newTask(<span class="type">int</span> ms)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务开始"</span>);</span><br><span class="line">            <span class="type">Thread</span>.<span class="type">Sleep</span>(ms);</span><br><span class="line">            <span class="type">Random</span> random = new <span class="type">Random</span>();</span><br><span class="line">            <span class="type">int</span> n = random.<span class="type">Next</span>(<span class="number">10000</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务完成"</span>);</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">static</span> <span class="type">void</span> <span class="type">Main</span>(<span class="type">string</span>[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">NewTaskDelegate</span> task = newTask;</span><br><span class="line">            <span class="type">IAsyncResult</span> asyncResult = task.<span class="type">BeginInvoke</span>(<span class="number">2000</span>, null, null);</span><br><span class="line">            //等待异步执行完成</span><br><span class="line">            <span class="keyword">while</span> (!asyncResult.<span class="type">AsyncWaitHandle</span>.<span class="type">WaitOne</span>(<span class="number">100</span>, <span class="literal">false</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">Console</span>.<span class="type">Write</span>(<span class="string">"*"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> <span class="literal">result</span> = task.<span class="type">EndInvoke</span>(asyncResult);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="literal">result</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">Read</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样也可以使用使用回调方式返回结果。要注意的是<code>my.BeginInvoke(3, 300, MethodCompleted, my)</code>，<code>BeginInvoke</code>方法的参数传递方式：</p>
+<ul>
+<li>前面一部分(3, 300)是其委托本身的参数；</li>
+<li>参数<code>MethodCompleted</code>是回调方法委托类型，他是回调方法的委托，此委托没有返回值，有一个<code>IAsyncResult</code>类型的参数，当<code>method</code>方法执行完后，系统会自动调用<code>MethodCompleted</code>方法。</li>
+<li>最后一个参数<code>my</code>需要向<code>MethodCompleted</code>方法中传递一些值，一般可以传递被调用方法的委托，这个值可以使用<code>IAsyncResult.AsyncState</code>属性获得。</li>
+</ul>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="type">System</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="type">System</span>.<span class="type">Threading</span>;</span><br><span class="line"></span><br><span class="line">namespace <span class="type">ThreadSample</span></span><br><span class="line">&#123;</span><br><span class="line">    class <span class="type">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        private delegate <span class="type">int</span> <span class="type">MyMethod</span>(<span class="type">int</span> second, <span class="type">int</span> millisecond);</span><br><span class="line">        //线程执行方法</span><br><span class="line">        private <span class="keyword">static</span> <span class="type">int</span> <span class="keyword">method</span>(<span class="type">int</span> second, <span class="type">int</span> millisecond)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"线程休眠"</span> + (second * <span class="number">1000</span> + millisecond) + <span class="string">"毫秒"</span>);</span><br><span class="line">            <span class="type">Thread</span>.<span class="type">Sleep</span>(second * <span class="number">1000</span> + millisecond);</span><br><span class="line">            <span class="type">Random</span> random = new <span class="type">Random</span>();</span><br><span class="line">            <span class="keyword">return</span> random.<span class="type">Next</span>(<span class="number">10000</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //回调方法</span><br><span class="line">        private <span class="keyword">static</span> <span class="type">void</span> <span class="type">MethodCompleted</span>(<span class="type">IAsyncResult</span> asyncResult)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (asyncResult == null || asyncResult.<span class="type">AsyncState</span> == null)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"回调失败！！！"</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> <span class="literal">result</span> = (asyncResult.<span class="type">AsyncState</span> <span class="keyword">as</span> <span class="type">MyMethod</span>).<span class="type">EndInvoke</span>(asyncResult);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务完成，结果："</span> + <span class="literal">result</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="type">void</span> <span class="type">Main</span>(<span class="type">string</span>[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">MyMethod</span> my = <span class="keyword">method</span>;</span><br><span class="line">            <span class="type">IAsyncResult</span> asyncResult = my.<span class="type">BeginInvoke</span>(<span class="number">3</span>, <span class="number">300</span>, <span class="type">MethodCompleted</span>, my);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">WriteLine</span>(<span class="string">"任务开始"</span>);</span><br><span class="line">            <span class="type">Console</span>.<span class="type">Read</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用BackgroundWorker组件来实现">使用BackgroundWorker组件来实现</h2><p>当在设计<code>WinForm</code>应用程序的时候，如果有一段代码非常的耗费时间，并且我们需要很好的控制代码的执行，或者是返回代码的执行进度，这时候就可以使<code>BackgroundWorker</code>组件了。如果是做<code>WinForm</code>程序开发，可以从工具箱中拖放<code>BackgroundWorker</code>组件到应用程序，也可以在应用程序中添加一个BackgroundWorker实例：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BackgroundWorker </span><span class="keyword">bgw </span>= new <span class="keyword">BackgroundWorker();</span></span><br></pre></td></tr></table></figure></p>
+<p><code>BackgroundWorker</code>组件常用的操作:<br>bgw.RunWorkerAsync()：<br>开始后台运行执行，该函数后将触发<code>bgw.DoWorker</code>事件，需要执行的操作写在<code>DoWorker</code>事件响应函数里。该函数也可以加参数，参数从<code>DoWorker</code>事件处理函数的<code>e.Arguement</code>里获取；</p>
+<p>bgw.CancelAsync()：<br>申请后台程序停止，注意该函数不能实际停止后台程序，只能将<code>bgw</code>的<code>CancellationPending</code>值设为<code>true</code>，需要自己在后台运行的程序中判断这一值，进而停止后台程序的运行。注意本方法使用前，需要将<code>bgw</code>的<code>WorkerSupportsCancellation</code>值设为<code>true</code>，否则将不起作用。</p>
+<p>bgw.ReportProgress()：<br>在后台程序中调用，向主线程传送进度信息。可以带一个或两个参数，一个为<code>int</code>类型的进度（0 ~ 100），一个为自定义类型的参数，可以传任意信息。调用后，将触发<code>bgw.ProgressChanged</code>事件，可以将界面变化的代码写在该事件响应函数中，之前提到的两个参数均可从<code>bgw.ProgressChanged</code>事件响应函数的参数<code>e</code>中获取，分别为<code>e.ProgressPercentage</code>和<code>e.UserState</code>。本方法使用前，需要将<code>bgw</code>的<code>WorkerReportsProgress</code>值设为<code>true</code>，否则将不会触发事件。</p>
+<p>完整的示例代码如下：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">BackgroundWorker bgw = <span class="keyword">new</span> BackgroundWorker();</span><br><span class="line"><span class="comment">//用于显示后台进度</span></span><br><span class="line">bgw.WorkerReportsProgress = <span class="keyword">true</span>;</span><br><span class="line"><span class="comment">//支持取消后台正在执行的操作</span></span><br><span class="line">bgw.WorkerSupportsCancellation = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在另一个线程里开始操作（btnStart是一个按钮控件）</span></span><br><span class="line"><span class="comment">//也可以利用RunWokerAsync()方法传递参数，</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btnStart_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    bgw.RunWokerAsync(<span class="number">2000</span><span class="comment">/*参数是可选的*/</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//支持取消后台正在执行的操作</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btnCancel_Click</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    bgw.CancelAsync();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//DoWork事件在另一个线程里执行</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bgw_DoWork</span>(<span class="params">objectsender, DoWorkeventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">11</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//允许长时间的操作</span></span><br><span class="line">        <span class="keyword">int</span> input = (<span class="keyword">int</span>)e.Argument;</span><br><span class="line">        Thread.Sleep(input);</span><br><span class="line">		<span class="comment">//报告后台执行的进度</span></span><br><span class="line">        bgw.ReportProgress(i * <span class="number">10</span>);</span><br><span class="line">		<span class="comment">//判断是否发出了取消的指令</span></span><br><span class="line">        <span class="keyword">if</span> (bgw.CancellationPending)</span><br><span class="line">        &#123;</span><br><span class="line">            e.Cancel = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//在此处设置返回值</span></span><br><span class="line">    e.Result = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用来接收报告回来的进度</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bgw_ProgressChanged</span>(<span class="params"><span class="keyword">object</span> sender, ProgressChangedEventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">//progressBar1是ProgressBar控件</span></span><br><span class="line">    progressBar1.Value = e.ProgressPercentage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将后台操作的结果反馈给用户</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bgw_RunWorkerCompleted</span>(<span class="params"><span class="keyword">object</span> sender, RunWorkerCompletedEventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.Cancelled)</span><br><span class="line">    &#123;</span><br><span class="line">        MessageBox.Show(<span class="string">"Operation Cancelled"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        MessageBox.Show(<span class="string">"OperationCompleted"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//在此处接收传递回来的值</span></span><br><span class="line">    <span class="keyword">int</span> returnValue = (<span class="keyword">int</span>)e.Result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="相关资料">相关资料</h1><p>[1] <a href="http://www.cnblogs.com/luxiaoxun/p/3280146.html" target="_blank" rel="external">C#多线程编程</a> By 阿凡卢</p>
+<p>[2] <a href="http://www.cnblogs.com/xugang/archive/2008/04/06/1138856.html" target="_blank" rel="external">C#多线程学习(一) 多线程的相关概念</a> By xugang</p>
+<p>[3] <a href="http://www.jb51.net/article/46257.htm" target="_blank" rel="external">C#多线程的应用全面解析</a></p>
+<p>[4] <a href="http://blog.sina.com.cn/s/blog_7d892a6701018lkv.html" target="_blank" rel="external">C#创建带参数的线程</a> By 熊猫大叔</p>
+<p>[5] <a href="http://www.cnblogs.com/inforasc/archive/2009/10/12/1582110.html" target="_blank" rel="external">使用BackgroundWorker组件</a> By inforasc</p>
+<p>[6] <a href="http://blog.csdn.net/rrrrssss00/article/details/7707678" target="_blank" rel="external">BackgroundWorker的使用</a> By rrrrssss00</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/"> #C# </a>
+          
+            <a href="/tags/多线程/"> #多线程 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/18/HDU/hdu-5191/">HDU 5191 Building Blocks</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/14/Cpp/factorial/">阶乘算法大全</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/07/17/CSharp/csharp-thread/"
+               data-title="C#多线程编程" data-url="http://yoursite.com/2015/07/17/CSharp/csharp-thread/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg" alt="GYSHGX868" />
+          <p class="site-author-name">GYSHGX868</p>
+        </div>
+        <p class="site-description motion-element">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/gyshgx868" target="_blank">Github</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
+              </span>
+            
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关问题"><span class="nav-number">1.</span> <span class="nav-text">相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是进程"><span class="nav-number">1.1.</span> <span class="nav-text">什么是进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是线程"><span class="nav-number">1.2.</span> <span class="nav-text">什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是多线程"><span class="nav-number">1.3.</span> <span class="nav-text">什么是多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的优点"><span class="nav-number">1.4.</span> <span class="nav-text">多线程的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的缺点"><span class="nav-number">1.5.</span> <span class="nav-text">多线程的缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C#实现多线程的方法"><span class="nav-number">2.</span> <span class="nav-text">C#实现多线程的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread类"><span class="nav-number">2.1.</span> <span class="nav-text">Thread类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池"><span class="nav-number">2.2.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Task类"><span class="nav-number">2.3.</span> <span class="nav-text">Task类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用委托开启多线程"><span class="nav-number">2.4.</span> <span class="nav-text">使用委托开启多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用BackgroundWorker组件来实现"><span class="nav-number">2.5.</span> <span class="nav-text">使用BackgroundWorker组件来实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关资料"><span class="nav-number">3.</span> <span class="nav-text">相关资料</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">GYSHGX868</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v="></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v="></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyshgx868"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
