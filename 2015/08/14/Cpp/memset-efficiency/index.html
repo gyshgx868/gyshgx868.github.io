@@ -234,7 +234,7 @@
 </ol>
 <p>不过如果是<code>memset(arr, 0, n * sizeof(int))</code>的话可以使用，因为32位都是0。<code>memset(arr, -1, n * sizeof(int))</code>也可以将<code>arr</code>数组成功赋值为-1，因为计算机在存储负数的时候采用的是补码表示，-1的补码为：11111111 11111111 11111111 11111111，因此可以成功地赋值。</p>
 <h1 id="效率测试">效率测试</h1><p>再来说<code>memset</code>的效率问题。使用<code>memset</code>函数与将上面的函数代码写在自己的程序里是不一样的，C标准库中的<code>memset</code>对<code>Cache</code>的利用做了优化，具体的在《C专家编程》151页有解释，这里给出测试代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAXSIZE 100000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> arr[MAXSIZE];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(arr, <span class="number">0</span>, <span class="keyword">sizeof</span>(arr));</span><br><span class="line">        <span class="comment">//for (int j = 0; j &lt; MAXSIZE; j++)</span></span><br><span class="line">        <span class="comment">//    arr[0] = '0';</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>程序里的注释部分与<code>memset</code>行分别使用，结果是使用<code>memset</code>的程序运行时间大约为0.1s，而用for循环的程序大约需要3s多。</p>
+<p>程序里的注释部分与<code>memset</code>行分别使用，结果是使用<code>memset</code>的程序运行时间大约为0.1s，而用for循环的程序大约需要3s。</p>
 <p>综上：<code>memset</code>可以用在字符数组的初始化以及类似于<code>memset(arr, 0, n * sizeof(int))</code>的情况，效率比手动赋值要高的多，但大量的初始化也需要谨慎使用。</p>
 
       
@@ -252,6 +252,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/20/POJ/poj-1189/">POJ 1189 钉子和小球</a>
             
           </div>
 
@@ -325,7 +327,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
