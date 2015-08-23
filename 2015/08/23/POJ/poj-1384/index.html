@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="Windows," />
+  <meta name="keywords" content="ACM,POJ,动态规划,完全背包," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 安装Windows 7过程如何不产生100MB分区 // GYSHGX868's Notes </title>
+  <title> POJ 1384 Piggy-Bank // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              安装Windows 7过程如何不产生100MB分区
+              POJ 1384 Piggy-Bank
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-08-11
+          发表于 2015-08-23
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Windows/">Windows</a>
+              <a href="/categories/POJ/">POJ</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/08/11/Windows/win-install-partition/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/11/Windows/win-install-partition/"></span>
+            <a href="/2015/08/23/POJ/poj-1384/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/23/POJ/poj-1384/"></span>
             </a>
           </span>
           
@@ -219,40 +219,14 @@
       
 
       
-        <h1 id="简述">简述</h1><p>如果是对一块新的磁盘或者删除原有的分区进行重新安装Windows 7及其以上的操作系统时候，使用安装程序提供的磁盘分区选项分区的时候，就会出现一个100MB的保留分区。<br><a id="more"></a><br>这100MB的分区的作用如下：</p>
-<ul>
-<li>BitLocker的规定，引导文件和Windows文件要分开；</li>
-<li>此系统分区可以使用实用软件，如备份，支持双启动的情况；</li>
-<li>如果启动文件保存在系统分区，很容易因为系统分区上的重装活动，而格式化丢失这些启动文件；</li>
-<li>该驱动器没有盘符可以很好的的阻止意外删除引导文件。</li>
-</ul>
-<p>但同时，这100MB的分区也带来了如下的弊端：</p>
-<ul>
-<li>不能使用GHOST版系统光盘来安装Windows操作系统，仅能使用安装版的进行一步一步地安装；</li>
-<li>安装完系统后，不能使用Wingho、OneKey Ghost等一键还原类的软件进行备份系统；</li>
-<li>Norton Partition Magic无法正常使用，如果你尝试修复这100MB分区，会导致已安装的Windows无法引导；</li>
-<li>使用100MB的分区，不容易安装Ubuntu + Windows双系统。</li>
-</ul>
-<h1 id="方法">方法</h1><p>首先，先运行Windows的安装程序进行全新安装，直到下面的界面：</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-disk.png" alt="win-install-disk"></p>
-<p>这时候，不能够使用磁盘工具的格式化选项，我们需要使用命令行手动进行分区，按下<code>Shift</code>+<code>F10</code>进入到下面的界面：</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-shift-f10.png" alt="win-install-shift-f10"></p>
-<p>此时输入<code>diskpart</code>，接下来显示出来的就是diskpart分区工具的版本等信息：</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-diskpart.png" alt="win-install-diskpart"></p>
-<p>再输入<code>list disk</code>命令，然后就列出了当前计算机的物理磁盘的信息：</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-list-disk.png" alt="win-install-list-disk"></p>
-<p>输入<code>select disk 0</code>，选择你要安装操作系统的物理磁盘（我这里只有一块磁盘，所以选择了0）：</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-select-disk-0.png" alt="win-install-select-disk-0"></p>
-<p>输入<code>clean</code>命令清除物理磁盘的所有信息，接着输入<code>create partition primary size=20480</code>创建主磁盘分区，也就是传说中的C盘。</p>
-<p>其中<code>create partition</code>表示创建分区；<code>primary</code>表示创建是主分区，如果这个位置是<code>logical</code>则表示逻辑分区，<code>extended</code>表示扩展分区；<code>size</code>表示分区大小，单位MB。</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-create-partition-primary.png" alt="win-install-create-partition-primary"></p>
-<p>输入<code>active</code>把主分区激活。为什么要激活？因为，激活后分区信息和唯一的活动分区标记会写入硬盘分区表，这样当启动电脑时BIOS会检测主分区的操作系统（io.sys文件），然后操作系统开始控制启动权。</p>
-<p>激活之后输入<code>format</code>命令，将分区格式化。至此，主磁盘分区就创建完毕了。</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-format.png" alt="win-install-format"></p>
-<p>最后输入<code>create partition extended</code>将剩余的空间全部创建为扩展分区，再输入命令<code>create partition logical</code>，将扩展分区的全部剩余空间创建为一个逻辑分区，你也可以指定<code>size</code>参数，将剩余空间创建出多个逻辑分区。</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-create-partition-extended.png" alt="win-install-create-partition-extended"></p>
-<p>这时候，所有的分区就全部创建完毕了，可以关闭命令行窗口，然后点击刷新，就可以执行下一步的Windows安装了。</p>
-<p><img src="http://7xl1l1.dl1.z0.glb.clouddn.com/win-install-diskpart-complete.png" alt="win-install-dispart-complete"></p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Before ACM can do anything, a budget must be prepared and the necessary financial support obtained. The main income for this action comes from Irreversibly Bound Money (IBM). The idea behind is simple. Whenever some ACM member has any small money, he takes all the coins and throws them into a piggy-bank. You know that this process is irreversible, the coins cannot be removed without breaking the pig. After a sufficiently long time, there should be enough cash in the piggy-bank to pay everything that needs to be paid.<br><a id="more"></a><br>But there is a big problem with piggy-banks. It is not possible to determine how much money is inside. So we might break the pig into pieces only to find out that there is not enough money. Clearly, we want to avoid this unpleasant situation. The only possibility is to weigh the piggy-bank and try to guess how many coins are inside. Assume that we are able to determine the weight of the pig exactly and that we know the weights of all coins of a given currency. Then there is some minimum amount of money in the piggy-bank that we can guarantee. Your task is to find out this worst case and determine the minimum amount of cash inside the piggy-bank. We need your help. No more prematurely broken pigs! </p>
+<h2 id="Input">Input</h2><p>The input consists of T test cases. The number of them (T) is given on the first line of the input file. Each test case begins with a line containing two integers E and F. They indicate the weight of an empty pig and of the pig filled with coins. Both weights are given in grams. No pig will weigh more than 10 kg, that means 1 &lt;= E &lt;= F &lt;= 10000. On the second line of each test case, there is an integer number N (1 &lt;= N &lt;= 500) that gives the number of various coins used in the given currency. Following this are exactly N lines, each specifying one coin type. These lines contain two integers each, Pand W (1 &lt;= P &lt;= 50000, 1 &lt;= W &lt;=10000). P is the value of the coin in monetary units, W is it’s weight in grams.</p>
+<h2 id="Output">Output</h2><p>Print exactly one line of output for each test case. The line must contain the sentence “The minimum amount of money in the piggy-bank is X.” where X is the minimum amount of money that can be achieved using coins with the given total weight. If the weight cannot be reached exactly, print a line “This is impossible.”.</p>
+<h2 id="Sample_Input">Sample Input</h2><p>3<br>10 110<br>2<br>1 1<br>30 50<br>10 110<br>2<br>1 1<br>50 30<br>1 6<br>2<br>10 3<br>20 4</p>
+<h2 id="Sample_Output">Sample Output</h2><p>The minimum amount of money in the piggy-bank is 60.<br>The minimum amount of money in the piggy-bank is 100.<br>This is impossible.</p>
+<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1384" target="_blank" rel="external">http://poj.org/problem?id=1384</a></p>
+<h1 id="解题思路">解题思路</h1><p>完全背包问题，首先需要确定所给出的钱币是否能够将这个背包装满。把原本动态转移方程<code>dp[j] = max(dp[j], dp[j - v[i]] + w[i])</code>中的<code>w[i]</code>也换成容量<code>v[i]</code>，这样就能通过方程来判断是不是可以装满了。然再通过另外一个数组<code>f</code>来求最小的数值，完全背包原本的动态转移方程是用来求最大值的，这里把原本的<code>max</code>改成<code>min</code>就可以了，不过事先需要将<code>f</code>数组的初始值都设为无穷大。</p>
+<h1 id="AC代码">AC代码</h1><p>252K/157MS/C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10005</span>;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN], f[MAXN];</span><br><span class="line"><span class="keyword">int</span> w[MAXN], v[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, E, F, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;E, &amp;F);</span><br><span class="line">        <span class="keyword">int</span> N = F - E;</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; MAXN; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            f[i] = inf;</span><br><span class="line">        &#125;</span><br><span class="line">        f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;w[i], &amp;v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = v[i]; j &lt;= N; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = max(dp[j], dp[j - v[i]] + v[i]);</span><br><span class="line">                f[j] = min(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (dp[N] == N)</span><br><span class="line">            <span class="built_in">printf</span> (<span class="string">"The minimum amount of money in the piggy-bank is %d.\n"</span>, f[N]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span> (<span class="string">"This is impossible.\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -261,7 +235,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Windows/"> #Windows </a>
+            <a href="/tags/ACM/"> #ACM </a>
+          
+            <a href="/tags/POJ/"> #POJ </a>
+          
+            <a href="/tags/动态规划/"> #动态规划 </a>
+          
+            <a href="/tags/完全背包/"> #完全背包 </a>
           
         </div>
       
@@ -270,13 +250,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/12/Ubuntu/easybcd-ubuntu/">Windows下使用EasyBCD引导安装Ubuntu</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/11/CodeForces/cf-485c/">CodeForces 485C Bits</a>
+              <a href="/2015/08/20/POJ/poj-1189/">POJ 1189 钉子和小球</a>
             
           </div>
         </div>
@@ -296,8 +274,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/08/11/Windows/win-install-partition/"
-               data-title="安装Windows 7过程如何不产生100MB分区" data-url="http://yoursite.com/2015/08/11/Windows/win-install-partition/">
+          <div class="ds-thread" data-thread-key="2015/08/23/POJ/poj-1384/"
+               data-title="POJ 1384 Piggy-Bank" data-url="http://yoursite.com/2015/08/23/POJ/poj-1384/">
           </div>
         
       </div>
@@ -399,7 +377,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
