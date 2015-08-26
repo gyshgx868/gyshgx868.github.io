@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,POJ,动态规划," />
+  <meta name="keywords" content="并查集,数据结构,算法," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> POJ 1189 钉子和小球 // GYSHGX868's Notes </title>
+  <title> 算法学习：并查集 // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              POJ 1189 钉子和小球
+              算法学习：并查集
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-08-20
+          发表于 2015-08-26
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/POJ/">POJ</a>
+              <a href="/categories/Algorithm/">Algorithm</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/08/20/POJ/poj-1189/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/20/POJ/poj-1189/"></span>
+            <a href="/2015/08/26/Algorithm/union-find/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/26/Algorithm/union-find/"></span>
             </a>
           </span>
           
@@ -219,17 +219,32 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>有一个三角形木板,竖直立放，上面钉着n(n+1)/2颗钉子，还有(n+1)个格子（当n=5时如图1）。每颗钉子和周围的钉子的距离都等于d，每个格子的宽度也都等于d，且除了最左端和最右端的格子外每个格子都正对着最下面一排钉子的间隙。<br><a id="more"></a><br>让一个直径略小于d的小球中心正对着最上面的钉子在板上自由滚落，小球每碰到一个钉子都可能落向左边或右边（概率各1/2），且球的中心还会正对着下一颗将要碰上的钉子。例如图2就是小球一条可能的路径。<br>我们知道小球落在第i个格子中的概率pi=pi=<img src="http://poj.org/images/1189_1.jpg" alt="POJ1189_1">，其中i为格子的编号，从左至右依次为0,1,…,n。<br>现在的问题是计算拔掉某些钉子后，小球落在编号为m的格子中的概率pm。假定最下面一排钉子不会被拔掉。例如图3是某些钉子被拔掉后小球一条可能的路径。<br><img src="http://poj.org/images/1189_2.jpg" alt="POJ1189_2"></p>
-<h2 id="Input">Input</h2><p>第1行为整数n（2 &lt;= n &lt;= 50）和m（0 &lt;= m &lt;= n）。以下n行依次为木板上从上至下n行钉子的信息，每行中’*’表示钉子还在，’.’表示钉子被拔去，注意在这n行中空格符可能出现在任何位置。</p>
-<h2 id="Output">Output</h2><p>仅一行，是一个既约分数(0写成0/1)，为小球落在编号为m的格子中的概pm。既约分数的定义：A/B是既约分数，当且仅当A、B为正整数且A和B没有大于1的公因子。</p>
-<h2 id="Sample_Input">Sample Input</h2><p>5 2<br>&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;* .<br>&nbsp;&nbsp;* * *<br>&nbsp;* . * *<br>* * * * *</p>
-<h2 id="Sample_Output">Sample Output</h2><p>7/16</p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1189" target="_blank" rel="external">http://poj.org/problem?id=1189</a></p>
-<h1 id="解题思路">解题思路</h1><p>使用DP来模拟打表。我们先把输入的数据处理成类似下面的数组：<br>1<br>1 0<br>1 1 1<br>1 0 1 1<br>1 1 1 1 1</p>
-<p><code>dp[i][j]</code>表示的是第i行第j列碰到的概率，<code>dp[0][0]</code>的初始值为<code>1 &lt;&lt; n</code>，因为我们要保证处理到最后一行之前不能出现0。然后从第一层开始推，假如碰到1，此时的坐标如果是i和j的话，那么，<code>dp[i + 1][j]</code>和<code>dp[i + 1][j + 1]</code>触碰到的概率都要加上1/2，所以在这里加上<code>dp[i][j] / 2</code>；如果碰到了0，那么小球将会跳过这一行，然后触碰到<code>(i + 2, j + 1)</code>这个点，也就是说这个点的概率也要加上<code>dp[i][j] / 2</code>。</p>
-<p>依次处理到最后一层，直接化简求一下概率就行了。</p>
-<p>给<code>dp[0][0]</code>赋初值的时候不能直接<code>1 &lt;&lt; n</code>，因为编译器会将这里的1认为是<code>int</code>型的，要转换一下类型。</p>
-<h1 id="AC代码">AC代码</h1><p>168K/0MS/C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">ll dp[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">5</span>];</span><br><span class="line">ll __gcd(ll a, ll b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : __gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>, str);</span><br><span class="line">            s[i][j] = str[<span class="number">0</span>] == <span class="string">'*'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1l</span>l &lt;&lt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i][j])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i + <span class="number">1</span>][j] += dp[i][j] / <span class="number">2</span>;</span><br><span class="line">                dp[i + <span class="number">1</span>][j + <span class="number">1</span>] += dp[i][j] / <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[i + <span class="number">2</span>][j + <span class="number">1</span>] += dp[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll num = dp[n][m];</span><br><span class="line">    ll den = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        den += dp[n][i];</span><br><span class="line">    &#125;</span><br><span class="line">    ll g = __gcd(num, den);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d/%I64d\n"</span>, num / g, den / g);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="简述">简述</h1><p>在计算机科学中，并查集是一种树型的数据结构，其保持着用于处理一些不相交集合（Disjoint Sets）的合并及查询问题。有一个联合-查找算法（union-find algorithm）定义了两个操作用于此数据结构：<br><a id="more"></a></p>
+<ul>
+<li>Find：确定元素属于哪一个子集。它可以被用来确定两个元素是否属于同一子集。</li>
+<li>Union：将两个子集合并成同一个集合。</li>
+</ul>
+<p>因为它支持这两种操作，一个不相交集也常被称为联合-查找数据结构（union-find data structure）或合并-查找集合（merge-find set）。其他的重要方法，MakeSet，用于建立单元素集合。有了这些方法，许多经典的划分问题可以被解决。</p>
+<p>为了更加精确的定义这些方法，需要定义如何表示集合。一种常用的策略是为每个集合选定一个固定的元素，称为代表，以表示整个集合。接着。Find(x)返回x所属集合的代表，而Union使用两个集合的代表作为参数。</p>
+<p><strong>（以上内容复制自维基百科）</strong></p>
+<h1 id="集合的查找">集合的查找</h1><p>集合的查找的作用就是寻找一个元素的父亲。我们首先设置了一个<code>father[x]</code>数组，他记录了表示<code>x</code>的“父亲”的编号，<strong>数组元素的值全都设置为<code>father[x] = x</code>，即节点的父亲就是它本身</strong>。</p>
+<p>那么接下来我们就可以通过迭代的方式来不断的递推，直到找到了<code>x = father[x]</code>的时候，那么我们就能说<code>x</code>就是这个集合最原始的父亲了。</p>
+<p>C++代码如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (x != father[x])</span><br><span class="line">    &#123;</span><br><span class="line">        x = father[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是一旦元素一多起来，或退化成一条链，每次<code>findset(x)</code>都将会使用<code>O(n)</code>的复杂度，这显然不是我们想要的。</p>
+<p>对此，我们必须要进行路径压缩，即我们找到最久远的祖先时“顺便”把它的子孙直接连接到它上面。这就是路径压缩了。</p>
+<p><img src="http://7xlcor.dl1.z0.glb.clouddn.com/find-set.jpg" alt="Find Set"></p>
+<p>C++代码如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归式</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k, j, r;</span><br><span class="line">    r = x;</span><br><span class="line">    <span class="keyword">while</span> (r != father[r])</span><br><span class="line">    &#123;</span><br><span class="line">        r = father[r];</span><br><span class="line">    &#125;</span><br><span class="line">    k = x;</span><br><span class="line">    <span class="keyword">while</span> (k != r)</span><br><span class="line">    &#123;</span><br><span class="line">        j = father[k];</span><br><span class="line">        father[k] = r;</span><br><span class="line">        k = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归式</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> father[x] == x ? x : father[x] = findset(father[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="集合的合并">集合的合并</h1><p>操作很简单：还是使用<code>father[x]</code>数组。那么，合并两个不相交集合的方法就是，找到其中一个集合最父亲的父亲（也就是最久远的祖先），将另外一个集合的最久远的祖先的父亲指向它。<strong>简单的说就是将两个集合的父亲指向同一个父亲。</strong></p>
+<p><img src="http://7xlcor.dl1.z0.glb.clouddn.com/union-set.jpg" alt="Union Set"></p>
+<p>C++代码如下：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> unionset(int a, int <span class="keyword">b)</span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a)<span class="comment">;</span></span><br><span class="line">    <span class="keyword">b </span>= findset(<span class="keyword">b);</span><br><span class="line"></span>    <span class="preprocessor">if</span> (a != <span class="keyword">b) </span>father[a] = <span class="keyword">b;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>findset(x)</code>表示的是寻找x的父亲节点。</p>
+<h1 id="集合的按秩合并">集合的按秩合并</h1><p>集合的合并的时候有一个问题，就是两个集合的父亲到底谁指向谁，其实都没问题。问题就是谁更优。</p>
+<p>显然，合并之后高度比较小的集合更加的优化，查找操作更加的节省时间。因此我们就可以将高度比较小的集合合并到高度比较大的集合上面，这样就能保证高度最小了。</p>
+<p>要维持这样的合并方式，我们需要引入一个<code>rk[x]</code>数组，记录的就是<code>x</code>的最子节点开始，到<code>x</code>的高度。通过<code>rk[x]</code>的值进行合并就可以将低深度的集合合并到高深度的集合了，但是需要将其初始化：<code>memset(rk, 0, sizeof(rk))</code>。</p>
+<p>C++代码如下：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> unionset(int a, int <span class="keyword">b)</span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a)<span class="comment">;</span></span><br><span class="line">    <span class="keyword">b </span>= findset(<span class="keyword">b);</span><br><span class="line"></span>    <span class="preprocessor">if</span> (a == <span class="keyword">b) </span>return<span class="comment">;</span></span><br><span class="line">    <span class="preprocessor">if</span> (rk[a] &gt; rk[<span class="keyword">b]) </span>father[<span class="keyword">b] </span>= a<span class="comment">;</span></span><br><span class="line">    <span class="preprocessor">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="preprocessor">if</span> (rk[a] == rk[<span class="keyword">b]) </span>rk[<span class="keyword">b]++;</span><br><span class="line"></span>        father[a] = <span class="keyword">b;</span><br><span class="line"></span>    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考资料">参考资料</h1><p>[1] <a href="http://blog.csdn.net/nedushy123/article/details/21647519" target="_blank" rel="external">并查集详解</a> By nedushy123</p>
+<p>[2] <a href="https://zh.wikipedia.org/wiki/%E5%B9%B6%E6%9F%A5%E9%9B%86" target="_blank" rel="external">并查集 - 维基百科</a></p>
 
       
     </div>
@@ -238,11 +253,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/"> #ACM </a>
+            <a href="/tags/并查集/"> #并查集 </a>
           
-            <a href="/tags/POJ/"> #POJ </a>
+            <a href="/tags/数据结构/"> #数据结构 </a>
           
-            <a href="/tags/动态规划/"> #动态规划 </a>
+            <a href="/tags/算法/"> #算法 </a>
           
         </div>
       
@@ -251,13 +266,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/23/POJ/poj-1384/">POJ 1384 Piggy-Bank</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/14/Cpp/memset-efficiency/">memset函数效率分析</a>
+              <a href="/2015/08/23/POJ/poj-1384/">POJ 1384 Piggy-Bank</a>
             
           </div>
         </div>
@@ -277,8 +290,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/08/20/POJ/poj-1189/"
-               data-title="POJ 1189 钉子和小球" data-url="http://yoursite.com/2015/08/20/POJ/poj-1189/">
+          <div class="ds-thread" data-thread-key="2015/08/26/Algorithm/union-find/"
+               data-title="算法学习：并查集" data-url="http://yoursite.com/2015/08/26/Algorithm/union-find/">
           </div>
         
       </div>
@@ -380,7 +393,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的查找"><span class="nav-number">2.</span> <span class="nav-text">集合的查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的合并"><span class="nav-number">3.</span> <span class="nav-text">集合的合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的按秩合并"><span class="nav-number">4.</span> <span class="nav-text">集合的按秩合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
