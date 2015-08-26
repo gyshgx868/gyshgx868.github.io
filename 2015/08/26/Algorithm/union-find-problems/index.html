@@ -1,0 +1,694 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+
+
+    <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
+
+
+
+  <meta name="keywords" content="ACM,并查集,算法," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'always'
+  };
+</script>
+
+
+
+
+  <title> 并查集简单题目 // GYSHGX868's Notes </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">GYSHGX868's Notes</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              并查集简单题目
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-08-26
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/26/Algorithm/union-find-problems/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/26/Algorithm/union-find-problems/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="题目列表">题目列表</h1><p>HDU：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1232" target="_blank" rel="external">1232</a></p>
+<p>POJ：<a href="http://poj.org/problem?id=1308" target="_blank" rel="external">1308</a> <a href="http://poj.org/problem?id=1611" target="_blank" rel="external">1611</a> <a href="http://poj.org/problem?id=1703" target="_blank" rel="external">1703</a><br><a id="more"></a></p>
+<h1 id="HDU_1232_畅通工程">HDU 1232 畅通工程</h1><h2 id="Description">Description</h2><p>某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </p>
+<h2 id="Input">Input</h2><p>测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。<br>注意:两个城市之间可以有多条道路相通,也就是说<br>3 3<br>1 2<br>1 2<br>2 1<br>这种输入也是合法的<br>当N为0时，输入结束，该用例不被处理。 </p>
+<h2 id="Output">Output</h2><p>对每个测试用例，在1行里输出最少还需要建设的道路数目。 </p>
+<h2 id="Sample_Input">Sample Input</h2><p>4 2<br>1 3<br>4 3<br>3 3<br>1 2<br>1 3<br>2 3<br>5 2<br>1 2<br>3 5<br>999 0<br>0</p>
+<h2 id="Sample_Output">Sample Output</h2><p>1<br>0<br>2<br>998</p>
+<h2 id="Hint">Hint</h2><p>Huge input, scanf is recommended.</p>
+<h2 id="解题思路">解题思路</h2><p>要求的是输出最少需要建设的条数，一共给出了<code>N</code>个点，那么如果一条路也没有的话，最少就需要建立<code>N - 1</code>条路，也就是先把最后的结论<code>ans</code>初始化为<code>N - 1</code>。然后，针对每输入的一对点，判断这两个点的父亲，如果不相等的话，证明这两个城市没有办法联通，需要建路，那么此时的<code>ans</code>就应该减1，依次处理到最后一组数据。最后<code>ans</code>就是题目的答案。</p>
+<h2 id="AC代码">AC代码</h2><p>31MS/1412K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> father[N], ans = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> father[x] == x ? x : father[x] = findset(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionset</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a);</span><br><span class="line">    b = findset(b);</span><br><span class="line">    <span class="keyword">if</span> (a != b)</span><br><span class="line">    &#123;</span><br><span class="line">        ans--;</span><br><span class="line">        father[a] = b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            father[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        ans = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</span><br><span class="line">            unionset(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="POJ_1308_Is_It_A_Tree?">POJ 1308 Is It A Tree?</h1><h2 id="Description-1">Description</h2><p>A tree is a well-known data structure that is either empty (null, void, nothing) or is a set of one or more nodes connected by directed edges between nodes satisfying the following properties. </p>
+<p>There is exactly one node, called the root, to which no directed edges point.<br>Every node except the root has exactly one edge pointing to it.<br>There is a unique sequence of directed edges from the root to each node.<br>For example, consider the illustrations below, in which nodes are represented by circles and edges are represented by lines with arrowheads. The first two of these are trees, but the last is not.<br><img src="http://poj.org/images/1308_1.jpg" alt="POJ1308"></p>
+<p>In this problem you will be given several descriptions of collections of nodes connected by directed edges. For each of these you are to determine if the collection satisfies the definition of a tree or not.</p>
+<h2 id="Input-1">Input</h2><p>The input will consist of a sequence of descriptions (test cases) followed by a pair of negative integers. Each test case will consist of a sequence of edge descriptions followed by a pair of zeroes Each edge description will consist of a pair of integers; the first integer identifies the node from which the edge begins, and the second integer identifies the node to which the edge is directed. Node numbers will always be greater than zero.</p>
+<h2 id="Output-1">Output</h2><p>For each test case display the line “Case k is a tree.” or the line “Case k is not a tree.”, where k corresponds to the test case number (they are sequentially numbered starting with 1).</p>
+<h2 id="Sample_Input-1">Sample Input</h2><p>6 8  5 3  5 2  6 4<br>5 6  0 0</p>
+<p>8 1  7 3  6 2  8 9  7 5<br>7 4  7 8  7 6  0 0</p>
+<p>3 8  6 8  6 4<br>5 3  5 6  5 2  0 0<br>-1 -1</p>
+<h2 id="Sample_Output-1">Sample Output</h2><p>Case 1 is a tree.<br>Case 2 is a tree.<br>Case 3 is not a tree.</p>
+<h2 id="解题思路-1">解题思路</h2><p>需要判断几种不是树的情况：</p>
+<ul>
+<li>0 0 空树是一棵树</li>
+<li>1 1 0 0 不是树 不能自己指向自己</li>
+<li>1 2 1 3 2 3 0 0 成环不是树</li>
+<li>1 2 2 3 4 5 森林不算是树(主要是注意自己)</li>
+</ul>
+<p>综上也就是三种大情况，全都讨论了就没问题了。</p>
+<h2 id="AC代码-1">AC代码</h2><p>172K/0MS/C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> father[N], flag[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i] = i;</span><br><span class="line">        flag[i] = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> father[x] == x ? x : father[x] = findset(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionset</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a);</span><br><span class="line">    b = findset(b);</span><br><span class="line">    <span class="keyword">if</span> (a != b) father[a] = b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x, y, t = <span class="number">1</span>, first;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == -<span class="number">1</span> &amp;&amp; y == -<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">//空树是一棵树</span></span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d is a tree.\n"</span>, t++);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        init();</span><br><span class="line">        flag[x] = flag[y] = <span class="keyword">true</span>;</span><br><span class="line">        first = x;</span><br><span class="line">        <span class="keyword">bool</span> tree = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//同if (findset(x) == findset(y))</span></span><br><span class="line">        <span class="keyword">if</span> (x == y) tree = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">else</span> unionset(x, y);</span><br><span class="line">        <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y) &amp;&amp; x + y)</span><br><span class="line">        &#123;</span><br><span class="line">            flag[x] = flag[y] = <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">//不能为环</span></span><br><span class="line">            <span class="keyword">if</span> (findset(x) == findset(y)) tree = <span class="keyword">false</span>;</span><br><span class="line">            unionset(x, y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> root = findset(first);</span><br><span class="line">        <span class="comment">//不能为森林</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">1000</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag[i] &amp;&amp; findset(i) != root)</span><br><span class="line">                tree = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (tree) <span class="built_in">printf</span>(<span class="string">"Case %d is a tree.\n"</span>, t++);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Case %d is not a tree.\n"</span>, t++);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="POJ_1611_The_Suspects">POJ 1611 The Suspects</h1><h2 id="Description-2">Description</h2><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
+<h2 id="Input-2">Input</h2><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
+<h2 id="Output-2">Output</h2><p>For each case, output the number of suspects in one line.</p>
+<h2 id="Sample_Input-2">Sample Input</h2><p>100 4<br>2 1 2<br>5 10 13 11 12 14<br>2 0 1<br>2 99 2<br>200 2<br>1 5<br>5 1 2 3 4 5<br>1 0<br>0 0</p>
+<h2 id="Sample_Output-2">Sample Output</h2><p>4<br>1<br>1</p>
+<h2 id="解题思路-2">解题思路</h2><p>需要使用一个<code>num[x]</code>来记录每一个父亲节点所包含的子节点数量，创建集合的时候每一个社团里的人都与该社团的第一个人连接，这样每个社团就能组成一个集合了。最后判断<code>0</code>属于哪个集合，输出<code>num[findset(0)]</code>即可。</p>
+<h2 id="AC代码-2">AC代码</h2><p>400K/16MS/C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">30005</span>;</span><br><span class="line"><span class="keyword">int</span> father[N], num[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">30000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i] = i;</span><br><span class="line">        num[i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> father[x] == x ? x : father[x] = findset(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionset</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a);</span><br><span class="line">    b = findset(b);</span><br><span class="line">    <span class="keyword">if</span> (a != b)</span><br><span class="line">    &#123;</span><br><span class="line">        father[a] = b;</span><br><span class="line">        num[b] += num[a];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, k, a, b;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m) &amp;&amp; n + m)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b);</span><br><span class="line">                unionset(a, b);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num[findset(<span class="number">0</span>)]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="POJ_1703_Find_them,_Catch_them">POJ 1703 Find them, Catch them</h1><h2 id="Description-3">Description</h2><p>The police office in Tadu City decides to say ends to the chaos, as launch actions to root up the TWO gangs in the city, Gang Dragon and Gang Snake. However, the police first needs to identify which gang a criminal belongs to. The present question is, given two criminals; do they belong to a same clan? You must give your judgment based on incomplete information. (Since the gangsters are always acting secretly.) </p>
+<p>Assume N (N &lt;= 10^5) criminals are currently in Tadu City, numbered from 1 to N. And of course, at least one of them belongs to Gang Dragon, and the same for Gang Snake. You will be given M (M &lt;= 10^5) messages in sequence, which are in the following two kinds: </p>
+<ol>
+<li><p>D [a] [b]<br>where [a] and [b] are the numbers of two criminals, and they belong to different gangs. </p>
+</li>
+<li><p>A [a] [b]<br>where [a] and [b] are the numbers of two criminals. This requires you to decide whether a and b belong to a same gang. </p>
+</li>
+</ol>
+<h2 id="Input-3">Input</h2><p>The first line of the input contains a single integer T (1 &lt;= T &lt;= 20), the number of test cases. Then T cases follow. Each test case begins with a line with two integers N and M, followed by M lines each containing one message as described above.</p>
+<h2 id="Output-3">Output</h2><p>For each message “A [a] [b]” in each case, your program should give the judgment based on the information got before. The answers might be one of “In the same gang.”, “In different gangs.” and “Not sure yet.”</p>
+<h2 id="Sample_Input-3">Sample Input</h2><p>1<br>5 5<br>A 1 2<br>D 1 2<br>A 1 2<br>D 2 4<br>A 1 4</p>
+<h2 id="Sample_Output-3">Sample Output</h2><p>Not sure yet.<br>In different gangs.<br>In the same gang.</p>
+<h2 id="解题思路-3">解题思路</h2><p>使用<code>num[x]</code>数组记录和<code>x</code>敌对的人的编号，建立集合的时候，将<code>x</code>的敌对方<code>num[x]</code>和<code>y</code>建立到一起，这两拨人才是属于同一个集合的，最后判断，输出结论就好。</p>
+<h2 id="AC代码-3">AC代码</h2><p>948K/329MS/C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> father[N], num[N]; <span class="comment">//num[x]表示x的敌对势力</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">100000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i] = i;</span><br><span class="line">        <span class="comment">//没有敌对势力</span></span><br><span class="line">        num[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findset</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> father[x] == x ? x : father[x] = findset(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionset</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    a = findset(a);</span><br><span class="line">    b = findset(b);</span><br><span class="line">    <span class="keyword">if</span> (a != b) father[a] = b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, a, b, m, n;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %c%d%d"</span>, &amp;c, &amp;a, &amp;b);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'D'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (num[a]) unionset(num[a], b); <span class="comment">//b和a的敌对势力是一伙</span></span><br><span class="line">                <span class="keyword">if</span> (num[b]) unionset(a, num[b]); <span class="comment">//a和b的敌对势力是一伙</span></span><br><span class="line">                num[a] = b;</span><br><span class="line">                num[b] = a;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (findset(a) == findset(num[b])) <span class="built_in">printf</span>(<span class="string">"In different gangs.\n"</span>);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (findset(a) == findset(b)) <span class="built_in">printf</span>(<span class="string">"In the same gang.\n"</span>);</span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Not sure yet.\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/"> #ACM </a>
+          
+            <a href="/tags/并查集/"> #并查集 </a>
+          
+            <a href="/tags/算法/"> #算法 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/26/Algorithm/union-find/">算法学习：并查集</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/08/26/Algorithm/union-find-problems/"
+               data-title="并查集简单题目" data-url="http://yoursite.com/2015/08/26/Algorithm/union-find-problems/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg" alt="GYSHGX868" />
+          <p class="site-author-name">GYSHGX868</p>
+        </div>
+        <p class="site-description motion-element">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/gyshgx868" target="_blank">Github</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
+              </span>
+            
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目列表"><span class="nav-number">1.</span> <span class="nav-text">题目列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HDU_1232_畅通工程"><span class="nav-number">2.</span> <span class="nav-text">HDU 1232 畅通工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">2.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">2.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">2.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">2.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint"><span class="nav-number">2.6.</span> <span class="nav-text">Hint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">2.7.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码"><span class="nav-number">2.8.</span> <span class="nav-text">AC代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POJ_1308_Is_It_A_Tree?"><span class="nav-number">3.</span> <span class="nav-text">POJ 1308 Is It A Tree?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description-1"><span class="nav-number">3.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-1"><span class="nav-number">3.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-1"><span class="nav-number">3.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input-1"><span class="nav-number">3.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output-1"><span class="nav-number">3.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-1"><span class="nav-number">3.6.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码-1"><span class="nav-number">3.7.</span> <span class="nav-text">AC代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POJ_1611_The_Suspects"><span class="nav-number">4.</span> <span class="nav-text">POJ 1611 The Suspects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description-2"><span class="nav-number">4.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-2"><span class="nav-number">4.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-2"><span class="nav-number">4.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input-2"><span class="nav-number">4.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output-2"><span class="nav-number">4.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-2"><span class="nav-number">4.6.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码-2"><span class="nav-number">4.7.</span> <span class="nav-text">AC代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POJ_1703_Find_them,_Catch_them"><span class="nav-number">5.</span> <span class="nav-text">POJ 1703 Find them, Catch them</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description-3"><span class="nav-number">5.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-3"><span class="nav-number">5.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-3"><span class="nav-number">5.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input-3"><span class="nav-number">5.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output-3"><span class="nav-number">5.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-3"><span class="nav-number">5.6.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码-3"><span class="nav-number">5.7.</span> <span class="nav-text">AC代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">GYSHGX868</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v="></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v="></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyshgx868"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
