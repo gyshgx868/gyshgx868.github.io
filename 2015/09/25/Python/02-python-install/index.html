@@ -1,0 +1,824 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+
+
+    <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'always'
+  };
+</script>
+
+
+
+
+  <title> Python环境搭建 // GYSHGX868's Notes </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">GYSHGX868's Notes</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Python环境搭建
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-09-25
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Python/">Python</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/09/25/Python/02-python-install/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/25/Python/02-python-install/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <p>本章节我们将向大家介绍如何在本地搭建Python开发环境。</p>
+<p>Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。<br><a id="more"></a><br>Windows下直接下载最新版的Python 2.7.9，安装的时候注意选择。</p>
+<p><img src="http://7xn25g.dl1.z0.glb.clouddn.com/python_install.png" alt="Python安装"></p>
+<p>你可以通过终端窗口输入<code>python</code>命令来查看本地是否已经安装Python以及Python的安装版本。</p>
+<ul>
+<li><p>Unix（Solaris，Linux，FreeBSD，AIX，HP/UX，SunOS，IRIX，等等。）</p>
+</li>
+<li><p>Win 9x/NT/2000</p>
+</li>
+<li><p>Macintosh（Intel, PPC, 68K）</p>
+</li>
+<li><p>OS/2</p>
+</li>
+<li><p>DOS（多个DOS版本）</p>
+</li>
+<li><p>PalmOS</p>
+</li>
+<li><p>Nokia移动手机</p>
+</li>
+<li><p>Windows CE</p>
+</li>
+<li><p>Acorn/RISC OS</p>
+</li>
+<li><p>BeOS</p>
+</li>
+<li><p>Amiga</p>
+</li>
+<li><p>VMS/OpenVMS</p>
+</li>
+<li><p>QNX</p>
+</li>
+<li><p>VxWorks</p>
+</li>
+<li><p>Psion</p>
+</li>
+<li><p>Python同样可以移植到Java和.NET虚拟机上。</p>
+</li>
+</ul>
+<h1 id="Python下载">Python下载</h1><p>Python最新源码，二进制文档，新闻资讯等可以在Python的官网查看到：</p>
+<p>Python官网：<a href="http://www.python.org/" target="_blank" rel="external">http://www.python.org/</a></p>
+<p>你可以在一下链接中下载Python的文档，你可以下载 HTML、PDF和PostScript等格式的文档。</p>
+<p>Python文档下载地址：<a href="www.python.org/doc/">www.python.org/doc/</a></p>
+<h1 id="Python安装">Python安装</h1><p>Python已经被移植在许多平台上（经过改动使它能够工作在不同平台上）。</p>
+<p>您需要下载适用于您使用平台的二进制代码，然后安装Python。</p>
+<p>如果您平台的二进制代码是不可用的，你需要使用C编译器手动编译源代码。</p>
+<p>编译的源代码，功能上有更多的选择性，为Python安装提供了更多的灵活性。</p>
+<p>以下为不同平台上安装Python的方法：</p>
+<h2 id="Unix_&amp;_Linux平台安装Python">Unix &amp; Linux平台安装Python</h2><p>以下为在Unix &amp; Linux 平台上安装 Python 的简单步骤：</p>
+<ul>
+<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></p>
+</li>
+<li><p>选择使用于Unix/Linux的源码压缩包</p>
+</li>
+<li><p>下载及解压压缩包</p>
+</li>
+<li><p>如果你需要自定义一些选项修改Modules/Setup</p>
+</li>
+<li><p>执行./configure脚本</p>
+</li>
+<li><p>make</p>
+</li>
+<li><p>make install</p>
+</li>
+</ul>
+<p>执行以上操作后，Python会安装在<code>/usr/local/bin</code>目录中，Python库安装在<code>/usr/local/lib/pythonXX</code>，<code>XX</code>为你使用的Python的版本号。</p>
+<h2 id="Windows平台安装Python">Windows平台安装Python</h2><p>以下为在Windows平台上安装Python的简单步骤：</p>
+<ul>
+<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></p>
+</li>
+<li><p>在下载列表中选择Windows平台安装包，包格式为：python-XYZ.msi文件，XYZ为你要安装的版本号。</p>
+</li>
+<li><p>要使用安装程序python-XYZ.msi，Windows系统必须支持Microsoft Installer 2.0搭配使用。只要保存安装文件到本地计算机，然后运行它，看看你的机器支持MSI。Windows XP和更高版本已经有MSI，很多老机器也可以安装MSI。</p>
+</li>
+<li><p>下载后，双击下载包，进入Python安装向导，安装非常简单，你只需要使用默认的设置一直点击“下一步”直到安装完成即可。</p>
+</li>
+</ul>
+<h2 id="Mac平台安装Python">Mac平台安装Python</h2><p>最近的Mac OS系统都自带有Python环境，但是自带的Python版本为旧版本，你可以通过链接<a href="http://www.python.org/download/mac/" target="_blank" rel="external">http://www.python.org/download/mac/</a>查看Mac上Python的新版功能介绍。</p>
+<p>Mac上完整的Python安装教程你可以查看：<a href="http://www.cwi.nl/~jack/macpython.html" target="_blank" rel="external">http://www.cwi.nl/~jack/macpython.html</a></p>
+<h1 id="环境变量配置">环境变量配置</h1><p>程序和可执行文件可以在许多目录，而这些路径很可能不在操作系统提供可执行文件的搜索路径中。</p>
+<p>path（路径）存储在环境变量中，这是由操作系统维护的一个命名的字符串。这些变量包含可用的命令行解释器和其他程序的信息。</p>
+<p>Unix或Windows中路径变量为PATH（UNIX区分大小写，Windows不区分大小写）。</p>
+<p>在Mac OS中，安装程序过程中改变了Python的安装路径。如果你需要在其他目录引用Python，你必须在path中添加Python目录。</p>
+<h2 id="在Unix/Linux设置环境变量">在Unix/Linux设置环境变量</h2><ul>
+<li><p>在<code>csh shell</code>输入<code>setenv PATH &quot;$PATH:/usr/local/bin/python</code>，按下<code>Enter</code>。</p>
+</li>
+<li><p>在<code>bash shell</code>(Linux)输入<code>export PATH=&quot;$PATH:/usr/local/bin/python</code>，按下<code>Enter</code>。</p>
+</li>
+<li><p>在<code>sh</code>或者<code>ksh shell</code>输入<code>PATH=&quot;$PATH:/usr/local/bin/python</code>, 按下<code>Enter</code>。</p>
+</li>
+</ul>
+<p>注意: <code>/usr/local/bin/python</code>是Python的安装目录。</p>
+<h2 id="在Windows设置环境变量">在Windows设置环境变量</h2><p>在环境变量中添加Python目录：</p>
+<p>在命令提示框中（cmd）输入<code>path %path%;C:\Python</code>, 按下<code>Enter</code>。</p>
+<p>注意: C:\Python是Python的安装目录。</p>
+<h1 id="Python_环境变量">Python 环境变量</h1><p>下面几个重要的环境变量，它应用于Python：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PYTHONPATH</td>
+<td>PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。</td>
+</tr>
+<tr>
+<td>PYTHONSTARTUP</td>
+<td>Python启动后，先寻找PYTHONSTARTUP环境变量，然后执行此文件中变量指定的执行代码。</td>
+</tr>
+<tr>
+<td>PYTHONCASEOK</td>
+<td>加入PYTHONCASEOK的环境变量, 就会使python导入模块的时候不区分大小写。</td>
+</tr>
+<tr>
+<td>PYTHONHOME</td>
+<td>另一种模块搜索路径。它通常内嵌于的PYTHONSTARTUP或PYTHONPATH目录中，使得两个模块库更容易切换。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="运行Python">运行Python</h1><p>有三种方式可以运行Python：</p>
+<p>1、交互式解释器：<br>你可以通过命令行窗口进入python并开在交互式解释器中开始编写Python代码。</p>
+<p>你可以在Unix，DOS或任何其他提供了命令行或者shell的系统进行python编码工作。</p>
+<p><code>$python # Unix/Linux</code></p>
+<p><code>C:\&gt;python # Windows/DOS</code></p>
+<p>以下为Python命令行参数：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>在解析时显示调试信息</td>
+</tr>
+<tr>
+<td>-O</td>
+<td>生成优化代码（.pyo文件）</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>启动时不引入查找Python路径的位置</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>输出Python版本号</td>
+</tr>
+<tr>
+<td>-X</td>
+<td>从1.6版本之后基于内建的异常（仅仅用于字符串）已过时</td>
+</tr>
+<tr>
+<td>-c cmd</td>
+<td>执行Python脚本，并将运行结果作为cmd字符串</td>
+</tr>
+<tr>
+<td>file</td>
+<td>在给定的python文件执行python脚本</td>
+</tr>
+</tbody>
+</table>
+<p>2、命令行脚本<br>在你的应用程序中通过引入解释器可以在命令行中执行Python脚本，如下所示：</p>
+<p><code>$python script.py # Unix/Linux</code></p>
+<p>或者 </p>
+<p><code>./script.py # Unix/Linux</code></p>
+<p>或者 </p>
+<p><code>C:\&gt;python script.py # Windows/DOS</code></p>
+<p>注意：在执行脚本时，请检查脚本是否有可执行权限。</p>
+<p>3、集成开发环境（IDE：Integrated Development Environment）<br>您可以使用图形用户界面（GUI）环境来编写及运行Python代码。以下推荐各个平台上使用的IDE：</p>
+<ul>
+<li><p><strong>Unix</strong>：IDLE是UNIX上最早的Python IDE。</p>
+</li>
+<li><p><strong>Windows</strong>：PythonWin是一个Python集成开发环境，在许多方面都比IDE优秀。</p>
+</li>
+<li><p><strong>Macintosh</strong>：Python的Mac可以使用IDLE IDE，你可以在网站上下载对应Mac的IDLE。</p>
+</li>
+</ul>
+<p>继续下一章之前，请确保您的环境已搭建成功。如果你不能够建立正确的环境，那么你就可以从您的系统管理员的帮助。</p>
+<p>在以后的章节中给出的例子已在Ubuntu下Python 2.7.6版本测试通过。</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/"> #Python </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/25/Python/01-python-intro/">Python简介</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/09/25/Python/02-python-install/"
+               data-title="Python环境搭建" data-url="http://yoursite.com/2015/09/25/Python/02-python-install/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg" alt="GYSHGX868" />
+          <p class="site-author-name">GYSHGX868</p>
+        </div>
+        <p class="site-description motion-element">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/gyshgx868" target="_blank">Github</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
+              </span>
+            
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python下载"><span class="nav-number">1.</span> <span class="nav-text">Python下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python安装"><span class="nav-number">2.</span> <span class="nav-text">Python安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix_&_Linux平台安装Python"><span class="nav-number">2.1.</span> <span class="nav-text">Unix & Linux平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows平台安装Python"><span class="nav-number">2.2.</span> <span class="nav-text">Windows平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac平台安装Python"><span class="nav-number">2.3.</span> <span class="nav-text">Mac平台安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Unix/Linux设置环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">在Unix/Linux设置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Windows设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">在Windows设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python_环境变量"><span class="nav-number">4.</span> <span class="nav-text">Python 环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Python"><span class="nav-number">5.</span> <span class="nav-text">运行Python</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">GYSHGX868</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v="></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v="></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyshgx868"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
