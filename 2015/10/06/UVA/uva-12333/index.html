@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="ACM,HDU,组合数学," />
+  <meta name="keywords" content="ACM,Java,UVA,字典树," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> HDU 1996 汉诺塔VI // GYSHGX868's Notes </title>
+  <title> UVA 12333 Revenge of Fibonacci // GYSHGX868's Notes </title>
 </head>
 
 <body>
@@ -176,7 +176,7 @@
           
           
             
-              HDU 1996 汉诺塔VI
+              UVA 12333 Revenge of Fibonacci
             
           
         </h1>
@@ -184,14 +184,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-24
+          发表于 2015-10-06
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/HDU/">HDU</a>
+              <a href="/categories/UVA/">UVA</a>
 
               
               
@@ -204,8 +204,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/24/HDU/hdu-1996/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/24/HDU/hdu-1996/"></span>
+            <a href="/2015/10/06/UVA/uva-12333/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/06/UVA/uva-12333/"></span>
             </a>
           </span>
           
@@ -219,16 +219,23 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>n个盘子的汉诺塔问题的最少移动次数是2^n-1,即在移动过程中会产生2^n个系列。由于<br>发生错移产生的系列就增加了，这种错误是放错了柱子，并不会把大盘放到小盘上，即各柱<br>子从下往上的大小仍保持如下关系：<br>n=m+p+q<br>a1&gt;a2&gt;…&gt;am<br>b1&gt;b2&gt;…&gt;bp<br>c1&gt;c2&gt;…&gt;cq<br>计算所有会产生的系列总数.<br><a id="more"></a></p>
-<h2 id="Input">Input</h2><p>包含多组数据，首先输入T,表示有T组数据.每个数据一行，是盘子的数<br>目N&lt;30.</p>
-<h2 id="Output">Output</h2><p>对于每组数据，输出移动过程中所有会产生的系列总数。</p>
-<h2 id="Sample_Input">Sample Input</h2><p>3<br>1<br>3<br>29</p>
-<h2 id="Sample_Output">Sample Output</h2><p>3<br>27<br>68630377364883</p>
-<h1 id="题目链接">题目链接</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1996" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1996</a></p>
-<h1 id="解题思路">解题思路</h1><p>强行找规律，很容易发现3^n。即使不用快速幂也不会超时。</p>
-<h1 id="AC代码">AC代码</h1><p>0MS/1412K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        ll ans = <span class="built_in">pow</span>(<span class="number">3.0</span>, n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>再附上一个组合的版本：<br>15MS/1580K/G++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> c[N][N], sum[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        c[i][<span class="number">0</span>] = c[i][i] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++)</span><br><span class="line">            c[i][j] = c[i - <span class="number">1</span>][j] + c[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= k; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= k - i; j++)</span><br><span class="line">                sum[k] += c[k][i] * c[k - i][j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    Init();</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, sum[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>The well-known Fibonacci sequence is defined as following:</p>
+<p>F(0) = F(1) = 1<br>F(n) = F(n − 1) + F(n − 2) ∀n ≥ 2</p>
+<p>Here we regard n as the index of the Fibonacci number F(n).<br><a id="more"></a><br>This sequence has been studied since the publication of Fibonacci’s book Liber Abaci. So far, many properties of this sequence have been introduced.</p>
+<p>You had been interested in this sequence, while after reading lots of papers about it. You think there’s no need to research in it anymore because of the lack of its unrevealed properties. Yesterday, you decided to study some other sequences like Lucas sequence instead.</p>
+<p>Fibonacci came into your dream last night. “Stupid human beings. Lots of important properties of Fibonacci sequence have not been studied by anyone, for example, from the Fibonacci number 347746739…”</p>
+<p>You woke up and couldn’t remember the whole number except the first few digits Fibonacci told you. You decided to write a program to find this number out in order to continue your research on Fibonacci sequence.</p>
+<h2 id="Input">Input</h2><p>There are multiple test cases. The first line of input contains a single integer T denoting the number of test cases (T ≤ 50000).</p>
+<p>For each test case, there is a single line containing one non-empty string made up of at most 40 digits. And there won’t be any unnecessary leading zeroes.</p>
+<h2 id="Output">Output</h2><p>For each test case, output the smallest index of the smallest Fibonacci number whose decimal notation begins with the given digits. If no Fibonacci number with index <strong>smaller than 100000</strong> satisfy that condition, output ‘-1’ instead — you think what Fibonacci wants to told you beyonds your ability.</p>
+<h2 id="Sample_Input">Sample Input</h2><p>15<br>1<br>12<br>123<br>1234<br>12345<br>9<br>98<br>987<br>9876<br>98765<br>89<br>32<br>51075176167176176176<br>347746739<br>5610</p>
+<h2 id="Sample_Output">Sample Output</h2><p>Case #1: 0<br>Case #2: 25<br>Case #3: 226<br>Case #4: 1628<br>Case #5: 49516<br>Case #6: 15<br>Case #7: 15<br>Case #8: 15<br>Case #9: 43764<br>Case #10: 49750<br>Case #11: 10<br>Case #12: 51<br>Case #13: -1<br>Case #14: 1233<br>Case #15: 22374</p>
+<h1 id="题目链接">题目链接</h1><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3755" target="_blank" rel="external">https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3755</a></p>
+<h1 id="解题思路">解题思路</h1><p>其实这是一道非常水的题，就是一个简单的字典树模板题。</p>
+<p>题意是输入一个不超过40位数字的数n，然后找出前缀为n的最小的斐波那契数的下标是多少。</p>
+<p>用C++做的话需要手写大数加法，然后算出100000项的斐波那契数，统统存到字典树里，存的时候增加一个参数，记录当前存的斐波那契数的下标。但是后面算出来的斐波那契数的位数非常的多，计算的时候肯定会超时，存储的时候也肯定会爆内存。所以需要截断一下，只计算前50位就可以了。</p>
+<p>一开始本来使用C++写的，但是不知为何一直RE（在自己电脑上就爆内存了），后来一气之下改用Java，处理一下大数和输入输出，就把这题过了。</p>
+<h1 id="AC代码">AC代码</h1><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class Main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">int</span>[][] ch = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5000005</span>][<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">int</span>[] val = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5000005</span>];</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">int</span> cnt;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">String</span> <span class="built_in">str</span>;</span><br><span class="line">        <span class="built_in">int</span> t;</span><br><span class="line">        Fib();</span><br><span class="line">        t = s.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt;= t; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">str</span> = s.next();</span><br><span class="line">            System.out.printf(<span class="string">"Case #%d: %d\n"</span>, i, query(<span class="built_in">str</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> Fib()</span><br><span class="line">    &#123;</span><br><span class="line">        cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">String</span> a, b;</span><br><span class="line">        BigInteger x = BigInteger.ONE, y = BigInteger.ONE, ret;</span><br><span class="line">        insert(<span class="string">"1"</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">2</span>; i &lt; <span class="number">100000</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            a = x.toString();</span><br><span class="line">            b = y.toString();</span><br><span class="line">            <span class="keyword">if</span> (b.length() &gt; <span class="number">50</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                x = <span class="keyword">new</span> BigInteger(a.substring(<span class="number">0</span>, a.length() - <span class="number">1</span>));</span><br><span class="line">                y = <span class="keyword">new</span> BigInteger(b.substring(<span class="number">0</span>, b.length() - <span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">            ret = x.<span class="built_in">add</span>(y);</span><br><span class="line">            insert(ret.toString(), i);</span><br><span class="line">            x = y;</span><br><span class="line">            y = ret;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> insert(<span class="keyword">String</span> s, <span class="built_in">int</span> x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">int</span> u = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; s.length() &amp;&amp; i &lt; <span class="number">50</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> k = s.charAt(i) - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (ch[u][k] == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                val[cnt] = x;</span><br><span class="line">                ch[u][k] = cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            u = ch[u][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">int</span> query(<span class="keyword">String</span> s)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">int</span> u = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> k = s.charAt(i) - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (ch[u][k] == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            u = ch[u][k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> val[u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -238,9 +245,11 @@
           
             <a href="/tags/ACM/"> #ACM </a>
           
-            <a href="/tags/HDU/"> #HDU </a>
+            <a href="/tags/Java/"> #Java </a>
           
-            <a href="/tags/组合数学/"> #组合数学 </a>
+            <a href="/tags/UVA/"> #UVA </a>
+          
+            <a href="/tags/字典树/"> #字典树 </a>
           
         </div>
       
@@ -249,13 +258,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/27/POJ/poj-2001/">POJ 2001 Shortest Prefixes</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/24/HDU/hdu-1808/">HDU 1808 Halloween treats</a>
+              <a href="/2015/10/05/UVA/uva-401/">UVA 401 Palindromes</a>
             
           </div>
         </div>
@@ -275,8 +282,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/24/HDU/hdu-1996/"
-               data-title="HDU 1996 汉诺塔VI" data-url="https://gyshgx868.github.io/2015/07/24/HDU/hdu-1996/">
+          <div class="ds-thread" data-thread-key="2015/10/06/UVA/uva-12333/"
+               data-title="UVA 12333 Revenge of Fibonacci" data-url="https://gyshgx868.github.io/2015/10/06/UVA/uva-12333/">
           </div>
         
       </div>
