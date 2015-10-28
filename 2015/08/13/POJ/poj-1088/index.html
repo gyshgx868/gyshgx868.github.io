@@ -1,26 +1,51 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
 
 
-    <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
+
 
 
 
@@ -30,27 +55,43 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="题目描述DescriptionMichael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ 1088 滑雪">
+<meta property="og:url" content="https://gyshgx868.github.io/2015/08/13/POJ/poj-1088/index.html">
+<meta property="og:site_name" content="GYSHGX868's Notes">
+<meta property="og:description" content="题目描述DescriptionMichael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子">
+<meta property="og:updated_time" content="2015-08-13T13:24:54.992Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="POJ 1088 滑雪">
+<meta name="twitter:description" content="题目描述DescriptionMichael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
-    sidebar: 'always'
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true
   };
 </script>
 
-
-
-
-  <title> POJ 1088 滑雪 // GYSHGX868's Notes </title>
+  <title> POJ 1088 滑雪 | GYSHGX868's Notes </title>
 </head>
 
-<body>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -60,22 +101,34 @@
     </a>
   </div>
 <![endif]-->
+  
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">GYSHGX868's Notes</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">技术菜鸟的博客</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -85,7 +138,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -93,41 +146,64 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首页
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            <i class="menu-item-icon icon-categories"></i> <br />
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
             分类
           </a>
         </li>
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
-            <i class="menu-item-icon icon-about"></i> <br />
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
             关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+            
+            搜索
           </a>
         </li>
       
@@ -137,10 +213,10 @@
   
     <div class="site-search">
       
-  
-<form class="site-search-form">
+  <form class="site-search-form">
   <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
 </form>
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -150,68 +226,86 @@
   _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
 </script>
 
-<div class="site-search-toggle"></div>
+
+
     </div>
   
-</div>
+</nav>
 
+ </div>
+    </header>
 
-      </div>
-    </div>
-
-    <div id="main" class="main">
+    <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              POJ 1088 滑雪
-            
-          
-        </h1>
-      
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-08-13
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <a href="/categories/POJ/">POJ</a>
+            
+              
+                POJ 1088 滑雪
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-08-13T21:16:26+08:00" content="2015-08-13">
+              2015-08-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/POJ/" itemprop="url" rel="index">
+                    <span itemprop="name">POJ</span>
+                  </a>
+                </span>
+
+                
+                
 
               
-              
+            </span>
+          
 
+          
             
-          </span>
-        
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/13/POJ/poj-1088/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/13/POJ/poj-1088/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
           
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/08/13/POJ/poj-1088/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/13/POJ/poj-1088/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
+		  
+        </div>
+      </header>
+    
+
 
     <div class="post-body">
 
@@ -219,7 +313,7 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Michael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子<br><a id="more"></a><br> 1  2  3  4 5</p>
+        <span itemprop="articleBody"><h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Michael喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael想知道载一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子<br><a id="more"></a><br> 1  2  3  4 5</p>
 <p>16 17 18 19 6</p>
 <p>15 24 25 20 7</p>
 <p>14 23 22 21 8</p>
@@ -234,38 +328,42 @@
 <p>这里所用到的动态转移方程为：<code>dp[x][y] = max(dfs(x - 1, y), dfs(x + 1, y), dfs(x, y - 1), dfs(x, y + 1)) + 1</code></p>
 <p>这里+1的原因是将自己这个点本身也算进去。</p>
 <h1 id="AC代码">AC代码</h1><p>220K/16MS/C++<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int a[<span class="number">105</span>][<span class="number">105</span>], dp[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line">int m, n;</span><br><span class="line">int dfs<span class="params">(int x, int y)</span></span><br><span class="line">&#123;</span><br><span class="line">    int maxn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(dp[x][y] &gt; <span class="number">0</span>)</span> return dp[x][y];</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(y - <span class="number">1</span> &gt;= <span class="number">0</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x][y - <span class="number">1</span>])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x, y - <span class="number">1</span>)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(y + <span class="number">1</span> &lt; m)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x][y + <span class="number">1</span>])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x, y + <span class="number">1</span>)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(x - <span class="number">1</span> &gt;= <span class="number">0</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x - <span class="number">1</span>][y])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x - <span class="number">1</span>, y)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(x + <span class="number">1</span> &lt; n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="params">(a[x][y] &gt; a[x + <span class="number">1</span>][y])</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxn = <span class="built_in">max</span><span class="params">(maxn, dfs<span class="params">(x + <span class="number">1</span>, y)</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return maxn + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main<span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    memset<span class="params">(dp, <span class="number">0</span>, sizeof<span class="params">(dp)</span>)</span>;</span><br><span class="line">    scanf<span class="params">(<span class="string">"%d%d"</span>, &amp;n, &amp;m)</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            scanf<span class="params">(<span class="string">"%d"</span>, &amp;a[i][j])</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][j] = dfs<span class="params">(i, j)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; n; i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; m; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="built_in">max</span><span class="params">(ans, dp[i][j])</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf<span class="params">(<span class="string">"%d\n"</span>, ans)</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+</span>
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/"> #ACM </a>
+            <a href="/tags/ACM/" rel="tag">#ACM</a>
           
-            <a href="/tags/DFS/"> #DFS </a>
+            <a href="/tags/DFS/" rel="tag">#DFS</a>
           
-            <a href="/tags/POJ/"> #POJ </a>
+            <a href="/tags/POJ/" rel="tag">#POJ</a>
           
-            <a href="/tags/动态规划/"> #动态规划 </a>
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
           
-            <a href="/tags/记忆化搜索/"> #记忆化搜索 </a>
+            <a href="/tags/记忆化搜索/" rel="tag">#记忆化搜索</a>
           
         </div>
       
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/13/POJ/poj-1157/">POJ 1157 LITTLE SHOP OF FLOWERS</a>
+              <a href="/2015/08/12/Ubuntu/easybcd-ubuntu/" rel="next" title="Windows下使用EasyBCD引导安装Ubuntu">
+                <i class="fa fa-chevron-left"></i> Windows下使用EasyBCD引导安装Ubuntu
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/12/Ubuntu/easybcd-ubuntu/">Windows下使用EasyBCD引导安装Ubuntu</a>
+              <a href="/2015/08/13/POJ/poj-1157/" rel="prev" title="POJ 1157 LITTLE SHOP OF FLOWERS">
+                POJ 1157 LITTLE SHOP OF FLOWERS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -273,34 +371,34 @@
 
       
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
 
     <div class="post-spread">
       
     </div>
+  </div>
 
-    
-      <div class="comments" id="comments">
-        
-          <div class="ds-thread" data-thread-key="2015/08/13/POJ/poj-1088/"
-               data-title="POJ 1088 滑雪" data-url="https://gyshgx868.github.io/2015/08/13/POJ/poj-1088/">
+
           </div>
-        
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/08/13/POJ/poj-1088/"
+           data-title="POJ 1088 滑雪" data-url="https://gyshgx868.github.io/2015/08/13/POJ/poj-1088/">
       </div>
     
   </div>
 
 
         </div>
-
         
-      </div>
-
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -310,12 +408,14 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -324,13 +424,15 @@
         </ul>
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg" alt="GYSHGX868" />
-          <p class="site-author-name">GYSHGX868</p>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg"
+               alt="GYSHGX868" />
+          <p class="site-author-name" itemprop="name">GYSHGX868</p>
+          <p class="site-description motion-element" itemprop="description">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
         </div>
-        <p class="site-description motion-element">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
-        <div class="site-state motion-element">
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">41</span>
@@ -352,7 +454,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -360,12 +462,20 @@
           
             
               <span class="links-of-author-item">
-              <a href="https://github.com/gyshgx868" target="_blank">Github</a>
-            </span>
+                <a href="https://github.com/gyshgx868" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="https://twitter.com/gyshgx868" target="_blank">Twitter</a>
-            </span>
+                <a href="https://twitter.com/gyshgx868" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Twitter
+                  
+                </a>
+              </span>
             
           
         </div>
@@ -378,16 +488,16 @@
             <p class="site-author-name">友情链接</p>
             
               <span class="links-of-author-item">
-              <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
+                <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
               </span>
             
           
         </div>
-        
-      </div>
+
+      </section>
 
       
-        <div class="post-toc-wrap sidebar-panel-active">
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc-indicator-top post-toc-indicator"></div>
           <div class="post-toc">
             
@@ -396,25 +506,27 @@
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </div>
+        </section>
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+        
+      </div>
+    </main>
 
-    <div id="footer" class="footer">
+    <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
-  &copy; &nbsp; 
-  2015
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
-    <i class="icon-heart"></i>
+    <i class="icon-next-heart fa fa-heart"></i>
   </span>
-  <span class="author">GYSHGX868</span>
+  <span class="author" itemprop="copyrightHolder">GYSHGX868</span>
 </div>
 
 <div class="powered-by">
@@ -424,44 +536,53 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
 
 
       </div>
-    </div>
+    </footer>
 
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v="></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v="></script>
-  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=" id="motion.global"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
+  
 
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
 
   
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
 
+  
+  
+<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -493,7 +614,6 @@
     }
 
     function getTOCMaxHeight () {
-      var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
                    $tocSelector.position().top -
                    $('.post-toc-indicator-bottom').height();
@@ -515,7 +635,7 @@
       )
     }
 
-    $(document).on('sidebar.didShow', function () {
+    $(document).on('sidebar.motion.complete', function () {
       processTOC();
     });
 
@@ -532,7 +652,6 @@
       element.on('mousewheel DOMMouseScroll', function (event) {
           var oe = event.originalEvent;
           var delta = oe.wheelDelta || -oe.detail;
-          var self = this;
 
           this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
           event.preventDefault();
@@ -542,95 +661,94 @@
     }
 
     function tocOverflowIndicator (indicator, action) {
-      $(indicator).velocity('stop').velocity({
-        opacity: action === 'show' ? 0.4 : 0
-      }, { duration: 100 });
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
     }
 
   });
 </script>
 
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
 
-  <script type="text/javascript" id="sidebar.nav">
-    $(document).ready(function () {
-      var html = $('html');
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
 
-      $('.sidebar-nav li').on('click', function () {
-        var item = $(this);
-        var activeTabClassName = 'sidebar-nav-active';
-        var activePanelClassName = 'sidebar-panel-active';
-        if (item.hasClass(activeTabClassName)) {
-          return;
-        }
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
 
-        var currentTarget = $('.' + activePanelClassName);
-        var target = $('.' + item.data('target'));
-
-        currentTarget.velocity('transition.slideUpOut', 200, function () {
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
           target
             .velocity('stop')
-            .velocity('transition.slideDownIn', 200)
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
             .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
         });
 
-        item.siblings().removeClass(activeTabClassName);
-        item.addClass(activeTabClassName);
-      });
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
 
-      $('.post-toc a').on('click', function (e) {
-        e.preventDefault();
-        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
         html.velocity('stop').velocity('scroll', {
           offset: offset  + 'px',
           mobileHA: false
-        });
-      });
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
 
-      // Expand sidebar on post detail page by default, when post has a toc.
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
-      if (isDesktop() && CONFIG.sidebar === 'post') {
+      if (CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           displaySidebar();
         }
       }
-    });
-  </script>
-
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
+    };
   });
 </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
   
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
   
 
   
@@ -642,6 +760,7 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
@@ -650,21 +769,19 @@
   </script>
 
   
+    
+  
+
+
+
 
 
   
   
 
   
-  <!-- lazyload -->
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-      <script type="text/javascript">
-        jQuery(function() {          
-            jQuery("#posts img").lazyload({
-              placeholder:"http://www.arao.me/loading.gif",  
-                effect:"fadeIn"
-              });
-            });
-    </script>   
+  
+
+
 </body>
 </html>
