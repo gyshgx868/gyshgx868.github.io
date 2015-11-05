@@ -43,12 +43,6 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-
-  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
-
-
-
-
   <meta name="keywords" content="ACM,CF,数据结构,贪心," />
 
 
@@ -79,6 +73,7 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: '[object Object]',
@@ -92,15 +87,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -201,7 +187,7 @@
         <li class="menu-item menu-item-search">
           <a href="#" class="st-search-show-outputs">
             
-              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -247,6 +233,10 @@
   
   
 
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
@@ -266,7 +256,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-08-14T14:16:49+08:00" content="2015-08-14">
               2015-08-14
             </time>
@@ -274,7 +267,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/CodeForces/" itemprop="url" rel="index">
@@ -301,19 +298,30 @@
           
 
           
-		  
+
+          
+          
+             <span id="/2015/08/14/CodeForces/cf-570/" class="leancloud_visitors" data-flag-title="CodeForces 570C Replacement">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Daniel has a string s, consisting of lowercase English letters and period signs (characters ‘.’). Let’s define the operation of replacement as the following sequence of steps: find a substring “..” (two consecutive periods) in string s, of all occurrences of the substring let’s choose the first one, and replace this substring with string “.”. In other words, during the replacement operation, the first two consecutive periods are replaced by one. If string s contains no two consecutive periods, then nothing happens.<br><a id="more"></a><br>Let’s define f(s) as the minimum number of operations of replacement to perform, so that the string does not have any two consecutive periods left.</p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Daniel has a string s, consisting of lowercase English letters and period signs (characters ‘.’). Let’s define the operation of replacement as the following sequence of steps: find a substring “..” (two consecutive periods) in string s, of all occurrences of the substring let’s choose the first one, and replace this substring with string “.”. In other words, during the replacement operation, the first two consecutive periods are replaced by one. If string s contains no two consecutive periods, then nothing happens.<br><a id="more"></a><br>Let’s define f(s) as the minimum number of operations of replacement to perform, so that the string does not have any two consecutive periods left.</p>
 <p>You need to process m queries, the i-th results in that the character at position $x_i$ (1 ≤ $x_i$ ≤ n) of string s is assigned value $c_i$. After each operation you have to calculate and output the value of f(s).</p>
 <p>Help Daniel to process all queries.</p>
 <h2 id="Input">Input</h2><p>The first line contains two integers n and m (1 ≤ n, m ≤ 300 000) the length of the string and the number of queries.</p>
@@ -427,7 +435,7 @@
 <h1 id="题目链接">题目链接</h1><p><a href="http://codeforces.com/problemset/problem/570/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/570/C</a></p>
 <h1 id="解题思路">解题思路</h1><p>一开始以为是一道多难的题，竟然如此的简单。比赛还剩不到10分钟的时候才想到，匆忙中敲了一发，竟然WA了，也没时间检查哪里错了。赛后看了一下别人的代码，才发现自己的代码写Low了。</p>
 <h1 id="AC代码">AC代码</h1><p>171 ms/100 KB/GNU C++<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">300005</span>], ch[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, x;</span><br><span class="line">    <span class="keyword">while</span> (~scanf(<span class="string">"%d%d"</span>, &amp;n, &amp;m))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        scanf(<span class="string">"%s"</span>, <span class="keyword">str</span> + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt += <span class="keyword">str</span>[i] == <span class="string">'.'</span> &amp;&amp; <span class="keyword">str</span>[i + <span class="number">1</span>] == <span class="string">'.'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            scanf(<span class="string">"%d%s"</span>, &amp;x, ch);</span><br><span class="line">            cnt -= <span class="keyword">str</span>[x - <span class="number">1</span>] == <span class="string">'.'</span> &amp;&amp; <span class="keyword">str</span>[x] == <span class="string">'.'</span>;</span><br><span class="line">            cnt -= <span class="keyword">str</span>[x + <span class="number">1</span>] == <span class="string">'.'</span> &amp;&amp; <span class="keyword">str</span>[x] == <span class="string">'.'</span>;</span><br><span class="line">            <span class="keyword">str</span>[x] = ch[<span class="number">0</span>];</span><br><span class="line">            cnt += <span class="keyword">str</span>[x - <span class="number">1</span>] == <span class="string">'.'</span> &amp;&amp; <span class="keyword">str</span>[x] == <span class="string">'.'</span>;</span><br><span class="line">            cnt += <span class="keyword">str</span>[x + <span class="number">1</span>] == <span class="string">'.'</span> &amp;&amp; <span class="keyword">str</span>[x] == <span class="string">'.'</span>;</span><br><span class="line">            printf(<span class="string">"%d\n"</span>, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
+
       
     </div>
 
@@ -595,14 +603,20 @@
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_test(s)"><span class="nav-number">1.4.</span> <span class="nav-text">Sample test(s)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.5.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -668,7 +682,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
 
@@ -677,9 +691,16 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
   
-<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -759,7 +780,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -878,6 +899,99 @@
 
   
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4CBdrIfmiIWIOvx1T6u5PMF4", "B2WURkqNaGEHvP9miX7v0ljn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
 
 </body>

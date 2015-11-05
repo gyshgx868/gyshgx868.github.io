@@ -43,12 +43,6 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-
-  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
-
-
-
-
   <meta name="keywords" content="ACM,POJ,矩阵快速幂," />
 
 
@@ -80,6 +74,7 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: '[object Object]',
@@ -93,15 +88,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -202,7 +188,7 @@
         <li class="menu-item menu-item-search">
           <a href="#" class="st-search-show-outputs">
             
-              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -248,6 +234,10 @@
   
   
 
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
@@ -267,7 +257,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-07-21T10:37:37+08:00" content="2015-07-21">
               2015-07-21
             </time>
@@ -275,7 +268,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/POJ/" itemprop="url" rel="index">
@@ -302,19 +299,30 @@
           
 
           
-		  
+
+          
+          
+             <span id="/2015/07/21/POJ/poj-3735/" class="leancloud_visitors" data-flag-title="POJ 3735 Training little cats">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Facer’s pet cat just gave birth to a brood of little cats. Having considered the health of those lovely cats, Facer decides to make the cats to do some exercises. Facer has well designed a set of moves for his cats. He is now asking you to supervise the cats to do his exercises. Facer’s great exercise for cats contains three different moves:<br><a id="more"></a><br>g i : Let the ith cat take a peanut.<br>e i : Let the ith cat eat all peanuts it have.<br>s i j : Let the ith cat and jth cat exchange their peanuts.<br>All the cats perform a sequence of these moves and must repeat it m times! Poor cats! Only Facer can come up with such embarrassing idea.<br>You have to determine the final number of peanuts each cat have, and directly give them the exact quantity in order to save them.</p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Facer’s pet cat just gave birth to a brood of little cats. Having considered the health of those lovely cats, Facer decides to make the cats to do some exercises. Facer has well designed a set of moves for his cats. He is now asking you to supervise the cats to do his exercises. Facer’s great exercise for cats contains three different moves:<br><a id="more"></a><br>g i : Let the ith cat take a peanut.<br>e i : Let the ith cat eat all peanuts it have.<br>s i j : Let the ith cat and jth cat exchange their peanuts.<br>All the cats perform a sequence of these moves and must repeat it m times! Poor cats! Only Facer can come up with such embarrassing idea.<br>You have to determine the final number of peanuts each cat have, and directly give them the exact quantity in order to save them.</p>
 <h2 id="Input">Input</h2><p>The input file consists of multiple test cases, ending with three zeroes “0 0 0”. For each test case, three integers n, m and k are given firstly, where n is the number of cats and k is the length of the move sequence. The following k lines describe the sequence.<br>(m≤1,000,000,000, n≤100, k≤100)</p>
 <h2 id="Output">Output</h2><p>For each test case, output n numbers in a single line, representing the numbers of peanuts the cats have.</p>
 <h2 id="Sample_Input">Sample Input</h2><p>3 1 6<br>g 1<br>g 2<br>g 2<br>s 1 2<br>g 3<br>e 2<br>0 0 0</p>
@@ -325,7 +333,7 @@
 <p>SB题，害得我T了N发。原因就在于进行矩阵乘法的时候，由于乘法的次数m次较多，而矩阵又过于稀疏，导致做了大量的无意义的计算：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Matrix</span> operator *(<span class="keyword">const</span> <span class="keyword">Matrix</span> &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">Matrix</span> t(<span class="keyword">n</span>, <span class="keyword">m</span>);</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt;= <span class="keyword">n</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j = 0; j &lt;= <span class="keyword">m</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            t.a[i][j] = 0;</span><br><span class="line">            <span class="keyword">for</span> (int k = 0; k &lt;= <span class="keyword">m</span>; k++)</span><br><span class="line">                t.a[i][j] += a[i][k] * b.a[k][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>将这段代码改成这样就好了：<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Matrix <span class="keyword">operator</span> *(<span class="keyword">const</span> Matrix &amp;b)</span><br><span class="line"><span class="comment">&#123;</span><br><span class="line">    Matrix t(n, m);</span><br><span class="line">    for (int i = 0; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt;= m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            t.a[i][j] = 0;</span><br><span class="line">            for (int k = 0; k &lt;= m; k++)</span><br><span class="line">                if (a[i][k] &amp;&amp; b.a[k][j])</span><br><span class="line">                    t.a[i][j] += a[i][k] * b.a[k][j];</span><br><span class="line">        &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="AC代码">AC代码</h1><p>648K/1016MS/C++<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> &lt;cstdio&gt;</span><br><span class="line">#<span class="keyword">include</span> &lt;cstring&gt;</span><br><span class="line">#<span class="keyword">include</span> &lt;iostream&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> int <span class="keyword">N</span> = 105;</span><br><span class="line">struct <span class="literal">Matrix</span></span><br><span class="line">&#123;</span><br><span class="line">    int <span class="keyword">n</span>, <span class="keyword">m</span>;</span><br><span class="line">    ll a[<span class="keyword">N</span>][<span class="keyword">N</span>];</span><br><span class="line">    <span class="literal">Matrix</span>(int <span class="keyword">n</span> = <span class="keyword">N</span>, int <span class="keyword">m</span> = <span class="keyword">N</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        this-&gt;<span class="keyword">n</span> = <span class="keyword">n</span>;</span><br><span class="line">        this-&gt;<span class="keyword">m</span> = <span class="keyword">m</span>;</span><br><span class="line">        memset(a, 0, sizeof(a));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">Matrix</span> unit()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">Matrix</span> t(<span class="keyword">n</span>, <span class="keyword">n</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt;= <span class="keyword">n</span>; i++)</span><br><span class="line">            t.a[i][i] = 1;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">Matrix</span> operator *(<span class="keyword">const</span> <span class="keyword">Matrix</span> &amp;b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">Matrix</span> t(<span class="keyword">n</span>, <span class="keyword">m</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt;= <span class="keyword">n</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (int j = 0; j &lt;= <span class="keyword">m</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                t.a[i][j] = 0;</span><br><span class="line">                <span class="keyword">for</span> (int k = 0; k &lt;= <span class="keyword">m</span>; k++)</span><br><span class="line">                    <span class="keyword">if</span> (a[i][k] &amp;&amp; b.a[k][j])</span><br><span class="line">                        t.a[i][j] += a[i][k] * b.a[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">    friend <span class="keyword">Matrix</span> quickpow(<span class="keyword">Matrix</span> &amp;a, ll b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &lt; 0) <span class="keyword">return</span> a.unit();</span><br><span class="line">        <span class="keyword">Matrix</span> <span class="keyword">ret</span> = a.unit();</span><br><span class="line">        <span class="keyword">for</span> (; b; b &gt;&gt;= 1, a = a * a)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b &amp; 1)</span><br><span class="line">                <span class="keyword">ret</span> = <span class="keyword">ret</span> * a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">ret</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int <span class="keyword">n</span>, k;</span><br><span class="line">    ll <span class="keyword">m</span>;</span><br><span class="line">    <span class="keyword">while</span> (~scanf(<span class="string">"%d%I64d%d"</span>, &amp;<span class="keyword">n</span>, &amp;<span class="keyword">m</span>, &amp;k) &amp;&amp; <span class="keyword">n</span> + <span class="keyword">m</span> + k != 0)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> c[5];</span><br><span class="line">        int x, y;</span><br><span class="line">        <span class="keyword">Matrix</span> A(<span class="keyword">n</span>, <span class="keyword">n</span>);</span><br><span class="line">        <span class="keyword">Matrix</span> B(<span class="keyword">n</span>, 1);</span><br><span class="line">        A = A.unit();</span><br><span class="line">        B.a[<span class="keyword">n</span>][0] = 1;</span><br><span class="line">        <span class="keyword">for</span> (int i = 1; i &lt;= k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            scanf(<span class="string">"%s"</span>, c);</span><br><span class="line">            <span class="keyword">if</span> (c[0] == '<span class="keyword">g</span>')</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">                A.a[x - 1][<span class="keyword">n</span>]++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c[0] == '<span class="keyword">e</span>')</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">                <span class="keyword">for</span> (int j = 0; j &lt;= <span class="keyword">n</span>; j++)</span><br><span class="line">                    A.a[x - 1][j] = 0;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c[0] == 's')</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">                <span class="keyword">for</span> (int j = 0; j &lt;= <span class="keyword">n</span>; j++)</span><br><span class="line">                    swap(A.a[x - 1][j], A.a[y - 1][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        A = quickpow(A, <span class="keyword">m</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; <span class="keyword">n</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i) printf(<span class="string">" "</span>);</span><br><span class="line">            printf(<span class="string">"%I64d"</span>, A.a[i][<span class="keyword">n</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
+
       
     </div>
 
@@ -491,14 +499,20 @@
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TLE代码"><span class="nav-number">4.</span> <span class="nav-text">TLE代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">5.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -564,7 +578,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
 
@@ -573,9 +587,16 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
   
-<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -655,7 +676,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -774,6 +795,99 @@
 
   
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4CBdrIfmiIWIOvx1T6u5PMF4", "B2WURkqNaGEHvP9miX7v0ljn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
 
 </body>

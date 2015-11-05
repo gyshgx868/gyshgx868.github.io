@@ -43,12 +43,6 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-
-  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
-
-
-
-
   <meta name="keywords" content="Python," />
 
 
@@ -86,6 +80,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: '[object Object]',
@@ -99,15 +94,6 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -208,7 +194,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <li class="menu-item menu-item-search">
           <a href="#" class="st-search-show-outputs">
             
-              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -254,6 +240,10 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   
   
 
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
@@ -273,7 +263,10 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-09-25T22:09:22+08:00" content="2015-09-25">
               2015-09-25
             </time>
@@ -281,7 +274,11 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -308,19 +305,30 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
           
 
           
-		  
+
+          
+          
+             <span id="/2015/09/25/Python/02-python-install/" class="leancloud_visitors" data-flag-title="Python环境搭建">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><p>本文引自：<a href="http://www.runoob.com/python/python-install.html" target="_blank" rel="external">runoob.com - Python环境搭建</a></p>
+        <p>本文引自：<a href="http://www.runoob.com/python/python-install.html" target="_blank" rel="external">runoob.com - Python环境搭建</a></p>
 <p>本章节我们将向大家介绍如何在本地搭建Python开发环境。</p>
 <p>Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。<br><a id="more"></a><br>Windows下直接下载最新版的Python 2.7.9，安装的时候注意选择。</p>
 <p><img src="http://7xn25g.dl1.z0.glb.clouddn.com/python_install.png" alt="Python安装"></p>
@@ -504,7 +512,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 </ul>
 <p>继续下一章之前，请确保您的环境已搭建成功。如果你不能够建立正确的环境，那么你就可以从您的系统管理员的帮助。</p>
 <p>在以后的章节中给出的例子已在Ubuntu下Python 2.7.6版本测试通过。</p>
-</span>
+
       
     </div>
 
@@ -666,14 +674,20 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python下载"><span class="nav-number">1.</span> <span class="nav-text">Python下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python安装"><span class="nav-number">2.</span> <span class="nav-text">Python安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix_&_Linux平台安装Python"><span class="nav-number">2.1.</span> <span class="nav-text">Unix & Linux平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows平台安装Python"><span class="nav-number">2.2.</span> <span class="nav-text">Windows平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac平台安装Python"><span class="nav-number">2.3.</span> <span class="nav-text">Mac平台安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Unix/Linux设置环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">在Unix/Linux设置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Windows设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">在Windows设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python_环境变量"><span class="nav-number">4.</span> <span class="nav-text">Python 环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Python"><span class="nav-number">5.</span> <span class="nav-text">运行Python</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -739,7 +753,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   
 
 
-  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
 
@@ -748,9 +762,16 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
   
-<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -830,7 +851,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -949,6 +970,99 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
   
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4CBdrIfmiIWIOvx1T6u5PMF4", "B2WURkqNaGEHvP9miX7v0ljn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
 
 </body>

@@ -43,12 +43,6 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-
-  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
-
-
-
-
   <meta name="keywords" content="Hexo, NexT" />
 
 
@@ -79,6 +73,7 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: '[object Object]',
@@ -92,15 +87,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -201,7 +187,7 @@
         <li class="menu-item menu-item-search">
           <a href="#" class="st-search-show-outputs">
             
-              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -247,6 +233,10 @@
   
   
 
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
@@ -266,7 +256,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-07-28T22:22:19+08:00" content="2015-07-28">
               2015-07-28
             </time>
@@ -286,19 +279,30 @@
           
 
           
-		  
+
+          
+          
+             <span id="/about/index.html" class="leancloud_visitors" data-flag-title="关于">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Main &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> Introduction &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> nickName = <span class="string">"GYSHGX868"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> role = <span class="string">"Student"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">Date</span> birth = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1995/11/15"</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> region = <span class="string">"Haidian, Beijing"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> school = <span class="string">"China University of Geoscience"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> interest = <span class="string">"Coding, Algorithm, Web"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> mail = <span class="string">"gyshgx868@gmail.com"</span>;</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">String</span> toString() &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"NickName: "</span> + nickName + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Role: "</span> + role + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Birthday: "</span> + birth.toString() + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Region: "</span> + region + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"School: "</span> + school + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Interest: "</span> + interest + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Mail: "</span> + mail + <span class="string">"\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">public</span> static <span class="built_in">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">        Introduction intro = <span class="keyword">new</span> Main().new Introduction();</span><br><span class="line">        System.out.println(intro.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+        <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Main &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> Introduction &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> nickName = <span class="string">"GYSHGX868"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> role = <span class="string">"Student"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">Date</span> birth = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1995/11/15"</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> region = <span class="string">"Haidian, Beijing"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> school = <span class="string">"China University of Geoscience"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> interest = <span class="string">"Coding, Algorithm, Web"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">String</span> mail = <span class="string">"gyshgx868@gmail.com"</span>;</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">String</span> toString() &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"NickName: "</span> + nickName + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Role: "</span> + role + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Birthday: "</span> + birth.toString() + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Region: "</span> + region + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"School: "</span> + school + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Interest: "</span> + interest + <span class="string">"\n"</span></span><br><span class="line">                    + <span class="string">"Mail: "</span> + mail + <span class="string">"\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">public</span> static <span class="built_in">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">        Introduction intro = <span class="keyword">new</span> Main().new Introduction();</span><br><span class="line">        System.out.println(intro.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -436,14 +440,20 @@
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -509,7 +519,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
 
@@ -518,9 +528,16 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
   
-<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -600,7 +617,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -719,6 +736,99 @@
 
   
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4CBdrIfmiIWIOvx1T6u5PMF4", "B2WURkqNaGEHvP9miX7v0ljn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
 
 </body>

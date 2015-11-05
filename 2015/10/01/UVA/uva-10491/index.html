@@ -43,12 +43,6 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-
-  <meta name="description" content="我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。" />
-
-
-
-
   <meta name="keywords" content="ACM,UVA,数学,概率," />
 
 
@@ -79,6 +73,7 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: '[object Object]',
@@ -92,15 +87,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -201,7 +187,7 @@
         <li class="menu-item menu-item-search">
           <a href="#" class="st-search-show-outputs">
             
-              <i class="menu-item-icon fa fa-search icon-next-search"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -247,6 +233,10 @@
   
   
 
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
@@ -266,7 +256,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-10-01T21:00:50+08:00" content="2015-10-01">
               2015-10-01
             </time>
@@ -274,7 +267,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/UVA/" itemprop="url" rel="index">
@@ -301,19 +298,30 @@
           
 
           
-		  
+
+          
+          
+             <span id="/2015/10/01/UVA/uva-10491/" class="leancloud_visitors" data-flag-title="UVA 10491 Cows and Cars">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>In television contests, participants are often asked to choose one from a set of or doors for example, one or several of which lead to different prizes. In this problem we will deal with a specific kind of sucha contest. Suppose you are given the following challenge by the contest presenter:<br><a id="more"></a><br>In front of you there are three doors. Two of them hide a cow, the other one hides your prize - a car. After you choose a door, but before you open it, I will give you an hint, by opening one of the doors which hides a cow (I’ll never open the door you have chosen, even if it hides a cow). You will then be able to choose if you want to keep your choice, or if you wish to change to the other unopened door. You will win whatever is behind the door you open.</p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>In television contests, participants are often asked to choose one from a set of or doors for example, one or several of which lead to different prizes. In this problem we will deal with a specific kind of sucha contest. Suppose you are given the following challenge by the contest presenter:<br><a id="more"></a><br>In front of you there are three doors. Two of them hide a cow, the other one hides your prize - a car. After you choose a door, but before you open it, I will give you an hint, by opening one of the doors which hides a cow (I’ll never open the door you have chosen, even if it hides a cow). You will then be able to choose if you want to keep your choice, or if you wish to change to the other unopened door. You will win whatever is behind the door you open.</p>
 <p>In this example, the probability you have of winning the car is 2/3 (as hard as it is to believe), assuming you always switch your choice when the presenter gives you the opportunity to do so (after he shows you a door with a cow). The reason of this number (2/3) is this - if you had chosen one of the two cows, you would surely switch to the car, since the presenter had shown you the other cow. If you had chosen the car, you would switch to the remaining cow, therefore losing the prize. Thus, in two out of three cases you would switch to the car. The probability to win if you had chosen to stick with your initial choice would obviously be only 1/3, but that isn’t important for this problem.</p>
 <p>In this problem, you are to calculate the probability you have of winning the car, for a generalization of the problem above:</p>
 <ul>
@@ -334,7 +342,7 @@
 <li>第一次选择牛，概率为<code>cow / (cow + car)</code>，然后知情人打开了<code>door</code>个门（自己选的那个不被打开），然后现在实际上只剩下<code>cow + car - door</code>个门（包括自己选的那个）。改变选择，那么现在能选的门的个数为<code>cow + car - door - 1</code>，选到车的概率为<code>car / (cow + car - door - 1)</code>。由于是条件概率所以要相乘：<code>p1 = car / (cow + car) * car / (cow + car - door - 1)</code>；</li>
 <li>如果第一次选到车，概率为<code>car / (cow + car)</code>，然后知情人打开<code>door</code>个门，实际上剩下的门也是<code>cow + car - door</code>。改变选择，那么能选的个数为<code>cow + car - door - 1</code>，车的个数只剩下<code>car - 1</code>（你放弃了之前选择的那个），选到车的概率就是<code>(car - 1) / (cow + car - door - 1)</code>，两者相乘：<code>p2 = car / (cow + car) * (car - 1) / (cow + car - door - 1)</code>。</li>
 </ul>
-<h1 id="AC代码">AC代码</h1><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    double cow, car, <span class="keyword">door</span>;</span><br><span class="line">    while (~scanf(<span class="string">"%lf%lf%lf"</span>, &amp;cow, &amp;car, &amp;<span class="keyword">door</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        double p1 = 1.0 * cow / (cow + car) * car / (cow + car - <span class="keyword">door</span> - 1);</span><br><span class="line">        double p2 = 1.0 * car / (cow + car) * (car - 1) / (cow + car - <span class="keyword">door</span> - 1);</span><br><span class="line">        printf(<span class="string">"%.5f\n"</span>, p1 + p2);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<h1 id="AC代码">AC代码</h1><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    double cow, car, <span class="keyword">door</span>;</span><br><span class="line">    while (~scanf(<span class="string">"%lf%lf%lf"</span>, &amp;cow, &amp;car, &amp;<span class="keyword">door</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        double p1 = 1.0 * cow / (cow + car) * car / (cow + car - <span class="keyword">door</span> - 1);</span><br><span class="line">        double p2 = 1.0 * car / (cow + car) * (car - 1) / (cow + car - <span class="keyword">door</span> - 1);</span><br><span class="line">        printf(<span class="string">"%.5f\n"</span>, p1 + p2);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -502,14 +510,20 @@
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -575,7 +589,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/helpers.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
 
@@ -584,9 +598,16 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
   
-<script type="text/javascript" src="/js/src/bootstrap.scrollspy.js?v=5.0.0"></script>
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -666,7 +687,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -785,6 +806,99 @@
 
   
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4CBdrIfmiIWIOvx1T6u5PMF4", "B2WURkqNaGEHvP9miX7v0ljn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
 
 </body>
