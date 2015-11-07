@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ACM,UVA,字符串," />
+  <meta name="keywords" content="ACM,CF,二分,数学," />
 
 
 
@@ -59,16 +59,17 @@
 
 
 
-<meta name="description" content="题目描述DescriptionA regular palindrome is a string of numbers or letters that is the same forward as backward. For example, the string “ABCDEDCBA” is a palindrome because it is the same when the string i">
+<meta name="description" content="题目描述DescriptionMr. Bender has a digital table of size n × n, each cell can be switched on or off. He wants the field to have at least c switched on squares. When this condition is fulfilled, Mr Bender">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVA 401 Palindromes">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/10/05/UVA/uva-401/index.html">
+<meta property="og:title" content="CodeForces 255D Mr. Bender and Square">
+<meta property="og:url" content="https://gyshgx868.github.io/2015/11/07/CodeForces/cf-255d/index.html">
 <meta property="og:site_name" content="GYSHGX868's Notes">
-<meta property="og:description" content="题目描述DescriptionA regular palindrome is a string of numbers or letters that is the same forward as backward. For example, the string “ABCDEDCBA” is a palindrome because it is the same when the string i">
-<meta property="og:updated_time" content="2015-10-06T09:08:58.837Z">
+<meta property="og:description" content="题目描述DescriptionMr. Bender has a digital table of size n × n, each cell can be switched on or off. He wants the field to have at least c switched on squares. When this condition is fulfilled, Mr Bender">
+<meta property="og:image" content="http://codeforces.com/predownloaded/6e/3e/6e3ecb10e3686908f6976363a9e607ca9dfeb5c4.png">
+<meta property="og:updated_time" content="2015-11-07T07:15:40.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVA 401 Palindromes">
-<meta name="twitter:description" content="题目描述DescriptionA regular palindrome is a string of numbers or letters that is the same forward as backward. For example, the string “ABCDEDCBA” is a palindrome because it is the same when the string i">
+<meta name="twitter:title" content="CodeForces 255D Mr. Bender and Square">
+<meta name="twitter:description" content="题目描述DescriptionMr. Bender has a digital table of size n × n, each cell can be switched on or off. He wants the field to have at least c switched on squares. When this condition is fulfilled, Mr Bender">
 
 
 
@@ -82,7 +83,7 @@
   };
 </script>
 
-  <title> UVA 401 Palindromes | GYSHGX868's Notes </title>
+  <title> CodeForces 255D Mr. Bender and Square | GYSHGX868's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +249,7 @@
             
             
               
-                UVA 401 Palindromes
+                CodeForces 255D Mr. Bender and Square
               
             
           </h1>
@@ -260,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-05T23:34:40+08:00" content="2015-10-05">
-              2015-10-05
+            <time itemprop="dateCreated" datetime="2015-11-07T15:15:38+08:00" content="2015-11-07">
+              2015-11-07
             </time>
           </span>
 
@@ -274,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/UVA/" itemprop="url" rel="index">
-                    <span itemprop="name">UVA</span>
+                  <a href="/categories/CodeForces/" itemprop="url" rel="index">
+                    <span itemprop="name">CodeForces</span>
                   </a>
                 </span>
 
@@ -290,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/05/UVA/uva-401/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/05/UVA/uva-401/" itemprop="commentsCount"></span>
+                <a href="/2015/11/07/CodeForces/cf-255d/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/07/CodeForces/cf-255d/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +302,7 @@
 
           
           
-             <span id="/2015/10/05/UVA/uva-401/" class="leancloud_visitors" data-flag-title="UVA 401 Palindromes">
+             <span id="/2015/11/07/CodeForces/cf-255d/" class="leancloud_visitors" data-flag-title="CodeForces 255D Mr. Bender and Square">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -321,159 +322,66 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>A regular palindrome is a string of numbers or letters that is the same forward as backward. For example, the string “ABCDEDCBA” is a palindrome because it is the same when the string is read from left to right as when the string is read from right to left.<br><a id="more"></a><br>A mirrored string is a string for which when each of the elements of the string is changed to its reverse (if it has a reverse) and the string is read backwards the result is the same as the original string. For example, the string “3AIAE” is a mirrored string because “A” and “I” are their own reverses, and “3” and “E” are each others’ reverses.</p>
-<p>A mirrored palindrome is a string that meets the criteria of a regular palindrome and the criteria of a mirrored string. The string “ATOYOTA” is a mirrored palindrome because if the string is read backwards, the string is the same as the original and because if each of the characters is replaced by its reverse and the result is read backwards, the result is the same as the original string.</p>
-<p>Of course,”A”,”T”, “O”, and “Y” are all their own reverses.</p>
-<p>A list of all valid characters and their reverses is as follows.</p>
-<table>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Mr. Bender has a digital table of size n × n, each cell can be switched on or off. He wants the field to have at least c switched on squares. When this condition is fulfilled, Mr Bender will be happy.<br><a id="more"></a><br>We’ll consider the table rows numbered from top to bottom from 1 to n, and the columns — numbered from left to right from 1 to n. Initially there is exactly one switched on cell with coordinates (x, y) (x is the row number, y is the column number), and all other cells are switched off. Then each second we switch on the cells that are off but have the side-adjacent cells that are on.</p>
+<p>For a cell with coordinates (x, y) the side-adjacent cells are cells with coordinates (x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1).</p>
+<p>In how many seconds will Mr. Bender get happy?</p>
+<h2 id="Input">Input</h2><p>The first line contains four space-separated integers n, x, y, c (1 ≤ n, c ≤ 10^9; 1 ≤ x, y ≤ n; c ≤ n^2).</p>
+<h2 id="Output">Output</h2><p>In a single line print a single integer — the answer to the problem.</p>
+<h2 id="Sample_test(s)">Sample test(s)</h2><table>
 <thead>
 <tr>
-<th>Character</th>
-<th>Reverse</th>
-<th>Character</th>
-<th>Reverse</th>
-<th>Character</th>
-<th>Reverse</th>
+<th>input</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A</td>
-<td>A</td>
-<td>M</td>
-<td>M</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>B</td>
-<td></td>
-<td>N</td>
-<td></td>
-<td>Z</td>
-<td>5</td>
-</tr>
-<tr>
-<td>C</td>
-<td></td>
-<td>O</td>
-<td>O</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>D</td>
-<td></td>
-<td>P</td>
-<td></td>
-<td>2</td>
-<td>S</td>
-</tr>
-<tr>
-<td>E</td>
-<td>3</td>
-<td>Q</td>
-<td></td>
-<td>3</td>
-<td>E</td>
-</tr>
-<tr>
-<td>F</td>
-<td></td>
-<td>R</td>
-<td></td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>G</td>
-<td></td>
-<td>S</td>
-<td>2</td>
-<td>5</td>
-<td>Z</td>
-</tr>
-<tr>
-<td>H</td>
-<td>H</td>
-<td>T</td>
-<td>T</td>
-<td>6</td>
-<td></td>
-</tr>
-<tr>
-<td>I</td>
-<td>I</td>
-<td>U</td>
-<td>U</td>
-<td>7</td>
-<td></td>
-</tr>
-<tr>
-<td>J</td>
-<td>L</td>
-<td>V</td>
-<td>V</td>
-<td>8</td>
-<td>8</td>
-</tr>
-<tr>
-<td>K</td>
-<td></td>
-<td>W</td>
-<td>W</td>
-<td>9</td>
-<td></td>
-</tr>
-<tr>
-<td>L</td>
-<td>J</td>
-<td>X</td>
-<td>X</td>
-<td></td>
-<td></td>
+<td>6 4 3 1</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong> that O (zero) and 0 (the letter) are considered the same character and therefore <strong>ONLY</strong> the letter “0” is a valid character.</p>
-<h2 id="Input">Input</h2><p>Input consists of strings (one per line) each of which will consist of one to twenty valid characters. There will be no invalid characters in any of the strings. Your program should read to the end of file.</p>
-<h2 id="Output">Output</h2><p>For each input string, you should print the string starting in column 1 immediately followed by exactly one of the following strings.</p>
 <table>
 <thead>
 <tr>
-<th>STRING</th>
-<th>CRITERIA</th>
+<th>output</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>“ — is not a palindrome.”</td>
-<td>if the string is not a palindrome and is not a mirrored string</td>
-</tr>
-<tr>
-<td>“ — is a regular palindrome.”</td>
-<td>if the string is a palindrome and is not a mirrored string</td>
-</tr>
-<tr>
-<td>“ — is a mirrored string.”</td>
-<td>if the string is not a palindrome and is a mirrored string</td>
-</tr>
-<tr>
-<td>“ — is a mirrored palindrome.”</td>
-<td>if the string is a palindrome and is a mirrored string</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong> that the output line is to include the -‘s and spacing exactly as shown in the table above and demonstrated in the Sample Output below.</p>
-<p>In addition, after each output line, you must print an empty line.</p>
-<h2 id="Sample_Input">Sample Input</h2><p>NOTAPALINDROME<br>ISAPALINILAPASI<br>2A3MEAS<br>ATOYOTA</p>
-<h2 id="Sample_Output">Sample Output</h2><p>NOTAPALINDROME — is not a palindrome.</p>
-<p>ISAPALINILAPASI — is a regular palindrome.</p>
-<p>2A3MEAS — is a mirrored string.</p>
-<p>ATOYOTA — is a mirrored palindrome.</p>
-<h1 id="题目链接">题目链接</h1><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=342" target="_blank" rel="external">https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=342</a></p>
-<h1 id="解题思路">解题思路</h1><p>题目意思：判断输入的字符串是否是回文串还是镜面字符串。<br>回文串：从左到右读和从右到左读是一样的。<br>镜面字符串：如果某个字符有镜面字符，转换为相应的镜面字符。转换后从左到右读和从右到左读是一样的。<br>注意数字0和字母O是等价的，并且在每组的输出要多输出一个空行。</p>
-<h1 id="AC代码">AC代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;map&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> ch[] = <span class="string">"AEHIJLMOSTUVWXYZ123580"</span>;</span><br><span class="line"><span class="keyword">char</span> re[] = <span class="string">"A3HILJMO2TUVWXY51SEZ80"</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">char</span>&gt; m;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge1</span><span class="params">(<span class="keyword">char</span> *s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len / <span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] != s[len - i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge2</span><span class="params">(<span class="keyword">char</span> *s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len / <span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[len - i - <span class="number">1</span>] != m[s[i]])</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (len &amp; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[len / <span class="number">2</span>] != <span class="string">'0'</span>)</span><br><span class="line">            <span class="keyword">return</span> m[s[len / <span class="number">2</span>]] != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1005</span>], str2[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(ch); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        m[ch[i]] = re[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s"</span>, str))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            str2[i] = str[i];</span><br><span class="line">            <span class="keyword">if</span> (str[i] == <span class="string">'0'</span>) str2[i] = <span class="string">'O'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        str2[len] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">bool</span> x = judge1(str2), y = judge2(str2);</span><br><span class="line">        <span class="keyword">if</span> (!x &amp;&amp; !y)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s -- is not a palindrome.\n\n"</span>, str);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (x &amp;&amp; !y)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s -- is a regular palindrome.\n\n"</span>, str);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!x &amp;&amp; y)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s -- is a mirrored string.\n\n"</span>, str);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (x &amp;&amp; y)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s -- is a mirrored palindrome.\n\n"</span>, str);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 3 8 10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Note">Note</h2><p>Initially the first test has one painted cell, so the answer is 0. In the second test all events will go as is shown on the figure.<br><img src="http://codeforces.com/predownloaded/6e/3e/6e3ecb10e3686908f6976363a9e607ca9dfeb5c4.png" alt="cf-255d"></p>
+<h1 id="题目链接">题目链接</h1><p><a href="http://codeforces.com/problemset/problem/255/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/255/C</a></p>
+<h1 id="解题思路">解题思路</h1><p>题目大意：给一个n * n的格子，然后给一个坐标(x, y)，从这个格子开始，每隔1秒格子会向四周扩散，问经过多少秒格子的总数会大于等于给定的c。<br>解题思路：由于n非常的大，所以无法开数组进行模拟；又因为在扩散的时候碰到墙壁的话，不会再继续向墙的方向进行扩散了，所以公式的解法也行不通。因此我们就需要通过数学来计算一定时间内格子的数目，转换为面积的计算，这样就容易了很多。</p>
+<p>因此我们可以二分所有可能的时间，来计算最终的结果。二分的下限是0，上限是n * 2。在计算格子的数量的时候，我们需要做比较多的判断。首先需要先计算出在一定时间内，不考虑墙壁影响的情况下的格子数量，然后判断是否碰到了四周的墙壁，碰到了就减去超出的部分。另外注意如下类似的情况：如果同时超出了左侧墙壁和上侧墙壁，那么我们在分别处理上侧和左侧的时候会有重复的部分，因此我们要把多减掉的部分再加回来。其他三个角亦是如此。</p>
+<p>代码写得应该比较清晰，画一下图就可以理解了。</p>
+<h1 id="AC代码">AC代码</h1><p>4 KB/30 ms/GNU G++ 4.9.2<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> &lt;cstdio&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">ll <span class="keyword">l</span>, r, <span class="keyword">u</span>, <span class="keyword">d</span>;</span><br><span class="line">ll <span class="keyword">n</span>, x, y, c;</span><br><span class="line">ll sqr(ll x)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll tri(ll x)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> (x + 1) * x / 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool solve(ll t)</span><br><span class="line">&#123;</span><br><span class="line">    ll <span class="keyword">sum</span> = t * t + (t + 1) * (t + 1);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="keyword">l</span>) <span class="keyword">sum</span> -= sqr(t - <span class="keyword">l</span>);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; r) <span class="keyword">sum</span> -= sqr(t - r);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="keyword">u</span>) <span class="keyword">sum</span> -= sqr(t - <span class="keyword">u</span>);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="keyword">d</span>) <span class="keyword">sum</span> -= sqr(t - <span class="keyword">d</span>);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="keyword">l</span> + <span class="keyword">d</span>) <span class="keyword">sum</span> += tri(t - (<span class="keyword">l</span> + <span class="keyword">d</span>) - 1);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="keyword">l</span> + <span class="keyword">u</span>) <span class="keyword">sum</span> += tri(t - (<span class="keyword">l</span> + <span class="keyword">u</span>) - 1);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; r + <span class="keyword">d</span>) <span class="keyword">sum</span> += tri(t - (r + <span class="keyword">d</span>) - 1);</span><br><span class="line">    <span class="keyword">if</span> (t &gt; r + <span class="keyword">u</span>) <span class="keyword">sum</span> += tri(t - (r + <span class="keyword">u</span>) - 1);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">sum</span> &gt;= c) <span class="keyword">return</span> true;</span><br><span class="line">    <span class="keyword">return</span> false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span> (~scanf(<span class="string">"%I64d%I64d%I64d%I64d"</span>, &amp;<span class="keyword">n</span>, &amp;x, &amp;y, &amp;c))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">l</span> = x - 1, r = <span class="keyword">n</span> - x;</span><br><span class="line">        <span class="keyword">u</span> = y - 1, <span class="keyword">d</span> = <span class="keyword">n</span> - y;</span><br><span class="line">        ll low = 0, high = 2 * <span class="keyword">n</span>, mid;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high)</span><br><span class="line">        &#123;</span><br><span class="line">            mid = (low + high) / 2;</span><br><span class="line">            <span class="keyword">if</span> (solve(mid)) high = mid - 1;</span><br><span class="line">            <span class="keyword">else</span> low = mid + 1;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(<span class="string">"%I64d\n"</span>, low);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -483,9 +391,11 @@
           
             <a href="/tags/ACM/" rel="tag">#ACM</a>
           
-            <a href="/tags/UVA/" rel="tag">#UVA</a>
+            <a href="/tags/CF/" rel="tag">#CF</a>
           
-            <a href="/tags/字符串/" rel="tag">#字符串</a>
+            <a href="/tags/二分/" rel="tag">#二分</a>
+          
+            <a href="/tags/数学/" rel="tag">#数学</a>
           
         </div>
       
@@ -494,17 +404,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/03/Python/06-python-operators/" rel="next" title="Python运算符">
-                <i class="fa fa-chevron-left"></i> Python运算符
+              <a href="/2015/11/07/CodeForces/cf-255c/" rel="next" title="CodeForces 255C Almost Arithmetical Progression">
+                <i class="fa fa-chevron-left"></i> CodeForces 255C Almost Arithmetical Progression
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/06/UVA/uva-12333/" rel="prev" title="UVA 12333 Revenge of Fibonacci">
-                UVA 12333 Revenge of Fibonacci <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +556,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample_test(s)"><span class="nav-number">1.4.</span> <span class="nav-text">Sample test(s)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.5.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">2.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">4.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -914,9 +820,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
-      var disqus_identifier = '2015/10/05/UVA/uva-401/';
-      var disqus_title = 'UVA 401 Palindromes';
-      var disqus_url = 'https://gyshgx868.github.io/2015/10/05/UVA/uva-401/';
+      var disqus_identifier = '2015/11/07/CodeForces/cf-255d/';
+      var disqus_title = 'CodeForces 255D Mr. Bender and Square';
+      var disqus_url = 'https://gyshgx868.github.io/2015/11/07/CodeForces/cf-255d/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
