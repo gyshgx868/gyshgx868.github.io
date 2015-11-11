@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ACM,CF,动态规划,暴力," />
+  <meta name="keywords" content="ACM,CF,SG函数,博弈," />
 
 
 
@@ -59,16 +59,16 @@
 
 
 
-<meta name="description" content="题目描述DescriptionGena loves sequences of numbers. Recently, he has discovered a new type of sequences which he called an almost arithmetical progression. A sequence is an almost arithmetical progression">
+<meta name="description" content="题目描述DescriptionFurlo and Rublo play a game. The table has n piles of coins lying on it, the i-th pile has $a_i$ coins. Furlo and Rublo move in turns, Furlo moves first. In one move you are allowed to:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForces 255C Almost Arithmetical Progression">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/11/07/CodeForces/cf-255c/index.html">
+<meta property="og:title" content="CodeForces 255E Furlo and Rublo and Game">
+<meta property="og:url" content="https://gyshgx868.github.io/2015/11/11/CodeForces/cf-255e/index.html">
 <meta property="og:site_name" content="GYSHGX868's Notes">
-<meta property="og:description" content="题目描述DescriptionGena loves sequences of numbers. Recently, he has discovered a new type of sequences which he called an almost arithmetical progression. A sequence is an almost arithmetical progression">
-<meta property="og:updated_time" content="2015-11-07T07:56:47.264Z">
+<meta property="og:description" content="题目描述DescriptionFurlo and Rublo play a game. The table has n piles of coins lying on it, the i-th pile has $a_i$ coins. Furlo and Rublo move in turns, Furlo moves first. In one move you are allowed to:">
+<meta property="og:updated_time" content="2015-11-11T15:02:27.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CodeForces 255C Almost Arithmetical Progression">
-<meta name="twitter:description" content="题目描述DescriptionGena loves sequences of numbers. Recently, he has discovered a new type of sequences which he called an almost arithmetical progression. A sequence is an almost arithmetical progression">
+<meta name="twitter:title" content="CodeForces 255E Furlo and Rublo and Game">
+<meta name="twitter:description" content="题目描述DescriptionFurlo and Rublo play a game. The table has n piles of coins lying on it, the i-th pile has $a_i$ coins. Furlo and Rublo move in turns, Furlo moves first. In one move you are allowed to:">
 
 
 
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title> CodeForces 255C Almost Arithmetical Progression | GYSHGX868's Notes </title>
+  <title> CodeForces 255E Furlo and Rublo and Game | GYSHGX868's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +248,7 @@
             
             
               
-                CodeForces 255C Almost Arithmetical Progression
+                CodeForces 255E Furlo and Rublo and Game
               
             
           </h1>
@@ -260,8 +260,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-07T00:14:01+08:00" content="2015-11-07">
-              2015-11-07
+            <time itemprop="dateCreated" datetime="2015-11-11T22:47:18+08:00" content="2015-11-11">
+              2015-11-11
             </time>
           </span>
 
@@ -290,8 +290,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/07/CodeForces/cf-255c/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/07/CodeForces/cf-255c/" itemprop="commentsCount"></span>
+                <a href="/2015/11/11/CodeForces/cf-255e/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/11/CodeForces/cf-255e/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +301,7 @@
 
           
           
-             <span id="/2015/11/07/CodeForces/cf-255c/" class="leancloud_visitors" data-flag-title="CodeForces 255C Almost Arithmetical Progression">
+             <span id="/2015/11/11/CodeForces/cf-255e/" class="leancloud_visitors" data-flag-title="CodeForces 255E Furlo and Rublo and Game">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -321,15 +321,16 @@
       
 
       
-        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Gena loves sequences of numbers. Recently, he has discovered a new type of sequences which he called an almost arithmetical progression. A sequence is an almost arithmetical progression, if its elements can be represented as:</p>
+        <h1 id="题目描述">题目描述</h1><h2 id="Description">Description</h2><p>Furlo and Rublo play a game. The table has n piles of coins lying on it, the i-th pile has $a_i$ coins. Furlo and Rublo move in turns, Furlo moves first. In one move you are allowed to:<br><a id="more"></a></p>
 <ul>
-<li>$a_1 = p$, where p is some integer;</li>
-<li>ai = $a_{i-1} + (-1)^{i+1} * q (i &gt; 1)$, where q is some integer.<a id="more"></a>
-Right now Gena has a piece of paper with sequence b, consisting of n integers. Help Gena, find there the longest subsequence of integers that is an almost arithmetical progression.</li>
+<li>choose some pile, let’s denote the current number of coins in it as x;</li>
+<li>choose some integer y($0 ≤ y &lt; x$; $x^{1/4} ≤ y ≤ x^{1/2}$) and decrease the number of coins in this pile to y. In other words, after the described move the pile will have y coins left.</li>
 </ul>
-<p>Sequence s1, s2, …, sk is a subsequence of sequence b1, b2, …, bn, if there is such increasing sequence of indexes i1, i2, …, ik (1  ≤ i1 &lt; i2 &lt; … &lt; ik ≤ n), that $b_{i_j} = s_j$. In other words, sequence s can be obtained from b by crossing out some elements.</p>
-<h2 id="Input">Input</h2><p>The first line contains integer n (1 ≤ n ≤ 4000). The next line contains n integers b1, b2, …, bn (1 ≤ bi ≤ 10^6).</p>
-<h2 id="Output">Output</h2><p>Print a single integer — the length of the required longest subsequence.</p>
+<p>The player who can’t make a move, loses.</p>
+<p>Your task is to find out, who wins in the given game if both Furlo and Rublo play optimally well.</p>
+<h2 id="Input">Input</h2><p>The first line contains integer n(1 ≤ n ≤ 77777) — the number of piles. The next line contains n integers $a_1$, $a_2$, …, $a_n$(1 ≤ $a_i$ ≤ 777777777777) — the sizes of piles. The numbers are separated by single spaces.</p>
+<p>Please, do not use the %lld specifier to read or write 64-bit integers in С++. It is preferred to use the cin, cout streams or the %I64d specifier.</p>
+<h2 id="Output">Output</h2><p>If both players play optimally well and Furlo wins, print “Furlo”, otherwise print “Rublo”. Print the answers without the quotes.</p>
 <h2 id="Sample_test(s)">Sample test(s)</h2><table>
 <thead>
 <tr>
@@ -338,10 +339,10 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
 </thead>
 <tbody>
 <tr>
-<td>2</td>
+<td>1</td>
 </tr>
 <tr>
-<td>3 5</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
@@ -353,7 +354,7 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
 </thead>
 <tbody>
 <tr>
-<td>2</td>
+<td>Rublo</td>
 </tr>
 </tbody>
 </table>
@@ -365,10 +366,10 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
 </thead>
 <tbody>
 <tr>
-<td>4</td>
+<td>2</td>
 </tr>
 <tr>
-<td>10 20 10 30</td>
+<td>1 2</td>
 </tr>
 </tbody>
 </table>
@@ -380,15 +381,52 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
 </thead>
 <tbody>
 <tr>
-<td>3</td>
+<td>Rublo</td>
 </tr>
 </tbody>
 </table>
-<h1 id="题目链接">题目链接</h1><p><a href="http://codeforces.com/problemset/problem/255/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/255/C</a></p>
-<h1 id="解题思路">解题思路</h1><p>题目大意：给出一个序列b，求b中形如p，p - q，p，p - q，p，p - q，…这样出现的最长子序列的最大长度。</p>
-<p>这题第一反应是O(n^3)算法，没有试验到底会不会TLE。再纠结了1小时之后决定写一个DP试试。</p>
-<p>所以我们设<code>dp[i][j]</code>，表示倒数第一个数是<code>a[i]</code>，倒数第二个数是<code>a[j]</code>的子序列的最大长度。然后观察我们要找的子序列的规律，有动态转移方程：<code>dp[i][j] = dp[j][k] + 1</code>，此处的<code>k</code>是使<code>a[i] == a[j]</code>的j的值。也就是说，<code>dp[i][j]</code>的值是在遇到<code>a[i]</code>这个元素之前的子序列长度加1得到的。首先应该先设任意两个数的<code>dp[i][j] = 2</code>才可以。</p>
-<h1 id="AC代码">AC代码</h1><p>62800 KB/109 ms/GNU G++ 4.9.2<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">4005</span>][<span class="number">4005</span>], a[<span class="number">4005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, a + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> k = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (k == -<span class="number">1</span>) dp[i][j] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = dp[j][k] + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (a[j] == a[i]) k = j;</span><br><span class="line">                ans = max(ans, dp[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+</tr>
+<tr>
+<td>1 2 3 4 5 6 7 8 9 10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Furlo</td>
+</tr>
+</tbody>
+</table>
+<h1 id="题目链接">题目链接</h1><p><a href="http://codeforces.com/problemset/problem/255/E" target="_blank" rel="external">http://codeforces.com/problemset/problem/255/E</a></p>
+<h1 id="解题思路">解题思路</h1><p>题目大意：两个人人轮流从N堆石子中取石子，设某一堆得石子数量为x，必须把这堆石子拿到剩下y个，$x^{1/4}&lt;=y&lt;=x^{1/2}$，不能拿得输。</p>
+<p>解题思路：这道题和尼姆博弈非常的相似，我们需要寻找必败态。很容易想到，当这一堆得石子剩余1，2，3得时候，此时先手必输。对于石子数量大于大于3的堆，我们需要通过前面的状态来求得后续的状态。</p>
+<p>例如，这一堆有4个石子的时候，我们可以取的y值是2，那么我们可以拿走的石子的数量就是2，因此当<code>x = 4</code>的时候，<code>sg[4] = mex(sg[2])</code>。<strong>这里的mex(A)函数是一个作用于集合A上的函数，意义是找到一个不在A集合中的最小的自然数</strong>。由于<code>sg[2] = 0</code>，因此<code>sg[4] = mex(sg[2]) = 1</code>；</p>
+<p>当<code>x = 5</code>的时候，我们可以取的y值是2，因此<code>sg[5] = mex(sg[2]) = 1</code>；</p>
+<p>当<code>x = 6</code>的时候，我们可以取的y值是2，因此<code>sg[6] = mex(sg[2]) = 1</code>；</p>
+<p>……</p>
+<p>当<code>x = 16</code>的时候，我们可以取的y值是2，3，4，因此<code>sg[14] = mex(sg[2], sg[3], sg[4]) = 2</code>；</p>
+<p>当<code>x = 16</code>的时候，我们可以取的y值是2，3，4，因此<code>sg[14] = mex(sg[2], sg[3], sg[4]) = 2</code>；</p>
+<p>……</p>
+<p>多求几个元素我们就可以发现这个SG函数的规律了，它是成段出现的，而且段的长度按照指数级别增长。按照这个规律打表，但是数据范围是1 - 777777777777，无法开这么大的数组，因此我们打表的时候我们只需要处理到$10^6$就可以了，因为$10^6$的sg值可以处理到$10^12$左右的数据。但是这个CF题比较坑，数据不多不少恰好超过了$10^12$这个范围，因此我们需要找到那个超大的下标。</p>
+<p>因此我们可以模仿前面的规律，来找到极限的数据。我们可以通过打表来找到的最大的数是50626，此时<code>sg[50626] = 3</code> ，因此我们可以处理小于<code>50626 * 50626</code>这个数的数据了。一旦超出了这个数据，我们的y值取值范围就会改变，会受到3这个sg值的影响，因此我们要寻找的最大的数就是<code>50626 * 50626</code>。</p>
+<p>打表求出每一堆的sg值之后，我们就可以依次将这些状态异或起来，如果最后的结果是0，那么就代表的是先手的必败态，如果是一个非0的数，那么就是后手的必败态。</p>
+<p>然后附上一个SG打表的函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sg;</span><br><span class="line"><span class="keyword">bool</span> hash[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getSG</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="built_in">sqrt</span>(<span class="built_in">sqrt</span>(x)), r = <span class="built_in">sqrt</span>(x);</span><br><span class="line">    <span class="keyword">if</span> (l * l * l * l != x) l++;</span><br><span class="line">    <span class="built_in">memset</span>(hash, <span class="keyword">false</span>, <span class="keyword">sizeof</span>(hash));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        hash[sg[i]] = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">100</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!hash[i]) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    sg[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sg[i] = getSG(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (sg[i] != sg[i - <span class="number">1</span>])</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"sg[%d] = %d\n"</span>, i, sg[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">sg[4] = 1</span><br><span class="line">sg[16] = 2</span><br><span class="line">sg[82] = 0</span><br><span class="line">sg[6724] = 3</span><br><span class="line">sg[50626] = 1</span><br><span class="line">sg[2562991876] = 2</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="AC代码">AC代码</h1><p>4 KB/62 ms/GNU G++ 4.9.2<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> x;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, &amp;x);</span><br><span class="line">            <span class="keyword">if</span> (x &lt; <span class="number">4</span>) ans ^= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">16</span>) ans ^= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">82</span>) ans ^= <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">6724</span>) ans ^= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">50626</span>) ans ^= <span class="number">3</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">2562991876L</span>L) ans ^= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> ans ^= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ans) <span class="built_in">puts</span>(<span class="string">"Furlo"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"Rublo"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -401,9 +439,9 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
           
             <a href="/tags/CF/" rel="tag">#CF</a>
           
-            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+            <a href="/tags/SG函数/" rel="tag">#SG函数</a>
           
-            <a href="/tags/暴力/" rel="tag">#暴力</a>
+            <a href="/tags/博弈/" rel="tag">#博弈</a>
           
         </div>
       
@@ -412,17 +450,13 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/06/CodeForces/cf-248b/" rel="next" title="CodeForces 248B Chilly Willy">
-                <i class="fa fa-chevron-left"></i> CodeForces 248B Chilly Willy
+              <a href="/2015/11/07/CodeForces/cf-255d/" rel="next" title="CodeForces 255D Mr. Bender and Square">
+                <i class="fa fa-chevron-left"></i> CodeForces 255D Mr. Bender and Square
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/07/CodeForces/cf-255d/" rel="prev" title="CodeForces 255D Mr. Bender and Square">
-                CodeForces 255D Mr. Bender and Square <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,9 +866,9 @@ Right now Gena has a piece of paper with sequence b, consisting of n integers. H
 
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
-      var disqus_identifier = '2015/11/07/CodeForces/cf-255c/';
-      var disqus_title = 'CodeForces 255C Almost Arithmetical Progression';
-      var disqus_url = 'https://gyshgx868.github.io/2015/11/07/CodeForces/cf-255c/';
+      var disqus_identifier = '2015/11/11/CodeForces/cf-255e/';
+      var disqus_title = 'CodeForces 255E Furlo and Rublo and Game';
+      var disqus_url = 'https://gyshgx868.github.io/2015/11/11/CodeForces/cf-255e/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
