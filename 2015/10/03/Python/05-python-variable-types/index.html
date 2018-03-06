@@ -27,20 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Python," />
@@ -52,32 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
 
 
 
-<meta name="description" content="本文引自：runoob.com - Python变量类型
-变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。
-基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。
-因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
+<meta name="description" content="本文引自：runoob.com - Python变量类型 变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。 基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。 因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python变量类型">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/10/03/Python/05-python-variable-types/index.html">
-<meta property="og:site_name" content="GYSHGX868's Notes">
-<meta property="og:description" content="本文引自：runoob.com - Python变量类型
-变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。
-基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。
-因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
+<meta property="og:url" content="http://gyshgx868.github.io/2015/10/03/Python/05-python-variable-types/index.html">
+<meta property="og:site_name" content="GYSHGX868&#39;s Notes">
+<meta property="og:description" content="本文引自：runoob.com - Python变量类型 变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。 基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。 因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-10-03T07:57:58.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python变量类型">
-<meta name="twitter:description" content="本文引自：runoob.com - Python变量类型
-变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。
-基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。
-因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
+<meta name="twitter:description" content="本文引自：runoob.com - Python变量类型 变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。 基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。 因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。">
 
 
 
@@ -85,11 +103,20 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
-    motion: true
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://gyshgx868.github.io/2015/10/03/Python/05-python-variable-types/"/>
 
   <title> Python变量类型 | GYSHGX868's Notes </title>
 </head>
@@ -97,6 +124,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
 
 
 
@@ -137,13 +168,13 @@
   
 
   
-    <ul id="menu" class="menu menu-left">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -153,7 +184,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -163,7 +194,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -173,7 +204,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -183,7 +214,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -191,10 +222,10 @@
       
 
       
-      
-      
         <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
@@ -208,19 +239,12 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
-</script>
-
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
 
 
     </div>
@@ -319,6 +343,8 @@
                <span class="leancloud-visitors-count"></span>
               </span>
           
+
+          
         </div>
       </header>
     
@@ -330,7 +356,7 @@
       
 
       
-        <p>本文引自：<a href="http://www.runoob.com/python/python-variable-types.html" target="_blank" rel="external">runoob.com - Python变量类型</a></p>
+        <p>本文引自：<a href="http://www.runoob.com/python/python-variable-types.html" target="_blank" rel="noopener">runoob.com - Python变量类型</a></p>
 <p>变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。</p>
 <p>基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。</p>
 <p>因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。</p>
@@ -339,14 +365,14 @@
 <p>每个变量在内存中创建，都包括变量的标识，名称和数据这些信息。</p>
 <p>每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
 <p>等号（=）用来给变量赋值。</p>
-<p>等号（=）运算符左边是一个变量名，等号（=）运算符右边是存储在变量中的值。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">counter = <span class="number">100</span> <span class="comment"># 赋值整型变量</span></span><br><span class="line">miles = <span class="number">1000.0</span> <span class="comment"># 浮点型</span></span><br><span class="line">name = <span class="string">"John"</span> <span class="comment"># 字符串</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> counter</span><br><span class="line"><span class="built_in">print</span> miles</span><br><span class="line"><span class="built_in">print</span> name</span><br></pre></td></tr></table></figure></p>
+<p>等号（=）运算符左边是一个变量名，等号（=）运算符右边是存储在变量中的值。例如：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">counter = 100 <span class="comment"># 赋值整型变量</span></span><br><span class="line">miles = 1000.0 <span class="comment"># 浮点型</span></span><br><span class="line">name = <span class="string">"John"</span> <span class="comment"># 字符串</span></span><br><span class="line"></span><br><span class="line">print counter</span><br><span class="line">print miles</span><br><span class="line">print name</span><br></pre></td></tr></table></figure></p>
 <p>以上实例中，100，1000.0和“John”分别赋值给counter，miles，name变量。<br>执行以上程序会输出如下结果：</p>
 <blockquote>
 <p>100<br>1000.0<br>John</p>
 </blockquote>
-<h1 id="多个变量赋值">多个变量赋值</h1><p>Python允许你同时为多个变量赋值。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span> = <span class="tag">b</span> = c = <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="多个变量赋值">多个变量赋值</h1><p>Python允许你同时为多个变量赋值。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> = <span class="selector-tag">b</span> = c = <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <p>以上实例，创建一个整型对象，值为1，三个变量被分配到相同的内存空间上。</p>
-<p>您也可以为多个对象指定多个变量。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span>, <span class="tag">b</span>, c = <span class="number">1</span>, <span class="number">2</span>, <span class="string">"john"</span></span><br></pre></td></tr></table></figure></p>
+<p>您也可以为多个对象指定多个变量。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>, <span class="selector-tag">b</span>, c = <span class="number">1</span>, <span class="number">2</span>, <span class="string">"john"</span></span><br></pre></td></tr></table></figure></p>
 <p>以上实例，两个整型对象1和2的分配给变量a和b，字符串对象“john”分配给变量c。</p>
 <h1 id="标准数据类型">标准数据类型</h1><p>在内存中存储的数据可以有多种类型。</p>
 <p>例如，person.s年龄作为一个数值存储和他或她的地址是字母数字字符存储。</p>
@@ -361,10 +387,10 @@
 </ul>
 <h1 id="Python数字">Python数字</h1><p>数字数据类型用于存储数值。</p>
 <p>他们是不可改变的数据类型，这意味着改变数字数据类型会分配一个新的对象。</p>
-<p>当你指定一个值时，Number对象就会被创建：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">var1 = <span class="value"><span class="number">1</span></span></span></span><br><span class="line"><span class="setting">var2 = <span class="value"><span class="number">10</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>当你指定一个值时，Number对象就会被创建：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">var1</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">var2</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
 <p>您也可以使用del语句删除一些对象引用。</p>
 <p>del语句的语法是：<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del var1<span class="comment">[,var2<span class="comment">[,var3<span class="comment">[....,varN]</span>]</span>]</span>]</span><br></pre></td></tr></table></figure></p>
-<p>您可以通过使用del语句删除单个或多个对象。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">del</span> <span class="tag">var</span></span><br><span class="line"><span class="tag">del</span> var_a, var_b</span><br></pre></td></tr></table></figure></p>
+<p>您可以通过使用del语句删除单个或多个对象。例如：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">del</span> var</span><br><span class="line"><span class="selector-tag">del</span> var_a, var_b</span><br></pre></td></tr></table></figure></p>
 <p>Python支持四种不同的数值类型：</p>
 <ul>
 <li>int（有符号整型）</li>
@@ -433,7 +459,7 @@
 <li>Python还支持复数，复数由实数部分和虚数部分构成，可以用a + bj，或者complex(a, b)表示，复数的实部a和虚部b都是浮点型。</li>
 </ul>
 <h1 id="Python字符串">Python字符串</h1><p>字符串或串（String）是由数字、字母、下划线组成的一串字符。</p>
-<p>一般记为 :<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">"a1a2···an"</span><span class="list">(<span class="keyword">n&gt;=0</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>一般记为 :<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">s</span>=<span class="string">"a1a2···an"</span>(n&gt;=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
 <p>它是编程语言中表示文本的数据类型。</p>
 <p>Python的字串列表有2种取值顺序:</p>
 <ul>
@@ -441,10 +467,10 @@
 <li>从右到左索引默认-1开始的，最大范围是字符串开头</li>
 </ul>
 <p>如果你的实要取得一段子串的话，可以用到变量<code>[头下标:尾下标]</code>，就可以截取相应的字符串，其中下标是从0开始算起，可以是正数或负数，下标可以为空表示取到头或尾。</p>
-<p>比如：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">s</span> = <span class="string">'ilovepython'</span></span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">s</span> = <span class="string">'ilovepython'</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>s[1:5]</strong>的结果是love。</p>
 <p>当使用以冒号分隔的字符串，Python返回一个新的对象，结果包含了以这对偏移标识的连续的内容，左边的开始是包含了下边界。</p>
-<p>上面的结果包含了s[1]的值l，而取到的最大范围不包括上边界，就是s[5]的值p。<br>加号（+）是字符串连接运算符，星号（*）是重复操作。如下实例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">str</span> = <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line">print <span class="keyword">str</span> <span class="preprocessor"># 输出完整字符串</span></span><br><span class="line">print <span class="keyword">str</span>[<span class="number">0</span>] <span class="preprocessor"># 输出字符串中的第一个字符</span></span><br><span class="line">print <span class="keyword">str</span>[<span class="number">2</span>:<span class="number">5</span>] <span class="preprocessor"># 输出字符串中第三个至第五个之间的字符串</span></span><br><span class="line">print <span class="keyword">str</span>[<span class="number">2</span>:] <span class="preprocessor"># 输出从第三个字符开始的字符串</span></span><br><span class="line">print <span class="keyword">str</span> * <span class="number">2</span> <span class="preprocessor"># 输出字符串两次</span></span><br><span class="line">print <span class="keyword">str</span> + <span class="string">"TEST"</span> <span class="preprocessor"># 输出连接的字符串</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的结果包含了s[1]的值l，而取到的最大范围不包括上边界，就是s[5]的值p。<br>加号（+）是字符串连接运算符，星号（*）是重复操作。如下实例：<br><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/python</span></span><br><span class="line"><span class="meta"># -*- coding: UTF<span class="number">-8</span> -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">str</span> = <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span> <span class="meta"># 输出完整字符串</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span>[<span class="number">0</span>] <span class="meta"># 输出字符串中的第一个字符</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span>[<span class="number">2</span>:<span class="number">5</span>] <span class="meta"># 输出字符串中第三个至第五个之间的字符串</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span>[<span class="number">2</span>:] <span class="meta"># 输出从第三个字符开始的字符串</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span> * <span class="number">2</span> <span class="meta"># 输出字符串两次</span></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">str</span> + <span class="string">"TEST"</span> <span class="meta"># 输出连接的字符串</span></span><br></pre></td></tr></table></figure></p>
 <p>以上实例输出结果：</p>
 <blockquote>
 <p>Hello World!<br>H<br>llo<br>llo World!<br>Hello World!Hello World!<br>Hello World!TEST</p>
@@ -459,15 +485,15 @@
 <p>[‘abcd’, 786, 2.23, ‘john’, 70.2]<br>abcd<br>[786, 2.23]<br>[2.23, ‘john’, 70.2]<br>[123, ‘john’, 123, ‘john’]<br>[‘abcd’, 786, 2.23, ‘john’, 70.2, 123, ‘john’]</p>
 </blockquote>
 <h1 id="Python元组">Python元组</h1><p>元组是另一个数据类型，类似于List（列表）。</p>
-<p>元组用<code>()</code>标识。内部元素用逗号隔开。但是元素不能二次赋值，相当于只读列表。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">tuple = ( <span class="string">'abcd'</span>, <span class="number">786</span> , <span class="number">2.23</span>, <span class="string">'john'</span>, <span class="number">70.2</span> )</span><br><span class="line">tinytuple = (<span class="number">123</span>, <span class="string">'john'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> tuple <span class="comment"># 输出完整元组</span></span><br><span class="line"><span class="built_in">print</span> tuple[<span class="number">0</span>] <span class="comment"># 输出元组的第一个元素</span></span><br><span class="line"><span class="built_in">print</span> tuple[<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># 输出第二个至第三个的元素 </span></span><br><span class="line"><span class="built_in">print</span> tuple[<span class="number">2</span>:] <span class="comment"># 输出从第三个开始至列表末尾的所有元素</span></span><br><span class="line"><span class="built_in">print</span> tinytuple * <span class="number">2</span> <span class="comment"># 输出元组两次</span></span><br><span class="line"><span class="built_in">print</span> tuple + tinytuple <span class="comment"># 打印组合的元组</span></span><br></pre></td></tr></table></figure></p>
+<p>元组用<code>()</code>标识。内部元素用逗号隔开。但是元素不能二次赋值，相当于只读列表。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">tuple = ( <span class="string">'abcd'</span>, 786 , 2.23, <span class="string">'john'</span>, 70.2 )</span><br><span class="line">tinytuple = (123, <span class="string">'john'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> tuple <span class="comment"># 输出完整元组</span></span><br><span class="line"><span class="built_in">print</span> tuple[0] <span class="comment"># 输出元组的第一个元素</span></span><br><span class="line"><span class="built_in">print</span> tuple[1:3] <span class="comment"># 输出第二个至第三个的元素 </span></span><br><span class="line"><span class="built_in">print</span> tuple[2:] <span class="comment"># 输出从第三个开始至列表末尾的所有元素</span></span><br><span class="line"><span class="built_in">print</span> tinytuple * 2 <span class="comment"># 输出元组两次</span></span><br><span class="line"><span class="built_in">print</span> tuple + tinytuple <span class="comment"># 打印组合的元组</span></span><br></pre></td></tr></table></figure></p>
 <p>以上实例输出结果：</p>
 <blockquote>
 <p>(‘abcd’, 786, 2.23, ‘john’, 70.2)<br>abcd<br>(786, 2.23)<br>(2.23, ‘john’, 70.2)<br>(123, ‘john’, 123, ‘john’)<br>(‘abcd’, 786, 2.23, ‘john’, 70.2, 123, ‘john’)</p>
 </blockquote>
-<p>以下是元组无效的，因为元组是不允许更新的。而列表是允许更新的：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">tuple = ( <span class="string">'abcd'</span>, <span class="number">786</span> , <span class="number">2.23</span>, <span class="string">'john'</span>, <span class="number">70.2</span> )</span><br><span class="line"><span class="keyword">list</span> = [ <span class="string">'abcd'</span>, <span class="number">786</span> , <span class="number">2.23</span>, <span class="string">'john'</span>, <span class="number">70.2</span> ]</span><br><span class="line">tuple[<span class="number">2</span>] = <span class="number">1000</span> <span class="comment"># 元组中是非法应用</span></span><br><span class="line"><span class="keyword">list</span>[<span class="number">2</span>] = <span class="number">1000</span> <span class="comment"># 列表中是合法应用</span></span><br></pre></td></tr></table></figure></p>
+<p>以下是元组无效的，因为元组是不允许更新的。而列表是允许更新的：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="attr">tuple</span> = ( <span class="string">'abcd'</span>, <span class="number">786</span> , <span class="number">2.23</span>, <span class="string">'john'</span>, <span class="number">70.2</span> )</span><br><span class="line"><span class="attr">list</span> = [ <span class="string">'abcd'</span>, <span class="number">786</span> , <span class="number">2.23</span>, <span class="string">'john'</span>, <span class="number">70.2</span> ]</span><br><span class="line"><span class="attr">tuple[2]</span> = <span class="number">1000</span> # 元组中是非法应用</span><br><span class="line"><span class="attr">list[2]</span> = <span class="number">1000</span> # 列表中是合法应用</span><br></pre></td></tr></table></figure></p>
 <h1 id="Python元字典">Python元字典</h1><p>字典（dictionary）是除列表以外Python之中最灵活的内置数据结构类型。列表是有序的对象结合，字典是无序的对象集合。</p>
 <p>两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。</p>
-<p>字典用<code>{ }</code>标识。字典由索引（key）和它对应的值value组成。<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">dict = &#123;&#125;</span><br><span class="line">dict[<span class="string">'one'</span>] = <span class="string">"This is one"</span></span><br><span class="line">dict[<span class="number">2</span>] = <span class="string">"This is two"</span></span><br><span class="line"></span><br><span class="line">tinydict = &#123;<span class="string">'name'</span>: <span class="string">'john'</span>,<span class="string">'code'</span>:<span class="number">6734</span>, <span class="string">'dept'</span>: <span class="string">'sales'</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> dict[<span class="string">'one'</span>] <span class="comment"># 输出键为'one' 的值</span></span><br><span class="line"><span class="keyword">print</span> dict[<span class="number">2</span>] <span class="comment"># 输出键为 2 的值</span></span><br><span class="line"><span class="keyword">print</span> tinydict <span class="comment"># 输出完整的字典</span></span><br><span class="line"><span class="keyword">print</span> tinydict.<span class="keyword">keys</span>() <span class="comment"># 输出所有键</span></span><br><span class="line"><span class="keyword">print</span> tinydict.<span class="keyword">values</span>() <span class="comment"># 输出所有值</span></span><br></pre></td></tr></table></figure></p>
+<p>字典用<code>{ }</code>标识。字典由索引（key）和它对应的值value组成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">dict = &#123;&#125;</span><br><span class="line">dict[<span class="string">'one'</span>] = <span class="string">"This is one"</span></span><br><span class="line">dict[2] = <span class="string">"This is two"</span></span><br><span class="line"></span><br><span class="line">tinydict = &#123;<span class="string">'name'</span>: <span class="string">'john'</span>,<span class="string">'code'</span>:6734, <span class="string">'dept'</span>: <span class="string">'sales'</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> dict[<span class="string">'one'</span>] <span class="comment"># 输出键为'one' 的值</span></span><br><span class="line"><span class="built_in">print</span> dict[2] <span class="comment"># 输出键为 2 的值</span></span><br><span class="line"><span class="built_in">print</span> tinydict <span class="comment"># 输出完整的字典</span></span><br><span class="line"><span class="built_in">print</span> tinydict.keys() <span class="comment"># 输出所有键</span></span><br><span class="line"><span class="built_in">print</span> tinydict.values() <span class="comment"># 输出所有值</span></span><br></pre></td></tr></table></figure></p>
 <p>输出结果为：</p>
 <blockquote>
 <p>This is one This is two {‘dept’: ‘sales’, ‘code’: 6734, ‘name’: ‘john’} [‘dept’, ‘code’, ‘name’] [‘sales’, 6734, ‘john’]</p>
@@ -552,6 +578,20 @@
 </tr>
 </tbody>
 </table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
 
       
     </div>
@@ -659,19 +699,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">42</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -681,18 +725,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gyshgx868" target="_blank">
+                <a href="https://github.com/gyshgx868" target="_blank" title="Github">
                   
-                    <i class="fa fa-globe"></i> Github
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  Github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gyshgx868" target="_blank">
+                <a href="https://twitter.com/gyshgx868" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-fw fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -702,24 +748,27 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://terransforce.github.io/" title="TerransForce" target="_blank">TerransForce</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -727,9 +776,6 @@
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量赋值"><span class="nav-number">1.</span> <span class="nav-text">变量赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多个变量赋值"><span class="nav-number">2.</span> <span class="nav-text">多个变量赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准数据类型"><span class="nav-number">3.</span> <span class="nav-text">标准数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python数字"><span class="nav-number">4.</span> <span class="nav-text">Python数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python字符串"><span class="nav-number">5.</span> <span class="nav-text">Python字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python列表"><span class="nav-number">6.</span> <span class="nav-text">Python列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python元组"><span class="nav-number">7.</span> <span class="nav-text">Python元组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python元字典"><span class="nav-number">8.</span> <span class="nav-text">Python元字典</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python数据类型转换"><span class="nav-number">9.</span> <span class="nav-text">Python数据类型转换</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -747,9 +793,9 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">GYSHGX868</span>
 </div>
@@ -765,219 +811,85 @@
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
 
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -990,8 +902,8 @@
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
       var disqus_identifier = '2015/10/03/Python/05-python-variable-types/';
-      var disqus_title = 'Python变量类型';
-      var disqus_url = 'https://gyshgx868.github.io/2015/10/03/Python/05-python-variable-types/';
+      var disqus_title = "Python变量类型";
+      var disqus_url = 'http://gyshgx868.github.io/2015/10/03/Python/05-python-variable-types/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -1010,7 +922,139 @@
 
 
 
+
   
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
   
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -1030,14 +1074,9 @@
       }
     });
   </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-  
   
 
   
@@ -1071,6 +1110,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -1101,6 +1148,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
@@ -1133,6 +1186,7 @@
 
 
 
+  
 
 </body>
 </html>

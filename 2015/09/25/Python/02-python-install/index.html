@@ -27,20 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Python," />
@@ -52,30 +77,27 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
 
 
 
-<meta name="description" content="本文引自：runoob.com - Python环境搭建
-本章节我们将向大家介绍如何在本地搭建Python开发环境。
-Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta name="description" content="本文引自：runoob.com - Python环境搭建 本章节我们将向大家介绍如何在本地搭建Python开发环境。 Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python环境搭建">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/09/25/Python/02-python-install/index.html">
-<meta property="og:site_name" content="GYSHGX868's Notes">
-<meta property="og:description" content="本文引自：runoob.com - Python环境搭建
-本章节我们将向大家介绍如何在本地搭建Python开发环境。
-Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta property="og:url" content="http://gyshgx868.github.io/2015/09/25/Python/02-python-install/index.html">
+<meta property="og:site_name" content="GYSHGX868&#39;s Notes">
+<meta property="og:description" content="本文引自：runoob.com - Python环境搭建 本章节我们将向大家介绍如何在本地搭建Python开发环境。 Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn25g.dl1.z0.glb.clouddn.com/python_install.png">
-<meta property="og:updated_time" content="2015-09-26T15:39:19.316Z">
+<meta property="og:updated_time" content="2015-09-26T15:39:19.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python环境搭建">
-<meta name="twitter:description" content="本文引自：runoob.com - Python环境搭建
-本章节我们将向大家介绍如何在本地搭建Python开发环境。
-Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta name="twitter:description" content="本文引自：runoob.com - Python环境搭建 本章节我们将向大家介绍如何在本地搭建Python开发环境。 Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。">
+<meta name="twitter:image" content="http://7xn25g.dl1.z0.glb.clouddn.com/python_install.png">
 
 
 
@@ -83,11 +105,20 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
-    motion: true
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://gyshgx868.github.io/2015/09/25/Python/02-python-install/"/>
 
   <title> Python环境搭建 | GYSHGX868's Notes </title>
 </head>
@@ -95,6 +126,10 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
 
 
 
@@ -135,13 +170,13 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   
 
   
-    <ul id="menu" class="menu menu-left">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -151,7 +186,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -161,7 +196,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -171,7 +206,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -181,7 +216,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -189,10 +224,10 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
       
 
       
-      
-      
         <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
@@ -206,19 +241,12 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
-</script>
-
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
 
 
     </div>
@@ -317,6 +345,8 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
                <span class="leancloud-visitors-count"></span>
               </span>
           
+
+          
         </div>
       </header>
     
@@ -328,7 +358,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
       
 
       
-        <p>本文引自：<a href="http://www.runoob.com/python/python-install.html" target="_blank" rel="external">runoob.com - Python环境搭建</a></p>
+        <p>本文引自：<a href="http://www.runoob.com/python/python-install.html" target="_blank" rel="noopener">runoob.com - Python环境搭建</a></p>
 <p>本章节我们将向大家介绍如何在本地搭建Python开发环境。</p>
 <p>Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本都自带Python，Mac OS X最新版也自带了Python，也就是已经安装好了，不需要再配置。<br><a id="more"></a><br>Windows下直接下载最新版的Python 2.7.9，安装的时候注意选择。</p>
 <p><img src="http://7xn25g.dl1.z0.glb.clouddn.com/python_install.png" alt="Python安装"></p>
@@ -368,7 +398,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 </li>
 </ul>
 <h1 id="Python下载">Python下载</h1><p>Python最新源码，二进制文档，新闻资讯等可以在Python的官网查看到：</p>
-<p>Python官网：<a href="http://www.python.org/" target="_blank" rel="external">http://www.python.org/</a></p>
+<p>Python官网：<a href="http://www.python.org/" target="_blank" rel="noopener">http://www.python.org/</a></p>
 <p>你可以在一下链接中下载Python的文档，你可以下载 HTML、PDF和PostScript等格式的文档。</p>
 <p>Python文档下载地址：<a href="www.python.org/doc/">www.python.org/doc/</a></p>
 <h1 id="Python安装">Python安装</h1><p>Python已经被移植在许多平台上（经过改动使它能够工作在不同平台上）。</p>
@@ -378,7 +408,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 <p>以下为不同平台上安装Python的方法：</p>
 <h2 id="Unix_&amp;_Linux平台安装Python">Unix &amp; Linux平台安装Python</h2><p>以下为在Unix &amp; Linux 平台上安装 Python 的简单步骤：</p>
 <ul>
-<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></p>
+<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="noopener">http://www.python.org/download/</a></p>
 </li>
 <li><p>选择使用于Unix/Linux的源码压缩包</p>
 </li>
@@ -396,7 +426,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 <p>执行以上操作后，Python会安装在<code>/usr/local/bin</code>目录中，Python库安装在<code>/usr/local/lib/pythonXX</code>，<code>XX</code>为你使用的Python的版本号。</p>
 <h2 id="Windows平台安装Python">Windows平台安装Python</h2><p>以下为在Windows平台上安装Python的简单步骤：</p>
 <ul>
-<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></p>
+<li><p>打开WEB浏览器访问：<a href="http://www.python.org/download/" target="_blank" rel="noopener">http://www.python.org/download/</a></p>
 </li>
 <li><p>在下载列表中选择Windows平台安装包，包格式为：python-XYZ.msi文件，XYZ为你要安装的版本号。</p>
 </li>
@@ -405,8 +435,8 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 <li><p>下载后，双击下载包，进入Python安装向导，安装非常简单，你只需要使用默认的设置一直点击“下一步”直到安装完成即可。</p>
 </li>
 </ul>
-<h2 id="Mac平台安装Python">Mac平台安装Python</h2><p>最近的Mac OS系统都自带有Python环境，但是自带的Python版本为旧版本，你可以通过链接<a href="http://www.python.org/download/mac/" target="_blank" rel="external">http://www.python.org/download/mac/</a>查看Mac上Python的新版功能介绍。</p>
-<p>Mac上完整的Python安装教程你可以查看：<a href="http://www.cwi.nl/~jack/macpython.html" target="_blank" rel="external">http://www.cwi.nl/~jack/macpython.html</a></p>
+<h2 id="Mac平台安装Python">Mac平台安装Python</h2><p>最近的Mac OS系统都自带有Python环境，但是自带的Python版本为旧版本，你可以通过链接<a href="http://www.python.org/download/mac/" target="_blank" rel="noopener">http://www.python.org/download/mac/</a>查看Mac上Python的新版功能介绍。</p>
+<p>Mac上完整的Python安装教程你可以查看：<a href="http://www.cwi.nl/~jack/macpython.html" target="_blank" rel="noopener">http://www.cwi.nl/~jack/macpython.html</a></p>
 <h1 id="环境变量配置">环境变量配置</h1><p>程序和可执行文件可以在许多目录，而这些路径很可能不在操作系统提供可执行文件的搜索路径中。</p>
 <p>path（路径）存储在环境变量中，这是由操作系统维护的一个命名的字符串。这些变量包含可用的命令行解释器和其他程序的信息。</p>
 <p>Unix或Windows中路径变量为PATH（UNIX区分大小写，Windows不区分大小写）。</p>
@@ -516,6 +546,20 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -619,19 +663,23 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">42</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -641,18 +689,20 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gyshgx868" target="_blank">
+                <a href="https://github.com/gyshgx868" target="_blank" title="Github">
                   
-                    <i class="fa fa-globe"></i> Github
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  Github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gyshgx868" target="_blank">
+                <a href="https://twitter.com/gyshgx868" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-fw fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -662,34 +712,34 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://terransforce.github.io/" title="TerransForce" target="_blank">TerransForce</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python下载"><span class="nav-number">1.</span> <span class="nav-text">Python下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python安装"><span class="nav-number">2.</span> <span class="nav-text">Python安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix_&_Linux平台安装Python"><span class="nav-number">2.1.</span> <span class="nav-text">Unix & Linux平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows平台安装Python"><span class="nav-number">2.2.</span> <span class="nav-text">Windows平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac平台安装Python"><span class="nav-number">2.3.</span> <span class="nav-text">Mac平台安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Unix/Linux设置环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">在Unix/Linux设置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Windows设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">在Windows设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python_环境变量"><span class="nav-number">4.</span> <span class="nav-text">Python 环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Python"><span class="nav-number">5.</span> <span class="nav-text">运行Python</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python下载"><span class="nav-number">1.</span> <span class="nav-text">Python下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python安装"><span class="nav-number">2.</span> <span class="nav-text">Python安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix_&_Linux平台安装Python"><span class="nav-number">2.1.</span> <span class="nav-text">Unix &amp; Linux平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows平台安装Python"><span class="nav-number">2.2.</span> <span class="nav-text">Windows平台安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac平台安装Python"><span class="nav-number">2.3.</span> <span class="nav-text">Mac平台安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Unix/Linux设置环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">在Unix/Linux设置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Windows设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">在Windows设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python_环境变量"><span class="nav-number">4.</span> <span class="nav-text">Python 环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Python"><span class="nav-number">5.</span> <span class="nav-text">运行Python</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -707,9 +757,9 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">GYSHGX868</span>
 </div>
@@ -725,219 +775,85 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
 
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -950,8 +866,8 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
       var disqus_identifier = '2015/09/25/Python/02-python-install/';
-      var disqus_title = 'Python环境搭建';
-      var disqus_url = 'https://gyshgx868.github.io/2015/09/25/Python/02-python-install/';
+      var disqus_title = "Python环境搭建";
+      var disqus_url = 'http://gyshgx868.github.io/2015/09/25/Python/02-python-install/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -970,7 +886,139 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
 
 
+
   
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
   
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -990,14 +1038,9 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
       }
     });
   </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-  
   
 
   
@@ -1031,6 +1074,14 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -1061,6 +1112,12 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
@@ -1093,6 +1150,7 @@ Python可应用于多平台包括Linux和Mac OS X。一般的Linux发行版本�
 
 
 
+  
 
 </body>
 </html>

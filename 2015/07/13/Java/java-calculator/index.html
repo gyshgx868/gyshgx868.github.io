@@ -27,20 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Java,计算器," />
@@ -52,33 +77,27 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
 
 
 
-<meta name="description" content="简述
-使用JDK 1.8；
-使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）；
-已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta name="description" content="简述 使用JDK 1.8； 使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）； 已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta name="keywords" content="Java,计算器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java实现简易计算器">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/07/13/Java/java-calculator/index.html">
-<meta property="og:site_name" content="GYSHGX868's Notes">
-<meta property="og:description" content="简述
-使用JDK 1.8；
-使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）；
-已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta property="og:url" content="http://gyshgx868.github.io/2015/07/13/Java/java-calculator/index.html">
+<meta property="og:site_name" content="GYSHGX868&#39;s Notes">
+<meta property="og:description" content="简述 使用JDK 1.8； 使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）； 已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xkd41.dl1.z0.glb.clouddn.com/calculator.png">
-<meta property="og:updated_time" content="2015-07-13T14:04:13.998Z">
+<meta property="og:updated_time" content="2015-07-13T14:04:13.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java实现简易计算器">
-<meta name="twitter:description" content="简述
-使用JDK 1.8；
-使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）；
-已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta name="twitter:description" content="简述 使用JDK 1.8； 使用JFrame实现窗口，JFrame拥有比Applet更好的界面（个人认为）； 已经实现基本的+、-、*、/四则运算，支持小数点，正负数，未实现除0判断；">
+<meta name="twitter:image" content="http://7xkd41.dl1.z0.glb.clouddn.com/calculator.png">
 
 
 
@@ -86,11 +105,20 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
-    motion: true
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://gyshgx868.github.io/2015/07/13/Java/java-calculator/"/>
 
   <title> Java实现简易计算器 | GYSHGX868's Notes </title>
 </head>
@@ -98,6 +126,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
 
 
 
@@ -138,13 +170,13 @@
   
 
   
-    <ul id="menu" class="menu menu-left">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -154,7 +186,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -164,7 +196,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -174,7 +206,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -184,7 +216,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -192,10 +224,10 @@
       
 
       
-      
-      
         <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
@@ -209,19 +241,12 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
-</script>
-
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
 
 
     </div>
@@ -320,6 +345,8 @@
                <span class="leancloud-visitors-count"></span>
               </span>
           
+
+          
         </div>
       </header>
     
@@ -338,7 +365,21 @@
 </ol>
 <a id="more"></a>
 <h1 id="程序截图">程序截图</h1><p><img src="http://7xkd41.dl1.z0.glb.clouddn.com/calculator.png" alt="Java计算器"></p>
-<h1 id="源代码">源代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Container container;</span><br><span class="line">    <span class="comment">//定义布局方式为网格包布局</span></span><br><span class="line">    <span class="keyword">private</span> GridBagLayout layout;</span><br><span class="line">    <span class="keyword">private</span> GridBagConstraints constraints;</span><br><span class="line">    <span class="comment">//计算结果显示区</span></span><br><span class="line">    <span class="keyword">private</span> JTextField displayField;</span><br><span class="line">    <span class="comment">//保存+, -, *, /, =命令</span></span><br><span class="line">    <span class="keyword">private</span> String lastCommand;</span><br><span class="line">    <span class="comment">//保存计算结果</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> result;</span><br><span class="line">    <span class="comment">//判断是否为数字的开始</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> start;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Calculator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"计算器"</span>);</span><br><span class="line">        setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        container = getContentPane();</span><br><span class="line">        layout = <span class="keyword">new</span> GridBagLayout();</span><br><span class="line">        container.setLayout(layout);</span><br><span class="line">        constraints = <span class="keyword">new</span> GridBagConstraints();</span><br><span class="line">        start = <span class="keyword">true</span>;</span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//默认执行的操作</span></span><br><span class="line">        lastCommand = <span class="string">"="</span>;</span><br><span class="line">        <span class="comment">//定义计算区域</span></span><br><span class="line">        displayField = <span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">        <span class="comment">//计算区域的数字靠右显示</span></span><br><span class="line">        displayField.setHorizontalAlignment(JTextField.RIGHT);</span><br><span class="line">        <span class="comment">//定义计算区域的背景颜色</span></span><br><span class="line">        displayField.setBackground(Color.white);</span><br><span class="line">        <span class="comment">//定义计算区域的前景颜色</span></span><br><span class="line">        displayField.setForeground(Color.blue);</span><br><span class="line">        displayField.setFont(<span class="keyword">new</span> Font(<span class="string">"Arial"</span>, <span class="number">24</span>, <span class="number">24</span>));</span><br><span class="line">        <span class="comment">//定义计算区域的X，Y轴</span></span><br><span class="line">        constraints.gridx = <span class="number">0</span>;</span><br><span class="line">        constraints.gridy = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//定义计算区域的宽度和高度</span></span><br><span class="line">        constraints.gridwidth = <span class="number">4</span>;</span><br><span class="line">        constraints.gridheight = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//定义控件填充满剩余空间</span></span><br><span class="line">        constraints.fill = GridBagConstraints.BOTH;</span><br><span class="line">        <span class="comment">//定义计算区域的X，Y轴单位度量值</span></span><br><span class="line">        constraints.weightx = <span class="number">50</span>;</span><br><span class="line">        constraints.weighty = <span class="number">50</span>;</span><br><span class="line">        layout.setConstraints(displayField, constraints);</span><br><span class="line">        <span class="comment">//将计算区域加入到窗口中</span></span><br><span class="line">        container.add(displayField);</span><br><span class="line">        <span class="comment">//定义两个监视器</span></span><br><span class="line">        ActionListener insert = <span class="keyword">new</span> InsertAction();</span><br><span class="line">        ActionListener command = <span class="keyword">new</span> CommandAction();</span><br><span class="line">        <span class="comment">//通过定义好的方法添加按钮</span></span><br><span class="line">        addButton(<span class="string">"Bck"</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"CE"</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"CLEAR"</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"7"</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"8"</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"9"</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"/"</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"4"</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"5"</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"6"</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"*"</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"1"</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"2"</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"3"</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"-"</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"0"</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        <span class="comment">//只显示"-"号, "+"不显示</span></span><br><span class="line">        addButton(<span class="string">"+/-"</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"."</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"+"</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"Powered By GYSHGX868"</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"="</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        <span class="comment">//设置窗口的大小</span></span><br><span class="line">        setSize(<span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">        <span class="comment">//设置窗口可见</span></span><br><span class="line">        setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addButton</span><span class="params">(String label, <span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> with,</span><br><span class="line">                           <span class="keyword">int</span> height, ActionListener listener)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 定义添加按钮的方法</span></span><br><span class="line">        JButton button = <span class="keyword">new</span> JButton(label);</span><br><span class="line">        constraints.gridx = row;</span><br><span class="line">        constraints.gridy = column;</span><br><span class="line">        constraints.gridwidth = with;</span><br><span class="line">        constraints.gridheight = height;</span><br><span class="line">        constraints.fill = GridBagConstraints.BOTH;</span><br><span class="line">        button.addActionListener(listener);</span><br><span class="line">        layout.setConstraints(button, constraints);</span><br><span class="line">        container.add(button);</span><br><span class="line">        <span class="comment">//设置按钮间的间距</span></span><br><span class="line">        constraints.insets = <span class="keyword">new</span> Insets(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//设置字体</span></span><br><span class="line">        button.setFont(<span class="keyword">new</span> Font(<span class="string">"Arial"</span>, <span class="number">12</span>, <span class="number">18</span>));</span><br><span class="line">        button.setForeground(Color.MAGENTA);</span><br><span class="line">        button.setBorderPainted(<span class="keyword">true</span>);</span><br><span class="line">        button.setContentAreaFilled(<span class="keyword">true</span>);</span><br><span class="line">        button.setBounds(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">        button.contains(<span class="number">5</span>, <span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertAction</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义Insert事件的方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent event)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            String input = event.getActionCommand();</span><br><span class="line">            <span class="keyword">if</span> (start) &#123;</span><br><span class="line">                displayField.setText(<span class="string">""</span>); <span class="comment">//默认计算区域为空</span></span><br><span class="line">                start = <span class="keyword">false</span>;</span><br><span class="line">                <span class="comment">//如果开始输入的是"+/-"，以负数显示</span></span><br><span class="line">                <span class="keyword">if</span> (input.equals(<span class="string">"+/-"</span>))</span><br><span class="line">                    displayField.setText(displayField.getText() + <span class="string">"-"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!input.equals(<span class="string">"+/-"</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (input.equals(<span class="string">"Bck"</span>)) &#123;</span><br><span class="line">                    String str = displayField.getText();</span><br><span class="line">                    <span class="keyword">if</span> (str.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="comment">//如果单击退格，实现退格的功能</span></span><br><span class="line">                        displayField.setText(str.substring(<span class="number">0</span>, str.length() - <span class="number">1</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input.equals(<span class="string">"CE"</span>) || input.equals(<span class="string">"CLEAR"</span>)) &#123;</span><br><span class="line">                    displayField.setText(<span class="string">"0"</span>);</span><br><span class="line">                    start = <span class="keyword">true</span>; <span class="comment">//实现清零和复位的功能</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input.equals(<span class="string">"."</span>)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (displayField.getText().trim().indexOf(<span class="string">"."</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="comment">//输入小数点时，判断是否已经输入过小数点</span></span><br><span class="line">                        displayField.setText(displayField.getText() + input);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    displayField.setText(displayField.getText() + input);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">CommandAction</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent evt)</span> </span>&#123;</span><br><span class="line">            String command = evt.getActionCommand();</span><br><span class="line">            <span class="keyword">if</span> (start) &#123;</span><br><span class="line">                lastCommand = command;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                calculate(Double.parseDouble(displayField.getText()));</span><br><span class="line">                lastCommand = command;</span><br><span class="line">                start = <span class="keyword">true</span>; <span class="comment">//记忆输入的操作符号</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lastCommand.equals(<span class="string">"+"</span>))</span><br><span class="line">            result += x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"-"</span>))</span><br><span class="line">            result -= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"*"</span>))</span><br><span class="line">            result *= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"/"</span>))</span><br><span class="line">            result /= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"="</span>))</span><br><span class="line">            result = x; <span class="comment">//实现计算的功能</span></span><br><span class="line">        <span class="comment">//显示计算的结果</span></span><br><span class="line">        displayField.setText(<span class="string">""</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始化计算器</span></span><br><span class="line">        Calculator calculator = <span class="keyword">new</span> Calculator();</span><br><span class="line">        calculator.setResizable(<span class="keyword">false</span>);</span><br><span class="line">        calculator.setForeground(Color.MAGENTA);</span><br><span class="line">        <span class="comment">//关闭窗口，退出程序</span></span><br><span class="line">        calculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="源代码">源代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Container container;</span><br><span class="line">    <span class="comment">//定义布局方式为网格包布局</span></span><br><span class="line">    <span class="keyword">private</span> GridBagLayout layout;</span><br><span class="line">    <span class="keyword">private</span> GridBagConstraints constraints;</span><br><span class="line">    <span class="comment">//计算结果显示区</span></span><br><span class="line">    <span class="keyword">private</span> JTextField displayField;</span><br><span class="line">    <span class="comment">//保存+, -, *, /, =命令</span></span><br><span class="line">    <span class="keyword">private</span> String lastCommand;</span><br><span class="line">    <span class="comment">//保存计算结果</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> result;</span><br><span class="line">    <span class="comment">//判断是否为数字的开始</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> start;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Calculator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"计算器"</span>);</span><br><span class="line">        setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        container = getContentPane();</span><br><span class="line">        layout = <span class="keyword">new</span> GridBagLayout();</span><br><span class="line">        container.setLayout(layout);</span><br><span class="line">        constraints = <span class="keyword">new</span> GridBagConstraints();</span><br><span class="line">        start = <span class="keyword">true</span>;</span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//默认执行的操作</span></span><br><span class="line">        lastCommand = <span class="string">"="</span>;</span><br><span class="line">        <span class="comment">//定义计算区域</span></span><br><span class="line">        displayField = <span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">        <span class="comment">//计算区域的数字靠右显示</span></span><br><span class="line">        displayField.setHorizontalAlignment(JTextField.RIGHT);</span><br><span class="line">        <span class="comment">//定义计算区域的背景颜色</span></span><br><span class="line">        displayField.setBackground(Color.white);</span><br><span class="line">        <span class="comment">//定义计算区域的前景颜色</span></span><br><span class="line">        displayField.setForeground(Color.blue);</span><br><span class="line">        displayField.setFont(<span class="keyword">new</span> Font(<span class="string">"Arial"</span>, <span class="number">24</span>, <span class="number">24</span>));</span><br><span class="line">        <span class="comment">//定义计算区域的X，Y轴</span></span><br><span class="line">        constraints.gridx = <span class="number">0</span>;</span><br><span class="line">        constraints.gridy = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//定义计算区域的宽度和高度</span></span><br><span class="line">        constraints.gridwidth = <span class="number">4</span>;</span><br><span class="line">        constraints.gridheight = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//定义控件填充满剩余空间</span></span><br><span class="line">        constraints.fill = GridBagConstraints.BOTH;</span><br><span class="line">        <span class="comment">//定义计算区域的X，Y轴单位度量值</span></span><br><span class="line">        constraints.weightx = <span class="number">50</span>;</span><br><span class="line">        constraints.weighty = <span class="number">50</span>;</span><br><span class="line">        layout.setConstraints(displayField, constraints);</span><br><span class="line">        <span class="comment">//将计算区域加入到窗口中</span></span><br><span class="line">        container.add(displayField);</span><br><span class="line">        <span class="comment">//定义两个监视器</span></span><br><span class="line">        ActionListener insert = <span class="keyword">new</span> InsertAction();</span><br><span class="line">        ActionListener command = <span class="keyword">new</span> CommandAction();</span><br><span class="line">        <span class="comment">//通过定义好的方法添加按钮</span></span><br><span class="line">        addButton(<span class="string">"Bck"</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"CE"</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"CLEAR"</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"7"</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"8"</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"9"</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"/"</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"4"</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"5"</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"6"</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"*"</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"1"</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"2"</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"3"</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"-"</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"0"</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        <span class="comment">//只显示"-"号, "+"不显示</span></span><br><span class="line">        addButton(<span class="string">"+/-"</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"."</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"+"</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        addButton(<span class="string">"Powered By GYSHGX868"</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">1</span>, insert);</span><br><span class="line">        addButton(<span class="string">"="</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">1</span>, command);</span><br><span class="line">        <span class="comment">//设置窗口的大小</span></span><br><span class="line">        setSize(<span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">        <span class="comment">//设置窗口可见</span></span><br><span class="line">        setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addButton</span><span class="params">(String label, <span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> with,</span></span></span><br><span class="line"><span class="function"><span class="params">                           <span class="keyword">int</span> height, ActionListener listener)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 定义添加按钮的方法</span></span><br><span class="line">        JButton button = <span class="keyword">new</span> JButton(label);</span><br><span class="line">        constraints.gridx = row;</span><br><span class="line">        constraints.gridy = column;</span><br><span class="line">        constraints.gridwidth = with;</span><br><span class="line">        constraints.gridheight = height;</span><br><span class="line">        constraints.fill = GridBagConstraints.BOTH;</span><br><span class="line">        button.addActionListener(listener);</span><br><span class="line">        layout.setConstraints(button, constraints);</span><br><span class="line">        container.add(button);</span><br><span class="line">        <span class="comment">//设置按钮间的间距</span></span><br><span class="line">        constraints.insets = <span class="keyword">new</span> Insets(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//设置字体</span></span><br><span class="line">        button.setFont(<span class="keyword">new</span> Font(<span class="string">"Arial"</span>, <span class="number">12</span>, <span class="number">18</span>));</span><br><span class="line">        button.setForeground(Color.MAGENTA);</span><br><span class="line">        button.setBorderPainted(<span class="keyword">true</span>);</span><br><span class="line">        button.setContentAreaFilled(<span class="keyword">true</span>);</span><br><span class="line">        button.setBounds(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">        button.contains(<span class="number">5</span>, <span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertAction</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义Insert事件的方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent event)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            String input = event.getActionCommand();</span><br><span class="line">            <span class="keyword">if</span> (start) &#123;</span><br><span class="line">                displayField.setText(<span class="string">""</span>); <span class="comment">//默认计算区域为空</span></span><br><span class="line">                start = <span class="keyword">false</span>;</span><br><span class="line">                <span class="comment">//如果开始输入的是"+/-"，以负数显示</span></span><br><span class="line">                <span class="keyword">if</span> (input.equals(<span class="string">"+/-"</span>))</span><br><span class="line">                    displayField.setText(displayField.getText() + <span class="string">"-"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!input.equals(<span class="string">"+/-"</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (input.equals(<span class="string">"Bck"</span>)) &#123;</span><br><span class="line">                    String str = displayField.getText();</span><br><span class="line">                    <span class="keyword">if</span> (str.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="comment">//如果单击退格，实现退格的功能</span></span><br><span class="line">                        displayField.setText(str.substring(<span class="number">0</span>, str.length() - <span class="number">1</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input.equals(<span class="string">"CE"</span>) || input.equals(<span class="string">"CLEAR"</span>)) &#123;</span><br><span class="line">                    displayField.setText(<span class="string">"0"</span>);</span><br><span class="line">                    start = <span class="keyword">true</span>; <span class="comment">//实现清零和复位的功能</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input.equals(<span class="string">"."</span>)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (displayField.getText().trim().indexOf(<span class="string">"."</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="comment">//输入小数点时，判断是否已经输入过小数点</span></span><br><span class="line">                        displayField.setText(displayField.getText() + input);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    displayField.setText(displayField.getText() + input);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">CommandAction</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent evt)</span> </span>&#123;</span><br><span class="line">            String command = evt.getActionCommand();</span><br><span class="line">            <span class="keyword">if</span> (start) &#123;</span><br><span class="line">                lastCommand = command;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                calculate(Double.parseDouble(displayField.getText()));</span><br><span class="line">                lastCommand = command;</span><br><span class="line">                start = <span class="keyword">true</span>; <span class="comment">//记忆输入的操作符号</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lastCommand.equals(<span class="string">"+"</span>))</span><br><span class="line">            result += x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"-"</span>))</span><br><span class="line">            result -= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"*"</span>))</span><br><span class="line">            result *= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"/"</span>))</span><br><span class="line">            result /= x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastCommand.equals(<span class="string">"="</span>))</span><br><span class="line">            result = x; <span class="comment">//实现计算的功能</span></span><br><span class="line">        <span class="comment">//显示计算的结果</span></span><br><span class="line">        displayField.setText(<span class="string">""</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始化计算器</span></span><br><span class="line">        Calculator calculator = <span class="keyword">new</span> Calculator();</span><br><span class="line">        calculator.setResizable(<span class="keyword">false</span>);</span><br><span class="line">        calculator.setForeground(Color.MAGENTA);</span><br><span class="line">        <span class="comment">//关闭窗口，退出程序</span></span><br><span class="line">        calculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -356,10 +397,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/07/09/Others/programmer-love/" rel="next" title="程序员的爱情告白">
-                <i class="fa fa-chevron-left"></i> 程序员的爱情告白
-              </a>
             
           </div>
 
@@ -447,19 +484,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">42</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -469,18 +510,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gyshgx868" target="_blank">
+                <a href="https://github.com/gyshgx868" target="_blank" title="Github">
                   
-                    <i class="fa fa-globe"></i> Github
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  Github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gyshgx868" target="_blank">
+                <a href="https://twitter.com/gyshgx868" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-fw fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -490,24 +533,27 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://terransforce.github.io/" title="TerransForce" target="_blank">TerransForce</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -515,9 +561,6 @@
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序截图"><span class="nav-number">2.</span> <span class="nav-text">程序截图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源代码"><span class="nav-number">3.</span> <span class="nav-text">源代码</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -535,9 +578,9 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">GYSHGX868</span>
 </div>
@@ -553,219 +596,85 @@
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
 
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -778,8 +687,8 @@
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
       var disqus_identifier = '2015/07/13/Java/java-calculator/';
-      var disqus_title = 'Java实现简易计算器';
-      var disqus_url = 'https://gyshgx868.github.io/2015/07/13/Java/java-calculator/';
+      var disqus_title = "Java实现简易计算器";
+      var disqus_url = 'http://gyshgx868.github.io/2015/07/13/Java/java-calculator/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -798,7 +707,139 @@
 
 
 
+
   
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
   
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -818,14 +859,9 @@
       }
     });
   </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-  
   
 
   
@@ -859,6 +895,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -889,6 +933,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
@@ -921,6 +971,7 @@
 
 
 
+  
 
 </body>
 </html>

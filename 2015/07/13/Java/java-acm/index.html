@@ -27,20 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="ACM,Java," />
@@ -52,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -60,11 +85,13 @@
 
 
 <meta name="description" content="基本使用框架123456789import java.io.*;import java.util.*;public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        Scanner s = new Scanner(System.in);            &amp;#125;&amp;#125;">
+<meta name="keywords" content="ACM,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java在ACM中的应用">
-<meta property="og:url" content="https://gyshgx868.github.io/2015/07/13/Java/java-acm/index.html">
-<meta property="og:site_name" content="GYSHGX868's Notes">
+<meta property="og:url" content="http://gyshgx868.github.io/2015/07/13/Java/java-acm/index.html">
+<meta property="og:site_name" content="GYSHGX868&#39;s Notes">
 <meta property="og:description" content="基本使用框架123456789import java.io.*;import java.util.*;public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        Scanner s = new Scanner(System.in);            &amp;#125;&amp;#125;">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-07-14T08:42:45.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java在ACM中的应用">
@@ -76,11 +103,20 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
-    motion: true
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://gyshgx868.github.io/2015/07/13/Java/java-acm/"/>
 
   <title> Java在ACM中的应用 | GYSHGX868's Notes </title>
 </head>
@@ -88,6 +124,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
 
 
 
@@ -128,13 +168,13 @@
   
 
   
-    <ul id="menu" class="menu menu-left">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -144,7 +184,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -154,7 +194,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -164,7 +204,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -174,7 +214,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -182,10 +222,10 @@
       
 
       
-      
-      
         <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
@@ -199,19 +239,12 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '3P_KoYRiYW6GJLgoYUo3','2.0.0');
-</script>
-
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
 
 
     </div>
@@ -310,6 +343,8 @@
                <span class="leancloud-visitors-count"></span>
               </span>
           
+
+          
         </div>
       </header>
     
@@ -321,37 +356,37 @@
       
 
       
-        <h1 id="基本使用框架">基本使用框架</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"><span class="keyword">import</span> java.io.*;</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> java.util.*;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) &#123;</span><br><span class="line">        Scanner s = <span class="keyword">new</span> Scanner(System.<span class="keyword">in</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="基本使用框架">基本使用框架</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.*;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.util.*;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) &#123;</span><br><span class="line">        Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Java的输入">Java的输入</h1><h2 id="Scanner类">Scanner类</h2><p>首先，先将Scanner初始化成一个对象：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner s = <span class="keyword">new</span> Scanner(System.<span class="keyword">in</span>);</span><br></pre></td></tr></table></figure></p>
-<p>读一个整数：<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> n = s.nextInt<span class="literal">()</span>;</span><br></pre></td></tr></table></figure></p>
-<p>相当于C或C++中的：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Java的输入">Java的输入</h1><h2 id="Scanner类">Scanner类</h2><p>首先，先将Scanner初始化成一个对象：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner s = <span class="keyword">new</span> <span class="type">Scanner</span>(System.<span class="keyword">in</span>);</span><br></pre></td></tr></table></figure></p>
+<p>读一个整数：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int n</span> = s.nextInt();</span><br></pre></td></tr></table></figure></p>
+<p>相当于C或C++中的：<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="built_in">n</span>;</span><br><span class="line">scanf(<span class="string">"%d"</span>, &amp;<span class="built_in">n</span>);</span><br><span class="line">cin &gt;&gt; <span class="built_in">n</span>;</span><br></pre></td></tr></table></figure></p>
 <p>读一个字符串：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span><span class="keyword">str </span>= s.next()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>相当于C或C++中的：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">500</span>];</span><br><span class="line">scanf(<span class="string">"%s"</span>, <span class="keyword">str</span>);</span><br><span class="line">cin &gt;&gt; <span class="keyword">str</span>;</span><br></pre></td></tr></table></figure></p>
-<p>读一个浮点数：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> t = s.nextDouble();</span><br></pre></td></tr></table></figure></p>
-<p>相当于C或C++中的：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double <span class="literal">t</span><span class="comment">;</span></span><br><span class="line">scanf<span class="list">(<span class="string">"%lf"</span>, <span class="keyword">&amp;t</span>)</span><span class="comment">;</span></span><br><span class="line">cin &gt;&gt; <span class="literal">t</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>读一个浮点数：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">double t</span> = s.nextDouble();</span><br></pre></td></tr></table></figure></p>
+<p>相当于C或C++中的：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double <span class="literal">t</span><span class="comment">;</span></span><br><span class="line">scanf(<span class="string">"%lf"</span>, <span class="symbol">&amp;t</span>)<span class="comment">;</span></span><br><span class="line">cin &gt;&gt; <span class="literal">t</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>读一整行：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span><span class="keyword">str </span>= s.nextLine()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>相当于：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">500</span>];</span><br><span class="line">gets(<span class="keyword">str</span>);</span><br><span class="line">cin.getline(<span class="keyword">str</span>, <span class="number">100</span>, <span class="string">'\0'</span>);</span><br></pre></td></tr></table></figure></p>
-<p>判断是否有下一个输入可以用以下语句：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">s</span><span class="class">.hasNext</span>();</span><br><span class="line"><span class="tag">s</span><span class="class">.hasNextInt</span>();</span><br><span class="line"><span class="tag">s</span><span class="class">.hasNextDouble</span>();</span><br></pre></td></tr></table></figure></p>
+<p>判断是否有下一个输入可以用以下语句：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.hasNext()<span class="comment">;</span></span><br><span class="line">s.hasNextInt()<span class="comment">;</span></span><br><span class="line">s.hasNextDouble()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>少量的输入推荐使用<code>Scanner</code>，但是大量的数据的输入就推荐使用<code>BufferedReader</code>类了，就像可以用<code>scanf</code>替换<code>cin</code>一样。</p>
 <h2 id="BufferedReader类">BufferedReader类</h2><p>Java的快速输入输出类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Reader r = <span class="keyword">new</span> Reader(System.in);</span><br><span class="line">        <span class="keyword">double</span> x = r.nextDouble();</span><br><span class="line">        <span class="keyword">int</span> n = r.nextInt();</span><br><span class="line">        String str = r.next();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Reader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> BufferedReader reader;</span><br><span class="line">    StringTokenizer tokenizer;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reader</span><span class="params">(InputStream input)</span> </span>&#123;</span><br><span class="line">        reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(input));</span><br><span class="line">        tokenizer = <span class="keyword">new</span> StringTokenizer(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">next</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!tokenizer.hasMoreTokens()) &#123;</span><br><span class="line">            tokenizer = <span class="keyword">new</span> StringTokenizer(reader.readLine());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tokenizer.nextToken();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.parseInt(next());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Double.parseDouble(next());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Java的输出">Java的输出</h1><h2 id="普通输出">普通输出</h2><p>输出一般可以直接用<code>System.out.print()</code>和<code>System.out.println()</code>，前者不输出换行，而后者输出。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.<span class="keyword">out</span>.println(<span class="keyword">n</span>);                 <span class="comment">//输出换行</span></span><br><span class="line">System.<span class="keyword">out</span>.<span class="keyword">print</span>(<span class="keyword">n</span>);                   <span class="comment">//不输出换行</span></span><br><span class="line">System.<span class="keyword">out</span>.printf(<span class="string">"%s %d"</span>, str, <span class="keyword">n</span>);    <span class="comment">//和C语言的printf用法类似</span></span><br></pre></td></tr></table></figure></p>
-<p>或者可以使用如下的方法：<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PrintWriter <span class="keyword">out</span> = <span class="keyword">new</span> PrintWriter(<span class="keyword">new</span> BufferedOutputStream(System.<span class="keyword">out</span>));</span><br><span class="line"><span class="keyword">out</span>.println(n);</span><br></pre></td></tr></table></figure></p>
-<h2 id="浮点数输出">浮点数输出</h2><p>对于输出浮点数保留几位小数的问题，可以使用DecimalFormat类来实现：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> java.<span class="built_in">text</span>.<span class="built_in">*</span>;</span><br><span class="line"><span class="comment">//三位四舍五入</span></span><br><span class="line">DecimalFormat f = new DecimalFormat<span class="params">(<span class="string">"#.00#"</span>)</span>;</span><br><span class="line"><span class="comment">//保留三位小数</span></span><br><span class="line">DecimalFormat g = new DecimalFormat<span class="params">(<span class="string">"0.000"</span>)</span>; </span><br><span class="line">double a = <span class="number">123.45678</span>, b = <span class="number">0.12</span>; </span><br><span class="line">System.out.println<span class="params">(f.format<span class="params">(a)</span>)</span>; </span><br><span class="line">System.out.println<span class="params">(f.format<span class="params">(b)</span>)</span>; </span><br><span class="line">System.out.println<span class="params">(g.format<span class="params">(b)</span>)</span>;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Java的输出">Java的输出</h1><h2 id="普通输出">普通输出</h2><p>输出一般可以直接用<code>System.out.print()</code>和<code>System.out.println()</code>，前者不输出换行，而后者输出。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">System</span>.out.println(n);                 <span class="comment">//输出换行</span></span><br><span class="line"><span class="keyword">System</span>.out.<span class="keyword">print</span>(n);                   <span class="comment">//不输出换行</span></span><br><span class="line"><span class="keyword">System</span>.out.printf(<span class="string">"%s %d"</span>, str, n);    <span class="comment">//和C语言的printf用法类似</span></span><br></pre></td></tr></table></figure></p>
+<p>或者可以使用如下的方法：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PrintWriter <span class="keyword">out</span> = <span class="keyword">new</span> PrintWriter(<span class="keyword">new</span> BufferedOutputStream(System.<span class="keyword">out</span>));</span><br><span class="line"><span class="keyword">out</span>.println(n);</span><br></pre></td></tr></table></figure></p>
+<h2 id="浮点数输出">浮点数输出</h2><p>对于输出浮点数保留几位小数的问题，可以使用DecimalFormat类来实现：<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.<span class="built_in">text</span>.*;</span><br><span class="line"><span class="comment">//三位四舍五入</span></span><br><span class="line">DecimalFormat f = <span class="keyword">new</span> DecimalFormat(<span class="string">"#.00#"</span>);</span><br><span class="line"><span class="comment">//保留三位小数</span></span><br><span class="line">DecimalFormat g = <span class="keyword">new</span> DecimalFormat(<span class="string">"0.000"</span>); </span><br><span class="line"><span class="keyword">double</span> a = <span class="number">123.45678</span>, b = <span class="number">0.12</span>; </span><br><span class="line">System.out.<span class="built_in">println</span>(f.format(a)); </span><br><span class="line">System.out.<span class="built_in">println</span>(f.format(b)); </span><br><span class="line">System.out.<span class="built_in">println</span>(g.format(b));</span><br></pre></td></tr></table></figure></p>
 <p>以上代码的输出结果如下：</p>
 <blockquote>
 <p>123.457<br>.12<br>0.120</p>
 </blockquote>
-<h1 id="大数类">大数类</h1><p>在ACM中的做题时，经常会遇见一些大数的问题，这是当我们用C或是C++时就会觉得比较麻烦，因为我们必须要通过数组来模拟加减乘除的运算。因此我们可以使用Java提供的<code>BigInteger</code>、<code>BigDecimal</code>类来实现大数的计算。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">import</span> java.math.*<span class="comment">;</span></span><br><span class="line"><span class="keyword">BigInteger </span>a = <span class="keyword">BigInteger.valueOf(100);</span><br><span class="line"></span><span class="keyword">BigInteger </span><span class="keyword">b </span>= <span class="keyword">BigInteger.valueOf(50);</span><br><span class="line"></span><span class="keyword">BigInteger </span>c = a.<span class="keyword">add(b); </span>   //c = a + <span class="keyword">b</span><br><span class="line"></span><span class="label">System.out.println</span>(c)<span class="comment">;      //输出c的值</span></span><br></pre></td></tr></table></figure></p>
-<p>主要有以下方法可以使用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加</span></span><br><span class="line">BigInteger <span class="function"><span class="title">add</span><span class="params">(BigInteger other)</span></span></span><br><span class="line"><span class="comment">//减</span></span><br><span class="line">BigInteger <span class="function"><span class="title">subtract</span><span class="params">(BigInteger other)</span></span></span><br><span class="line"><span class="comment">//乘</span></span><br><span class="line">BigInteger <span class="function"><span class="title">multiply</span><span class="params">(BigInteger other)</span></span></span><br><span class="line"><span class="comment">//除</span></span><br><span class="line">BigInteger <span class="function"><span class="title">divide</span><span class="params">(BigInteger other)</span></span></span><br><span class="line"><span class="comment">//求余</span></span><br><span class="line">BigInteger <span class="function"><span class="title">mod</span><span class="params">(BigInteger other)</span></span></span><br><span class="line">int <span class="function"><span class="title">compareTo</span><span class="params">(BigInteger other)</span></span></span><br><span class="line">static BigInteger <span class="function"><span class="title">valueOf</span><span class="params">(long x)</span></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="大数类">大数类</h1><p>在ACM中的做题时，经常会遇见一些大数的问题，这是当我们用C或是C++时就会觉得比较麻烦，因为我们必须要通过数组来模拟加减乘除的运算。因此我们可以使用Java提供的<code>BigInteger</code>、<code>BigDecimal</code>类来实现大数的计算。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">import</span> java.math.*<span class="comment">;</span></span><br><span class="line"><span class="keyword">BigInteger </span>a = <span class="keyword">BigInteger.valueOf(100);</span></span><br><span class="line"><span class="keyword">BigInteger </span><span class="keyword">b </span>= <span class="keyword">BigInteger.valueOf(50);</span></span><br><span class="line"><span class="keyword">BigInteger </span>c = a.<span class="keyword">add(b); </span>   //c = a + <span class="keyword">b</span></span><br><span class="line"><span class="keyword">System.out.println(c); </span>     //输出c的值</span><br></pre></td></tr></table></figure></p>
+<p>主要有以下方法可以使用：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//加</span><br><span class="line"><span class="keyword">BigInteger </span><span class="keyword">add(BigInteger </span>other)</span><br><span class="line">//减</span><br><span class="line"><span class="keyword">BigInteger </span><span class="keyword">subtract(BigInteger </span>other)</span><br><span class="line">//乘</span><br><span class="line"><span class="keyword">BigInteger </span><span class="keyword">multiply(BigInteger </span>other)</span><br><span class="line">//除</span><br><span class="line"><span class="keyword">BigInteger </span>divide(<span class="keyword">BigInteger </span>other)</span><br><span class="line">//求余</span><br><span class="line"><span class="keyword">BigInteger </span>mod(<span class="keyword">BigInteger </span>other)</span><br><span class="line"><span class="symbol">int</span> compareTo(<span class="keyword">BigInteger </span>other)</span><br><span class="line"><span class="symbol">static</span> <span class="keyword">BigInteger </span>valueOf(long x)</span><br></pre></td></tr></table></figure></p>
 <p><code>BigInteger</code>类的对象不可进行加减乘除四则运算，要调用其成员函数进行运算。另外<code>BigInteger</code>类不是<code>int</code>的扩展类型，所以不能把<code>int</code>类型值直接赋值给<code>BigInteger</code>。</p>
-<p><code>BigInteger</code>类型有自己的常量：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">BigInteger</span><span class="class">.ZERO</span>;</span><br><span class="line"><span class="tag">BigInteger</span><span class="class">.ONE</span>;</span><br><span class="line"><span class="tag">BigInteger</span><span class="class">.TEN</span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>BigInteger</code>类型有自己的常量：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BigInteger.ZERO<span class="comment">;</span></span><br><span class="line">BigInteger.ONE<span class="comment">;</span></span><br><span class="line">BigInteger.TEN<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p><code>BigDecimal</code>的用法和<code>BigInteger</code>的用法类似，在这里就不多说了。</p>
 <h1 id="字符串应用">字符串应用</h1><p>ACM中还会经常遇到字符串的处理方面的问题：<code>StringBuffer</code> 和<code>StringBuilder</code>这两个类有很多又用的方法可供使用。对于要进行大量变化的字符串处理建议使用<code>StringBuffer</code>类，而不是经常变化的字符串建议使用<code>String</code>类，它们特点取决于Java中对<code>String</code>和<code>StringBuffer</code>的内存分配不相同的原因了。另外字符串处理中经常可能要用到的是另外一个知识了，那就是正则表达式了，如果能够很好的撑握正则表达式的用法，那么字符串处理可以说你已经完成一半的任务了。如果正则表达式没有完全撑握，<code>StringBuilder</code>就是它的一个替代品。另外<code>StringTokenizer</code>也是一个很有用的工具，因为不会使用，所以在这里就不多谈了。</p>
 <p>本节就简单的来讲一下<code>String</code>类的使用方法。<code>String</code>类用来存储字符串，可以用<code>charAt()</code>方法来取出其中某一下标的字符，下标从0开始：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> <span class="built_in">str</span> = <span class="string">"Hello"</span>;                     <span class="comment">// str.charAt(1) = 'e'</span></span><br></pre></td></tr></table></figure></p>
-<p>用<code>substring</code>方法可得到子串：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System<span class="class">.out</span><span class="class">.println</span>(str.<span class="function"><span class="title">substring</span><span class="params">(<span class="number">0</span>, <span class="number">4</span>)</span></span>)   <span class="comment">// output "Hell"</span></span><br></pre></td></tr></table></figure></p>
+<p>用<code>substring</code>方法可得到子串：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System<span class="selector-class">.out</span><span class="selector-class">.println</span>(str.substring(<span class="number">0</span>, <span class="number">4</span>))   <span class="comment">// output "Hell"</span></span><br></pre></td></tr></table></figure></p>
 <p>注意<code>substring</code>方法应用的是前闭后开区间，第二个参数位置的字符不包括在内。这样做使得<code>str.substring(a, b)</code>包含b - a个字符。</p>
-<p>字符串连接可以直接用 + 号进行连接，如：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span>a = <span class="string">"Hello"</span><span class="comment">; </span></span><br><span class="line"><span class="keyword">String </span><span class="keyword">b </span>= <span class="string">"World"</span><span class="comment">; </span></span><br><span class="line"><span class="label">System.out.println</span>(a + <span class="string">", "</span> + <span class="keyword">b </span>+ <span class="string">"!"</span>)<span class="comment">;    // output "Hello, World!"</span></span><br></pre></td></tr></table></figure></p>
+<p>字符串连接可以直接用 + 号进行连接，如：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String a = <span class="string">"Hello"</span><span class="comment">; </span></span><br><span class="line">String <span class="keyword">b </span>= <span class="string">"World"</span><span class="comment">; </span></span><br><span class="line">System.out.println(a + <span class="string">", "</span> + <span class="keyword">b </span>+ <span class="string">"!"</span>)<span class="comment">;    // output "Hello, World!"</span></span><br></pre></td></tr></table></figure></p>
 <p>如想直接将字符串中的某字节改变，可以使用另外的StringBuffer类。</p>
 <p>以下是一个简单的StringBuffer类的测试例子：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.StringBuffer;</span><br><span class="line"><span class="keyword">public</span> class StringBufferTest &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        StringBuffer <span class="built_in">str</span> = <span class="keyword">new</span> StringBuffer(<span class="string">"abc"</span>);</span><br><span class="line">        StringBuffer str2 = <span class="built_in">str</span>;</span><br><span class="line">        <span class="built_in">str</span> = str2.<span class="built_in">append</span>(<span class="built_in">str</span>.<span class="built_in">reverse</span>());</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="built_in">str</span>);</span><br><span class="line">        <span class="built_in">str</span>.insert(<span class="number">1</span>, <span class="string">"aaaaaa"</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="built_in">str</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="built_in">str</span>.charAt(<span class="number">1</span>));</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="built_in">str</span>.lastIndexOf(<span class="string">"ba"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>程序的输出结果如下：</p>
@@ -362,8 +397,22 @@
 <li>Java是面向对象的语言，思考方法需要变换一下，里面的函数统称为方法，不要搞错。</li>
 <li>Java里的数组有些变动，多维数组的内部其实都是指针，所以Java不支持fill多维数组。 数组定义后必须初始化，如<code>int[] a = new int[100]</code>;</li>
 <li>布尔类型为<code>boolean</code>，只有<code>true</code>和<code>false</code>二值，在if (…) / while (…) 等语句的条件中必须为<code>boolean</code>类型，在C/C++中的if (n % 2)类似的语句在Java中无法编译通过。</li>
-<li>下面在java.util包里Arrays类的几个方法可替代C/C++里的<code>memset</code>、<code>qsort</code>/<code>sort</code>和 <code>bsearch</code>:<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Arrays</span><span class="class">.fill</span>();</span><br><span class="line"><span class="tag">Arrays</span><span class="class">.sort</span>();</span><br><span class="line"><span class="tag">Arrays</span><span class="class">.binarySearch</span>();</span><br></pre></td></tr></table></figure></li>
+<li>下面在java.util包里Arrays类的几个方法可替代C/C++里的<code>memset</code>、<code>qsort</code>/<code>sort</code>和 <code>bsearch</code>:<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.fill()<span class="comment">;</span></span><br><span class="line">Arrays.sort()<span class="comment">;</span></span><br><span class="line">Arrays.binarySearch()<span class="comment">;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
 
       
     </div>
@@ -473,19 +522,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">42</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -495,18 +548,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gyshgx868" target="_blank">
+                <a href="https://github.com/gyshgx868" target="_blank" title="Github">
                   
-                    <i class="fa fa-globe"></i> Github
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  Github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gyshgx868" target="_blank">
+                <a href="https://twitter.com/gyshgx868" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-fw fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -516,24 +571,27 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://terransforce.github.io/" target="_blank">TerransForce</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://terransforce.github.io/" title="TerransForce" target="_blank">TerransForce</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -541,9 +599,6 @@
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本使用框架"><span class="nav-number">1.</span> <span class="nav-text">基本使用框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的输入"><span class="nav-number">2.</span> <span class="nav-text">Java的输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scanner类"><span class="nav-number">2.1.</span> <span class="nav-text">Scanner类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BufferedReader类"><span class="nav-number">2.2.</span> <span class="nav-text">BufferedReader类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的输出"><span class="nav-number">3.</span> <span class="nav-text">Java的输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通输出"><span class="nav-number">3.1.</span> <span class="nav-text">普通输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数输出"><span class="nav-number">3.2.</span> <span class="nav-text">浮点数输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数类"><span class="nav-number">4.</span> <span class="nav-text">大数类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串应用"><span class="nav-number">5.</span> <span class="nav-text">字符串应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他注意事项"><span class="nav-number">6.</span> <span class="nav-text">其他注意事项</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -561,9 +616,9 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">GYSHGX868</span>
 </div>
@@ -579,219 +634,85 @@
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
 
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -804,8 +725,8 @@
     <script type="text/javascript">
       var disqus_shortname = 'gyshgx868';
       var disqus_identifier = '2015/07/13/Java/java-acm/';
-      var disqus_title = 'Java在ACM中的应用';
-      var disqus_url = 'https://gyshgx868.github.io/2015/07/13/Java/java-acm/';
+      var disqus_title = "Java在ACM中的应用";
+      var disqus_url = 'http://gyshgx868.github.io/2015/07/13/Java/java-acm/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -824,7 +745,139 @@
 
 
 
+
   
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
   
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -844,14 +897,9 @@
       }
     });
   </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-  
   
 
   
@@ -885,6 +933,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -915,6 +971,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
@@ -947,6 +1009,7 @@
 
 
 
+  
 
 </body>
 </html>
