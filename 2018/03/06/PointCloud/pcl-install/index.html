@@ -92,23 +92,23 @@
 <meta property="og:site_name" content="GYSHGX868&#39;s Notes">
 <meta property="og:description" content="简述PCL（Point Cloud Library）作为一个优秀的点云库，目前已经开源并且集成了许多优秀学者提出的高效的算法，值得深入学习。本文将以Windows 10和Visual Studio 2017开发环境为例，讲解如何配置点云库。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-download-list.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-install-1.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-install-2.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-install-3.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-root.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-3rdparty.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-system-var-pcl-root.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-system-var-path.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-vs-project.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-vs-project-property-1.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-vs-project-property-2.png">
-<meta property="og:image" content="http://gyshgx868.github.io/image/pcl-vs-project-property-3.png">
-<meta property="og:updated_time" content="2018-03-06T09:42:47.821Z">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-download-list.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-install-1.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-install-2.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-install-3.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-root.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-3rdparty.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-system-var-pcl-root.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-system-var-path.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-vs-project.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-vs-project-property-1.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-vs-project-property-2.png">
+<meta property="og:image" content="http://gyshgx868.github.io/images/pcl-vs-project-property-3.png">
+<meta property="og:updated_time" content="2018-03-08T05:47:44.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows + VS2017超详细点云库（PCL）配置">
 <meta name="twitter:description" content="简述PCL（Point Cloud Library）作为一个优秀的点云库，目前已经开源并且集成了许多优秀学者提出的高效的算法，值得深入学习。本文将以Windows 10和Visual Studio 2017开发环境为例，讲解如何配置点云库。">
-<meta name="twitter:image" content="http://gyshgx868.github.io/image/pcl-download-list.png">
+<meta name="twitter:image" content="http://gyshgx868.github.io/images/pcl-download-list.png">
 
 
 
@@ -376,39 +376,39 @@
 </ul>
 <h1 id="准备工作">准备工作</h1><h2 id="安装Visual_Studio">安装Visual Studio</h2><p>教程中使用的是Visual Studio 2017 Enterprise版本，具体的安装方式可从其他网站中搜索到，在此不做赘述。</p>
 <h2 id="安装PCL_1-8">安装PCL 1.8</h2><p>首先去<a href="https://github.com/PointCloudLibrary/pcl/releases" target="_blank" rel="noopener">https://github.com/PointCloudLibrary/pcl/releases</a>下载点云库的安装包，我们需要的是<code>AllInOne</code>和<code>pdb</code>两个包。截止到此教程发布的时间，点云库的最新版本是1.8.1，如下图所示。</p>
-<p><img src="/image/pcl-download-list.png" alt="pcl-download-list"></p>
+<p><img src="/images/pcl-download-list.png" alt="pcl-download-list"></p>
 <p>在这里需要根据自己机器的情况下载相应的版本（操作系统的位数，以及Visual Studio的版本）。我这里选择<code>PCL-1.8.1-AllInOne-msvc2017-win64.exe</code>和<code>pcl-1.8.1-pdb-msvc2017-win64.zip</code>两个文件。</p>
 <p>这两个包根据网速不同，下载的时间也不同，耐心等待即可。</p>
 <p>下载结束之后，运行我们下载得到的<code>PCL-1.8.1-AllInOne-msvc2017-win64.exe</code>文件进行安装。下面几幅图显示出了几个必要的步骤，未做说明的步骤直接下一步或者根据自己的喜好配置即可。</p>
-<p><img src="/image/pcl-install-1.png" alt="pcl-install-1"></p>
+<p><img src="/images/pcl-install-1.png" alt="pcl-install-1"></p>
 <p>我在安装这类库相关的软件的时候都会尽量避免在路径中带有空格，因为有些软件在检查路径的时候可能会由于空格引发各种问题。因此我把默认的路径中的空格换成了下划线<code>_</code>。当然，Windows默认的Program Files目录无视这条规则，毕竟微软自己设置的目录名不会出现路径的问题。因此，我这里设置的路径是<code>C:\Program Files\PCL_1_8_1</code>。</p>
-<p><img src="/image/pcl-install-2.png" alt="pcl-install-1"></p>
+<p><img src="/images/pcl-install-2.png" alt="pcl-install-1"></p>
 <p>这里需要配置需要安装的其他库，如果自己不确定到底有没有其他的软件安装过相关的库，那么就全部都勾选了，否则由于库的缺失，点云库就不能正常工作。</p>
-<p><img src="/image/pcl-install-3.png" alt="pcl-install-1"></p>
+<p><img src="/images/pcl-install-3.png" alt="pcl-install-1"></p>
 <p>接下来点击<code>安装</code>便可以开始漫长的安装过程。</p>
 <p>一段时间之后，会弹出来一个OpenNI2的安装窗口，此时直接一路下一步就好，但是一定要记住自己设置的安装路径。由于点云在安装的过程中会把所有的第三方库全部安装在点云安装目录下的<code>3rdparty</code>文件夹里。因此，为了保持文件夹的整洁，我这里也把OpenNI2安装在<code>3rdparty</code>文件夹里，即<code>C:\Program Files\PCL_1_8_1\3rdParty\OpenNI2</code>。</p>
 <p>OpenNI2安装结束之后就完成了点云库的完整安装，安装目录下的样子和<code>3rdparty</code>文件夹下的样子如下图：</p>
-<p><img src="/image/pcl-root.png" alt="pcl-root"></p>
-<p><img src="/image/pcl-3rdparty.png" alt="pcl-3rdparty"></p>
+<p><img src="/images/pcl-root.png" alt="pcl-root"></p>
+<p><img src="/images/pcl-3rdparty.png" alt="pcl-3rdparty"></p>
 <p>可以看到，我把所有的第三方库全部安装到了<code>3rdparty</code>文件夹中。</p>
 <h2 id="环境变量配置">环境变量配置</h2><p>点云库安装完成之后，还有一个比较重要的步骤，就是配置Windows的环境变量。</p>
 <p>右键点击<code>此电脑（我的电脑，计算机，这台电脑等名字）</code>，选择<code>属性</code>，接着点击左侧的<code>高级系统设置</code>，然后选择<code>高级</code>选项卡，点击下面的<code>环境变量...</code>按钮，此时便打开了环境变量的配置窗口。</p>
 <p>此时，我们可以看到PCL的根目录以及OpenNI2的目录已经添加到了<code>系统变量</code>中。</p>
-<p><img src="/image/pcl-system-var-pcl-root.png" alt="pcl-system-var-pcl-root"></p>
+<p><img src="/images/pcl-system-var-pcl-root.png" alt="pcl-system-var-pcl-root"></p>
 <p>然后，我们双击<code>系统变量</code>中的<code>Path</code>，再将以下的目录添加到<code>Path</code>中（注意最后一个OpenNI2的路径，要和自己刚刚安装的路径一样才行）：</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\b</span>in</span><br><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\V</span>TK<span class="symbol">\b</span>in</span><br><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\F</span>LANN<span class="symbol">\b</span>in</span><br><span class="line"><span class="variable">%OPENNI2_REDIST64%</span></span><br><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\Q</span>hull<span class="symbol">\b</span>in</span><br><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\O</span>penNI2<span class="symbol">\T</span>ools</span><br></pre></td></tr></table></figure>
 <p>如果用的电脑的操作系统是Windows 10的话，就上面几个路径一个一个复制下来，然后添加到<code>Path</code>的窗格中即可，非常方便，如下图所示：</p>
-<p><img src="/image/pcl-system-var-path.png" alt="pcl-system-var-path"></p>
+<p><img src="/images/pcl-system-var-path.png" alt="pcl-system-var-path"></p>
 <p>如果是其他版本的Windows系统，则需要把上面的几个路径写成下面的这种形式，然后叠加到<code>Path</code>环境变量的后面（具体的做法可以去搜索Windows 7环境变量的配置方式）：</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">%PCL_ROOT%</span><span class="symbol">\b</span>in;<span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\V</span>TK<span class="symbol">\b</span>in;<span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\F</span>LANN<span class="symbol">\b</span>in;<span class="variable">%OPENNI2_REDIST64%</span>;<span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\Q</span>hull<span class="symbol">\b</span>in;<span class="variable">%PCL_ROOT%</span><span class="symbol">\3</span>rdParty<span class="symbol">\O</span>penNI2<span class="symbol">\T</span>ools</span><br></pre></td></tr></table></figure>
 <p>以上步骤搞定之后，重启电脑来应用环境变量。</p>
 <h2 id="Visual_Studio开发环境配置">Visual Studio开发环境配置</h2><p>Visual Studio的环境配置比较麻烦，经常一堆错误。因此，下面的步骤需要仔细的按照步骤做。</p>
 <p>Visual Studio提供了两种编译模式：Debug和Release。Debug模式下，生成的应用程序中会插入许多的调试指令，因此调试起来及其方便，但是大幅度降低了程序的运行速度；Release模式便会提高程序的速度，但是调试相对较困难一些（具体的区别请自行去Baidu或者Google）。在某些需求下，可能需要处理大量的数据，因此需要使用Release模式生成应用程序。本教程将对两种模式分别进行配置，适应不同的需求。</p>
 <p>首先打开Visual Studio，然后新建一个C++工程，我这里创建的C++工程名字是<code>pcl_test</code>。具体创建过程在此不做赘述，如下图所示：</p>
-<p><img src="/image/pcl-vs-project.png" alt="pcl-vs-project"></p>
+<p><img src="/images/pcl-vs-project.png" alt="pcl-vs-project"></p>
 <p>接下来，右键点击<code>解决方案管理器</code>中的<code>pcl_test</code>，然后选择<code>属性</code>。这时便打开了项目属性窗口。</p>
 <p>我们先来配置Debug模式。首先在窗口最上方选择<code>Debug</code>，然后选择自己在下载点云库时候选择的平台，我这里选择<code>x64</code>（注意这里一定不要选错），如下图所示：</p>
-<p><img src="/image/pcl-vs-project-property-1.png" alt="pcl-vs-project-property-1"></p>
+<p><img src="/images/pcl-vs-project-property-1.png" alt="pcl-vs-project-property-1"></p>
 <p>接着点击该窗口左侧的<code>VC++ 目录</code>，然后点击右侧的<code>包含目录</code>右侧的下拉菜单，选择<code>编辑...</code>，将以下目录填入窗口中：</p>
 <ul>
 <li>C:\Program Files\PCL_1_8_1\3rdParty\OpenNI2\Include</li>
@@ -420,7 +420,7 @@
 <li>C:\Program Files\PCL_1_8_1\3rdParty\Boost\include\boost-<code>1_64</code></li>
 </ul>
 <p><strong>注意</strong>：这里的<code>C:\Program Files\PCL_1_8_1</code>是刚刚安装点云库的路径，根据刚刚安装点云的路径进行修改。同时还要注意高亮字体的版本问题，需要打开相关目录进行检查。比如我这里的vtk就是<code>8.0</code>的，而boost是<code>1.64</code>版本的。配置好之后点击<code>确定</code>即可如下图所示：</p>
-<p><img src="/image/pcl-vs-project-property-2.png" alt="pcl-vs-project-property-2"></p>
+<p><img src="/images/pcl-vs-project-property-2.png" alt="pcl-vs-project-property-2"></p>
 <p>然后点击右侧的<code>库目录</code>右侧的下拉菜单，选择<code>编辑...</code>，将以下目录填入窗口中：</p>
 <ul>
 <li>C:\Program Files\PCL_1_8_1\3rdParty\OpenNI2\Lib</li>
@@ -431,7 +431,7 @@
 <li>C:\Program Files\PCL_1_8_1\lib</li>
 </ul>
 <p>同样需要注意路径问题，配置好之后点击<code>确定</code>即可，如下图所示：</p>
-<p><img src="/image/pcl-vs-project-property-3.png" alt="pcl-vs-project-property-3"></p>
+<p><img src="/images/pcl-vs-project-property-3.png" alt="pcl-vs-project-property-3"></p>
 <p>然后点击属性页中的<code>C/C++</code>下的<code>预处理器</code>，点击右侧的<code>预处理器定义</code>右侧的下拉菜单，选择<code>编辑...</code>，添加如下两条定义：</p>
 <figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">_SCL_SECURE_NO_WARNINGS</span></span><br><span class="line"><span class="variable">_CRT_SECURE_NO_WARNINGS</span></span><br></pre></td></tr></table></figure>
 <p>然后再点击<code>预编译头</code>，将右侧的<code>预编译头</code>设置为<code>不使用预编译头</code>。这个设置可以依据自己的习惯决定，可以省略。</p>
@@ -475,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/10/BestCoder/bc-5/" rel="next" title="BestCoder &#35;5">
-                <i class="fa fa-chevron-left"></i> BestCoder &#35;5
+              <a href="/2015/10/03/Python/06-python-operators/" rel="next" title="Python运算符">
+                <i class="fa fa-chevron-left"></i> Python运算符
               </a>
             
           </div>
@@ -551,12 +551,12 @@
                src="http://7xk64l.com1.z0.glb.clouddn.com/head.jpg"
                alt="GYSHGX868" />
           <p class="site-author-name" itemprop="name">GYSHGX868</p>
-          <p class="site-description motion-element" itemprop="description">我是指针，却丢失了目标地址；我是循环，却缺少了结束条件；我是函数，却没有人来调用。</p>
+          <p class="site-description motion-element" itemprop="description">Cherish your life.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -564,7 +564,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -573,7 +573,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
